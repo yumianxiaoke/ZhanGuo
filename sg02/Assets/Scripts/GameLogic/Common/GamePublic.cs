@@ -127,8 +127,6 @@ public class GamePublic : Singleton<GamePublic>
     {
         m_luaMgr = new LuaScriptMgr();
         m_luaMgr.Start();
-
-        LuaWapBinder.Bind(m_luaMgr.lua.L);
     }
 
     /// <summary>

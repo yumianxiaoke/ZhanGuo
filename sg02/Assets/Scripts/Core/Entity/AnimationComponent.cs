@@ -13,7 +13,7 @@ public class AnimationComponent : MonoBehaviour
     private List<Sprite> m_listSprite;
     private XMLDataAnimations m_animData;
 
-    private CallBack.CallBackDelegate m_animCompleteEvent; //动画播放结束时回调
+    private Callback m_animCompleteEvent; //动画播放结束时回调
     private LuaInterface.LuaFunction m_animCompleteEventLua;
 
     private float m_timeTick;
@@ -118,7 +118,7 @@ public class AnimationComponent : MonoBehaviour
         m_spriteRenderer.sprite = m_listSprite[animIndex];
     }
 
-    public void PlayAnimation(string animName, CallBack.CallBackDelegate animCompleteEvent)
+    public void PlayAnimation(string animName, Callback animCompleteEvent)
     {
         PlayAnimation(animName);
 

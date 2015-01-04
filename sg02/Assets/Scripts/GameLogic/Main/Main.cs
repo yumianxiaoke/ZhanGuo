@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Main : MonoBehaviour 
 {
-    Timer timer;
-
 	// Use this for initialization
 	void Awake () 
     {
@@ -21,8 +19,6 @@ public class Main : MonoBehaviour
         InputManager.Instance.Initialize();
         InputManager.Instance.SetSceneCamera(GamePublic.Instance.SceneCamera);
 
-        timer = gameObject.AddComponent<Timer>();
-
         EnterState();
 	}
 	
@@ -32,8 +28,6 @@ public class Main : MonoBehaviour
         GamePublic.Instance.GameStatesManager.Update();
 
         InputManager.Instance.Update();
-
-        timer.OnUpdate(Time.deltaTime);
 	}
 
     void OnDestroy ()
