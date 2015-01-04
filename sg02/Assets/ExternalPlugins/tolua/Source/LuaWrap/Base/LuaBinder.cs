@@ -68,7 +68,20 @@ public static class LuaBinder
 		WrapXMLDataThings.Register(L);
 		WrapXMLDataTimes.Register(L);
 		WrapXMLDataWiseSkill.Register(L);
+		WrapXMLLoader_XMLDataAnimations.Register(L);
 		WrapXMLLoader_XMLDataBattle.Register(L);
+		WrapXMLLoader_XMLDataCity.Register(L);
+		WrapXMLLoader_XMLDataCityPoints.Register(L);
+		WrapXMLLoader_XMLDataForce.Register(L);
+		WrapXMLLoader_XMLDataGenerals.Register(L);
+		WrapXMLLoader_XMLDataKings.Register(L);
+		WrapXMLLoader_XMLDataLanguage.Register(L);
+		WrapXMLLoader_XMLDataMagic.Register(L);
+		WrapXMLLoader_XMLDataMenuItem.Register(L);
+		WrapXMLLoader_XMLDataPathInfo.Register(L);
+		WrapXMLLoader_XMLDataThings.Register(L);
+		WrapXMLLoader_XMLDataTimes.Register(L);
+		WrapXMLLoader_XMLDataWiseSkill.Register(L);
 		WrapXMLManager.Register(L);
 	}
 }

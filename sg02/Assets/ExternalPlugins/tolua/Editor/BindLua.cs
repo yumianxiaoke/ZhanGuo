@@ -297,9 +297,22 @@ public static class LuaBinding
 //         _GT(typeof(XMLDataPathInfo)),
 //         _GT(typeof(XMLDataCityPoints)),
 
-           _GT(typeof(XMLLoader<XMLDataBattle>)).SetWrapName("XMLLoader_XMLDataBattle").SetLibName("XMLLoader<XMLDataBattle>"),
+//            _GT(typeof(XMLLoader<XMLDataBattle>)).SetWrapName("XMLLoader_XMLDataBattle").SetLibName("XMLLoader<XMLDataBattle>"),
+//            _GT(typeof(XMLLoader<XMLDataForce>)).SetWrapName("XMLLoader_XMLDataForce").SetLibName("XMLLoader<XMLDataForce>"),
+//            _GT(typeof(XMLLoader<XMLDataGenerals>)).SetWrapName("XMLLoader_XMLDataGenerals").SetLibName("XMLLoader<XMLDataGenerals>"),
+//            _GT(typeof(XMLLoader<XMLDataKings>)).SetWrapName("XMLLoader_XMLDataKings").SetLibName("XMLLoader<XMLDataKings>"),
+//            _GT(typeof(XMLLoader<XMLDataLanguage>)).SetWrapName("XMLLoader_XMLDataLanguage").SetLibName("XMLLoader<XMLDataLanguage>"),
+//            _GT(typeof(XMLLoader<XMLDataMagic>)).SetWrapName("XMLLoader_XMLDataMagic").SetLibName("XMLLoader<XMLDataMagic>"),
+//            _GT(typeof(XMLLoader<XMLDataMenuItem>)).SetWrapName("XMLLoader_XMLDataMenuItem").SetLibName("XMLLoader<XMLDataMenuItem>"),
+//            _GT(typeof(XMLLoader<XMLDataThings>)).SetWrapName("XMLLoader_XMLDataThings").SetLibName("XMLLoader<XMLDataThings>"),
+//            _GT(typeof(XMLLoader<XMLDataTimes>)).SetWrapName("XMLLoader_XMLDataTimes").SetLibName("XMLLoader<XMLDataTimes>"),
+//            _GT(typeof(XMLLoader<XMLDataWiseSkill>)).SetWrapName("XMLLoader_XMLDataWiseSkill").SetLibName("XMLLoader<XMLDataWiseSkill>"),
+// 
+//            _GT(typeof(XMLLoader<XMLDataAnimations>)).SetWrapName("XMLLoader_XMLDataAnimations").SetLibName("XMLLoader<XMLDataAnimations>"),
+// 
+//            _GT(typeof(XMLLoader<XMLDataPathInfo>)).SetWrapName("XMLLoader_XMLDataPathInfo").SetLibName("XMLLoader<XMLDataPathInfo>"),
+//            _GT(typeof(XMLLoader<XMLDataCityPoints>)).SetWrapName("XMLLoader_XMLDataCityPoints").SetLibName("XMLLoader<XMLDataCityPoints>"),
 
-//         new BindType("XMLLoader_XMLDataBattle", "XMLLoader<XMLDataBattle>", typeof(XMLLoader<XMLDataBattle>), true, null),
 //         new BindType("XMLLoader_XMLDataCity", "XMLLoader<XMLDataCity>", typeof(XMLLoader<XMLDataCity>), true, null),
 //         new BindType("XMLLoader_XMLDataForce", "XMLLoader<XMLDataForce>", typeof(XMLLoader<XMLDataForce>), true, null),
 //         new BindType("XMLLoader_XMLDataGenerals", "XMLLoader<XMLDataGenerals>", typeof(XMLLoader<XMLDataGenerals>), true, null),
