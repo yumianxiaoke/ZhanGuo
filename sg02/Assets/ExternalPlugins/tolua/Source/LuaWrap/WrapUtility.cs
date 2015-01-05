@@ -16,6 +16,7 @@ public class WrapUtility
 		new LuaMethod("SetObjectChild", SetObjectChild),
 		new LuaMethod("AddChildButton", AddChildButton),
 		new LuaMethod("AddChildToggle", AddChildToggle),
+		new LuaMethod("SetText", SetText),
 		new LuaMethod("GeneralName", GeneralName),
 		new LuaMethod("AlignText", AlignText),
 		new LuaMethod("CreateSceneObject", CreateSceneObject),
@@ -126,6 +127,16 @@ public class WrapUtility
 		GameObject o = Utility.AddChildToggle(arg0,arg1,arg2);
 		LuaScriptMgr.Push(L, o);
 		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetText(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		GameObject arg0 = LuaScriptMgr.GetNetObject<GameObject>(L, 1);
+		string arg1 = LuaScriptMgr.GetLuaString(L, 2);
+		Utility.SetText(arg0,arg1);
+		return 0;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

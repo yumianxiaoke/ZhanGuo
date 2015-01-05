@@ -10,4 +10,7 @@
   <RECORD Name="Money" Content="金钱" />
   <RECORD Name="Time" Content="时间" />
   <RECORD Name="King" Content="君主" />
+  <RECORD Name="A.D." Content="西元" />
+  <RECORD Name="Year" Content="年" />
+  <RECORD Name="Month" Content="月" />
 </root>

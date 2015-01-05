@@ -81,6 +81,11 @@ public class GamePublic : Singleton<GamePublic>
     public int CurrentTimes { get; set; }
 
     /// <summary>
+    /// 当前的年份
+    /// </summary>
+    public int CurrentYear { get; set; }
+
+    /// <summary>
     /// 玩家选择的君主
     /// </summary>
     public int CurrentKing { get; set; }

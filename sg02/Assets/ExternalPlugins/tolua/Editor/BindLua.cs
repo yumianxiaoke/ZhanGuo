@@ -178,22 +178,22 @@ public static class LuaBinding
         //_GT(typeof(Type)),
         
         ////u3d
-        _GT(typeof(Time)),
-        _GT(typeof(Vector2)),
-        _GT(typeof(Vector3)),        
-        _GT(typeof(GameObject)),
-        _GT(typeof(Component)),        
-        
-        _GT(typeof(Behaviour)),
-        _GT(typeof(Transform)),
-        _GT(typeof(Resources)),
-        _GT(typeof(TextAsset)),    
+//         _GT(typeof(Time)),
+//         _GT(typeof(Vector2)),
+//         _GT(typeof(Vector3)),        
+//         _GT(typeof(GameObject)),
+//         _GT(typeof(Component)),        
+//         
+//         _GT(typeof(Behaviour)),
+//         _GT(typeof(Transform)),
+//         _GT(typeof(Resources)),
+//         _GT(typeof(TextAsset)),    
         //_GT(typeof(Keyframe)),       
         //_GT(typeof(AnimationCurve)),
         //_GT(typeof(Motion)),
         //_GT(typeof(AnimationClip)),
-
-        _GT(typeof(MonoBehaviour)),
+// 
+//         _GT(typeof(MonoBehaviour)),
 
        ////内部
         //_GT(typeof(IAssetFile)),        
@@ -229,55 +229,55 @@ public static class LuaBinding
 // 
 //         _GT(typeof(Dictionary<object,object>.Enumerator)).SetWrapName("DictEnumerator").SetLibName("DictEnumerator"), // 这个有问题
 // 
-//         // Core
-//         _GT(typeof(IState)),
-//         _GT(typeof(ObjectPool)),
-//         _GT(typeof(StateManager)),
-// 
-//         _GT(typeof(Debugging)),
-//         _GT(typeof(InputManager)),
-//         _GT(typeof(ResourcesManager)),
-//         _GT(typeof(ScreenControl)),
-//         _GT(typeof(ScreenControl)),
-//         _GT(typeof(TimerManager)),
-//         _GT(typeof(UIManager)),
-// 
-//         _GT(typeof(Entity)),
-//         _GT(typeof(FSMBase)),
-//         _GT(typeof(StateBase)),
-//         _GT(typeof(AnimationComponent)),
-//         _GT(typeof(MovmentComponent)),
-// 
-//         // GameLogic/Common
-//         _GT(typeof(GamePublic)),
-//         _GT(typeof(GlobalConfig)).SetIsStatic(true),
-// 
-//         // GameLogic/DataManager
-//         _GT(typeof(DataManager)),
-//         _GT(typeof(KingInfo)),
-//         _GT(typeof(CityInfo)),
-//         _GT(typeof(GeneralInfo)),
-// 
-//         // GameLogic/GameStates
-//         _GT(typeof(GameStatesManager)),
-// 
-//         // GameLogic/PathFinding
-//         _GT(typeof(PathFinding)),
-// 
-//         // GameLogic/WorldMap
-//         _GT(typeof(MapCameraControl)),
-//         _GT(typeof(WorldMapControl)),
-// 
-//         // GameLogic/Utility
-//         _GT(typeof(Utility)).SetIsStatic(true),
-// 
-//         // UI
-//         _GT(typeof(UIButton)).SetIsStatic(true),
-//         _GT(typeof(UIToggle)).SetIsStatic(true),
-// 
-//         // XML
-//         _GT(typeof(XMLConfigPath)).SetIsStatic(true),
-//         _GT(typeof(XMLManager)).SetIsStatic(true),
+        // Core
+        _GT(typeof(IState)),
+        _GT(typeof(ObjectPool)),
+        _GT(typeof(StateManager)),
+
+        _GT(typeof(Debugging)),
+        _GT(typeof(InputManager)),
+        _GT(typeof(ResourcesManager)),
+        _GT(typeof(ScreenControl)),
+        _GT(typeof(ScreenControl)),
+        _GT(typeof(TimerManager)),
+        _GT(typeof(UIManager)),
+
+        _GT(typeof(Entity)),
+        _GT(typeof(FSMBase)),
+        _GT(typeof(StateBase)),
+        _GT(typeof(AnimationComponent)),
+        _GT(typeof(MovmentComponent)),
+
+        // GameLogic/Common
+        _GT(typeof(GamePublic)),
+        _GT(typeof(GlobalConfig)).SetIsStatic(true),
+
+        // GameLogic/DataManager
+        _GT(typeof(DataManager)),
+        _GT(typeof(KingInfo)),
+        _GT(typeof(CityInfo)),
+        _GT(typeof(GeneralInfo)),
+
+        // GameLogic/GameStates
+        _GT(typeof(GameStatesManager)),
+
+        // GameLogic/PathFinding
+        _GT(typeof(PathFinding)),
+
+        // GameLogic/WorldMap
+        _GT(typeof(MapCameraControl)),
+        _GT(typeof(WorldMapControl)),
+
+        // GameLogic/Utility
+        _GT(typeof(Utility)).SetIsStatic(true),
+
+        // UI
+        _GT(typeof(UIButton)).SetIsStatic(true),
+        _GT(typeof(UIToggle)).SetIsStatic(true),
+
+        // XML
+        _GT(typeof(XMLConfigPath)).SetIsStatic(true),
+        _GT(typeof(XMLManager)).SetIsStatic(true),
 // 
 //         // XML/Entity
 //         _GT(typeof(XMLDataBattle)),
@@ -312,22 +312,6 @@ public static class LuaBinding
 // 
 //            _GT(typeof(XMLLoader<XMLDataPathInfo>)).SetWrapName("XMLLoader_XMLDataPathInfo").SetLibName("XMLLoader<XMLDataPathInfo>"),
 //            _GT(typeof(XMLLoader<XMLDataCityPoints>)).SetWrapName("XMLLoader_XMLDataCityPoints").SetLibName("XMLLoader<XMLDataCityPoints>"),
-
-//         new BindType("XMLLoader_XMLDataCity", "XMLLoader<XMLDataCity>", typeof(XMLLoader<XMLDataCity>), true, null),
-//         new BindType("XMLLoader_XMLDataForce", "XMLLoader<XMLDataForce>", typeof(XMLLoader<XMLDataForce>), true, null),
-//         new BindType("XMLLoader_XMLDataGenerals", "XMLLoader<XMLDataGenerals>", typeof(XMLLoader<XMLDataGenerals>), true, null),
-//         new BindType("XMLLoader_XMLDataKings", "XMLLoader<XMLDataKings>", typeof(XMLLoader<XMLDataKings>), true, null),
-//         new BindType("XMLLoader_XMLDataLanguage", "XMLLoader<XMLDataLanguage>", typeof(XMLLoader<XMLDataLanguage>), true, null),
-//         new BindType("XMLLoader_XMLDataMagic", "XMLLoader<XMLDataMagic>", typeof(XMLLoader<XMLDataMagic>), true, null),
-//         new BindType("XMLLoader_XMLDataMenuItem", "XMLLoader<XMLDataMenuItem>", typeof(XMLLoader<XMLDataMenuItem>), true, null),
-//         new BindType("XMLLoader_XMLDataThings", "XMLLoader<XMLDataThings>", typeof(XMLLoader<XMLDataThings>), true, null),
-//         new BindType("XMLLoader_XMLDataTimes", "XMLLoader<XMLDataTimes>", typeof(XMLLoader<XMLDataTimes>), true, null),
-//         new BindType("XMLLoader_XMLDataWiseSkill", "XMLLoader<XMLDataWiseSkill>", typeof(XMLLoader<XMLDataWiseSkill>), true, null),
-// 
-//         new BindType("XMLLoader_XMLDataAnimations", "XMLLoader<XMLDataAnimations>", typeof(XMLLoader<XMLDataAnimations>), true, null),
-// 
-//         new BindType("XMLLoader_XMLDataPathInfo", "XMLLoader<XMLDataPathInfo>", typeof(XMLLoader<XMLDataPathInfo>), true, null),
-//         new BindType("XMLLoader_XMLDataCityPoints", "XMLLoader<XMLDataCityPoints>", typeof(XMLLoader<XMLDataCityPoints>), true, null),
         
         // Test
         //_GT(typeof(TestLuaFunctionType)),

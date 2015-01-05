@@ -44,6 +44,7 @@ function OnButtonClick(go)
 
     local currentTimes = m_tableTimes[go]
     GamePublic.Instance.CurrentTimes = currentTimes
+    GamePublic.Instance.CurrentYear = XMLManager.Times:GetInfoById(currentTimes).Year
 
     GamePublic.Instance.GameStatesManager:ChangeState(GamePublic.Instance.GameStatesManager.SelectKingState)
 

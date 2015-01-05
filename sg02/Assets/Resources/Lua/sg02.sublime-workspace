@@ -1,0 +1,387 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"m",
+				"m_timer"
+			],
+			[
+				"fu",
+				"function	function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Define.lua",
+			"settings":
+			{
+				"buffer_size": 359,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "UI/UINamesConfig.lua",
+			"settings":
+			{
+				"buffer_size": 603,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "UI/HistoryTime/HistoryTimeView.lua",
+			"settings":
+			{
+				"buffer_size": 228,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "UI/HistoryTime/HistoryTimeControl.lua",
+			"settings":
+			{
+				"buffer_size": 771,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "GameLogic/OnMonthPassed.lua",
+			"settings":
+			{
+				"buffer_size": 66,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "module(..., package.seeall);\n\nm_view = nil\n\n--\nlocal m_tableTimes = {}\n\n--初始化函数\nfunction Initialize(viewPanel)\n\n    m_view = SelectTimesView\n    m_view.Initialize(viewPanel)\n\n    InitButtons()\n\nend\n\n--反初始化函数\nfunction UnInitialize()\n\n    m_tableTimes = {}\n\nend\n\n--初始化按钮列表\nfunction InitButtons()\n\n    local timesList = GamePublic.Instance.TimesList\n    local count = timesList.Count\n\n    for i=0, count - 1 do\n        local go = Utility.AddChildButton(m_view.m_ButtonsRoot, timesList:get_Item(i))\n\n        go.transform.localPosition = Vector3.New(0, GlobalConfig.FontButtonsVSpace * i)\n\n        m_tableTimes[go] = i\n        InputManager.Instance:AddOnClickEvent(go, OnButtonClick)\n    end\n\nend\n\n--按键响应\nfunction OnButtonClick(go)\n\n    local currentTimes = m_tableTimes[go]\n    GamePublic.Instance.CurrentTimes = currentTimes\n    GamePublic.Instance.CurrentYear = XMLManager.Times:GetInfoById(currentTimes).Year\n\n    GamePublic.Instance.GameStatesManager:ChangeState(GamePublic.Instance.GameStatesManager.SelectKingState)\n\nend",
+			"file": "UI/SelectTimes/SelectTimesControl.lua",
+			"file_size": 1094,
+			"file_write_time": 130649504255373310,
+			"settings":
+			{
+				"buffer_size": 1022,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "Packages/User/lua.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Install Package",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/GameLogic/OnMonthPassed.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/SelectTimes/SelectTimesControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/StartMenu/StartMenuControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/StartMenu/StartMenuView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/GameStates/WorldMapState.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/GameStates/StartMenuState.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/HistoryTime/HistoryTimeControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/HistoryTime/HistoryTimeView",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/User/lua.sublime-build",
+		"/F/Data/Scripts/Assets/Scripts/GameLogic/Common/GamePublic.cs",
+		"/F/Data/Scripts/Assets/Scripts/GameLogic/Callback/CallBack.cs",
+		"/E/Workspace/Project/Sanguoqy02/sg02/Assets/Editor/BindLua.cs"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Define.lua",
+					"settings":
+					{
+						"buffer_size": 359,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28,
+								0
+							]
+						],
+						"settings":
+						{
+							"is_preview": true,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "UI/UINamesConfig.lua",
+					"settings":
+					{
+						"buffer_size": 603,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								468,
+								479
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "UI/HistoryTime/HistoryTimeView.lua",
+					"settings":
+					{
+						"buffer_size": 228,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								188,
+								188
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "UI/HistoryTime/HistoryTimeControl.lua",
+					"settings":
+					{
+						"buffer_size": 771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								691,
+								691
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "GameLogic/OnMonthPassed.lua",
+					"settings":
+					{
+						"buffer_size": 66,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								39,
+								52
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "UI/SelectTimes/SelectTimesControl.lua",
+					"settings":
+					{
+						"buffer_size": 1022,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								584,
+								584
+							]
+						],
+						"settings":
+						{
+							"in_converting": true,
+							"origin_encoding": "GB2312",
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 294.0,
+	"status_bar_visible": true
+}

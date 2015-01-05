@@ -168,6 +168,13 @@ public static class Utility
         return go;
     }
 
+    public static void SetText(GameObject go, string value)
+    {
+        UnityEngine.UI.Text text = go.GetComponent<UnityEngine.UI.Text>();
+        if (text != null)
+            text.text = value;
+    }
+
     /// <summary>
     /// 因为配置表里武将名字有括号,所以要把括号去掉
     /// </summary>

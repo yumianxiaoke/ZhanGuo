@@ -35,7 +35,8 @@ public class TimerManager : MonoBehaviour
 
     public void UnInitialize() 
     {
-        m_listTimer.Clear();
+        if (m_listTimer != null)
+            m_listTimer.Clear();
     }
 
     public void Update()
@@ -226,7 +227,7 @@ public class TimerManager : MonoBehaviour
         return proc;
     }
 
-    public Timer AddTimer(float duration, int loop, bool beScale, LuaInterface.LuaFunction call, object[] args)
+    public Timer AddTimer(float duration, int loop, bool beScale, LuaInterface.LuaFunction call, params object[] args)
     {
         TimerCallLuaFunction proc = new TimerCallLuaFunction();
         proc.duration = duration;

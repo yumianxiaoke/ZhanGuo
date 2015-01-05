@@ -188,7 +188,7 @@ public class WrapTimerManager
 
 		Type[] types0 = {typeof(TimerManager), typeof(float), typeof(int), typeof(bool), typeof(Action)};
 		Type[] types1 = {typeof(TimerManager), typeof(float), typeof(int), typeof(bool), typeof(Callback)};
-		Type[] types2 = {typeof(TimerManager), typeof(float), typeof(int), typeof(bool), typeof(LuaInterface.LuaFunction), typeof(object[])};
+		Type[] types2 = {typeof(TimerManager), typeof(float), typeof(int), typeof(bool), typeof(LuaInterface.LuaFunction)};
 		Type[] types3 = {typeof(TimerManager), typeof(float), typeof(int), typeof(bool), typeof(CallbackWithParam), typeof(object[])};
 
 		if (count == 5 && LuaScriptMgr.CheckTypes(L, types0, 1))
@@ -213,14 +213,14 @@ public class WrapTimerManager
 			LuaScriptMgr.PushObject(L, o);
 			return 1;
 		}
-		else if (count == 6 && LuaScriptMgr.CheckTypes(L, types2, 1))
+		else if (LuaScriptMgr.CheckTypes(L, types2, 1) && LuaScriptMgr.CheckParamsType(L, typeof(object), 6, count - 5))
 		{
 			TimerManager obj = LuaScriptMgr.GetNetObject<TimerManager>(L, 1);
 			float arg0 = (float)LuaScriptMgr.GetNumber(L, 2);
 			int arg1 = (int)LuaScriptMgr.GetNumber(L, 3);
 			bool arg2 = LuaScriptMgr.GetBoolean(L, 4);
 			LuaFunction arg3 = LuaScriptMgr.GetLuaFunction(L, 5);
-			object[] objs4 = LuaScriptMgr.GetArrayObject<object>(L, 6);
+			object[] objs4 = LuaScriptMgr.GetParamsObject(L, 6, count - 5);
 			Timer o = obj.AddTimer(arg0,arg1,arg2,arg3,objs4);
 			LuaScriptMgr.PushObject(L, o);
 			return 1;

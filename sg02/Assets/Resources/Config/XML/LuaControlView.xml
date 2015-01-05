@@ -6,4 +6,5 @@
   <RECORD Name="InternalAffairs" LuaName="InternalAffairsControl" />
   <RECORD Name="LoadgameMenu" LuaName="LoadgameMenuControl" />
   <RECORD Name="SavegameMenu" LuaName="SavegameMenuControl" />
+  <RECORD Name="HistoryTime" LuaName="HistoryTimeControl" />
 </root>

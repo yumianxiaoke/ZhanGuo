@@ -20,4 +20,7 @@
   <RECORD Path="Lua/UI/SelectTimes/SelectTimesView.lua" />
   <RECORD Path="Lua/UI/LoadgameMenu/LoadgameMenuControl.lua" />
   <RECORD Path="Lua/UI/LoadgameMenu/LoadgameMenuView.lua" />
+  <RECORD Path="Lua/UI/HistoryTime/HistoryTimeControl.lua" />
+  <RECORD Path="Lua/UI/HistoryTime/HistoryTimeView.lua" />
+  <RECORD Path="Lua/GameLogic/OnMonthPassed.lua" />
 </root>

@@ -33,7 +33,6 @@ public class Main : MonoBehaviour
     void OnDestroy ()
     {
         GamePublic.Instance.GameStatesManager.UnInitialize();
-        TimerManager.Instance.UnInitialize();
     }
 
     private void EnterState()

@@ -25,6 +25,7 @@ public class WrapGamePublic
 		new LuaField("TogglePool", get_TogglePool, null),
 		new LuaField("TimesList", get_TimesList, null),
 		new LuaField("CurrentTimes", get_CurrentTimes, set_CurrentTimes),
+		new LuaField("CurrentYear", get_CurrentYear, set_CurrentYear),
 		new LuaField("CurrentKing", get_CurrentKing, set_CurrentKing),
 		new LuaField("CityPoint", get_CityPoint, null),
 	};
@@ -332,6 +333,30 @@ public class WrapGamePublic
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_CurrentYear(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name CurrentYear");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index CurrentYear on a nil value");
+			}
+		}
+
+		GamePublic obj = (GamePublic)o;
+		LuaScriptMgr.Push(L, obj.CurrentYear);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_CurrentKing(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -400,6 +425,30 @@ public class WrapGamePublic
 
 		GamePublic obj = (GamePublic)o;
 		obj.CurrentTimes = (int)LuaScriptMgr.GetNumber(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_CurrentYear(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name CurrentYear");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index CurrentYear on a nil value");
+			}
+		}
+
+		GamePublic obj = (GamePublic)o;
+		obj.CurrentYear = (int)LuaScriptMgr.GetNumber(L, 3);
 		return 0;
 	}
 
