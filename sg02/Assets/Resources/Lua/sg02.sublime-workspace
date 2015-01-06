@@ -43,7 +43,15 @@
 			"file": "UI/HistoryTime/HistoryTimeControl.lua",
 			"settings":
 			{
-				"buffer_size": 771,
+				"buffer_size": 883,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "GameLogic/OnYearPassed.lua",
+			"settings":
+			{
+				"buffer_size": 173,
 				"line_ending": "Windows"
 			}
 		},
@@ -63,6 +71,30 @@
 			"settings":
 			{
 				"buffer_size": 1022,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "module(..., package.seeall);\n\nm_view = nil\n\n--初始化函数\nfunction Initialize(viewPanel)\n\n    --Test(viewPanel)\n    \n    m_view = StartMenuView\n    m_view.Initialize(viewPanel)\n\n    InitButtonEvent()\n\nend\n\n--反初始化函数\nfunction UnInitialize()\n    \n    UIManager.Instance:DestroyView(UINamesConfig.StartMenu)\n\nend\n\n--初始化按钮事件\nfunction InitButtonEvent()\n\n    InputManager.Instance:AddOnClickEvent(m_view.m_btnStartGame, OnStartGameButton)\n    InputManager.Instance:AddOnClickEvent(m_view.m_btnLoadGame, OnLoadGameButton)\n    InputManager.Instance:AddOnClickEvent(m_view.m_btnSetting, OnSettingsButton)\n    InputManager.Instance:AddOnClickEvent(m_view.m_btnQuit, OnQuitButton)\n\nend\n\n--开始按钮\nfunction OnStartGameButton(go)\n\n    GamePublic.Instance.GameStatesManager:ChangeState(GamePublic.Instance.GameStatesManager.SelectTimesState)\n\nend\n\n--加载存档\nfunction OnLoadGameButton(go)\n\n    UnInitialize()\n    UIManager.Instance:ShowView(UINamesConfig.LoadgameMenu)\n\nend\n\n--设置\nfunction OnSettingsButton(go)\n\n    print(\"OnSettingsButton\")\n\nend\n\n--退出\nfunction OnQuitButton(go)\n\n    Application.Quit();\n\nend\n\n--测试\nfunction Test(viewPanel)\n\n    local func = function (gameObject)\n		print(\"callback sucess!\");\n		return true;\n	end\n    test = TestLuaFunctionType.New(viewPanel)\n\n    test.testDelegate = func\n    test:LuaFunctionType(\"StartMenuView.Initialize\", viewPanel)\n    test:CallDelegate()\n\n    test:CallDelegate(OnStartGameButton)\n    \nend",
+			"file": "UI/StartMenu/StartMenuControl.lua",
+			"file_size": 1523,
+			"file_write_time": 130650385615268510,
+			"settings":
+			{
+				"buffer_size": 1414,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "module(..., package.seeall);\n\nm_view = nil\nm_menuItem = {}\n\nm_isMenuEnable = true\n\n--初始化函数\nfunction Initialize(viewPanel)\n\n    m_view = InternalAffairsView\n    m_view.Initialize(viewPanel)\n\n    m_menuItem = {}\n    m_isMenuEnable = true\n\n    InitMenuList()\n    InitButtonEvent()\n\n    SetKingFace()\n\nend\n\n--反初始化函数\nfunction UnInitialize()\n\n    \n\nend\n\nfunction InitMenuList()\n\n    local i = 0\n    local enumerator = XMLManager.MenuItem.Data.Values:GetEnumerator()\n    while enumerator:MoveNext() do\n        local menuItemInfo = enumerator.Current\n        if menuItemInfo.Type == Define.MenuItemType.InternalAffairs then\n            local name = menuItemInfo.Name\n            local go = Utility.AddChildButton(m_view.m_menuListRoot, name)\n\n            go.transform.localPosition = Vector3.New(0, GlobalConfig.FontButtonsVSpace * i)\n\n            m_menuItem[go] = menuItemInfo.ID\n            InputManager.Instance:AddOnClickEvent(go, OnMenuItemClick)\n\n            i = i + 1\n        end\n        \n    end\n\nend\n\n--初始化按钮事件\nfunction InitButtonEvent()\n\n    InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmOK, OnButtonOK)\n    InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmCancel, OnButtonCancel)\n\nend\n\n--确认内政终了\nfunction OnButtonOK()\n\n    m_isMenuEnable = true\n    GamePublic.Instance.GameStatesManager:ChangeState(GamePublic.Instance.GameStatesManager.WorldMapState)\n\nend\n\n--取消\nfunction OnButtonCancel()\n\n    m_isMenuEnable = true\n    m_view.m_confirmBox:SetActive(false)\n\nend\n\n--设置君主头像\nfunction SetKingFace()\n\n    local king = GamePublic.Instance.DataManager:GetKingInfo(GamePublic.Instance.CurrentKing)\n    local general = GamePublic.Instance.DataManager:GetGeneralInfo(king.GeneralID)\n    general:SetFace(m_view.m_imageFace)\n\nend\n\n--菜单项选择响应\nfunction OnMenuItemClick(go)\n\n    if not m_isMenuEnable then\n        return\n    end\n    \n    local ID = m_menuItem[go]\n    if ID == 10 then \n        m_isMenuEnable = false\n        m_view.m_confirmBox:SetActive(true)\n    end\n    \nend",
+			"file": "UI/InternalAffairs/InternalAffairsControl.lua",
+			"file_size": 2125,
+			"file_write_time": 130650375567663820,
+			"settings":
+			{
+				"buffer_size": 1988,
 				"line_ending": "Windows",
 				"scratch": true
 			}
@@ -108,11 +140,34 @@
 	},
 	"file_history":
 	[
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/GameStates/WorldMapState.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/InternalAffairs/InternalAffairsView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/SelectGeneralData/SelectGeneralDataControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/SelectGeneralData/SelectGeneralDataView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/MajorInstructions/MajorInstructionsControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/MajorInstructions/MajorInstructionsView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/GeneralData/GeneralDataControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/GeneralData/GeneralDataView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/FightPrepareInstructions/FightPrepareInstructionsControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/FightPrepareInstructions/FightPrepareInstructionsView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/DraftInstructions/DraftInstructionsControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/DraftInstructions/DraftInstructionsView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/CityInstructions/CityInstructionsControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/CityInstructions/CityInstructionsView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/BattleSelect/BattleSelectControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/BattleSelect/BattleSelectView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/BattleReady/BattleReadyControl",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/BattleReady/BattleReadyView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/BattleFighting/BattleFightingControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/BattleFighting/BattleFightingView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/AllInstructions/AllInstructionsControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/AllInstructions/AllInstructionsView.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/AdviserInstructions/AdviserInstructionsControl.lua",
+		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/AdviserInstructions/AdviserInstructionsView.lua",
 		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/GameLogic/OnMonthPassed.lua",
 		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/SelectTimes/SelectTimesControl.lua",
 		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/StartMenu/StartMenuControl.lua",
 		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/StartMenu/StartMenuView.lua",
-		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/GameStates/WorldMapState.lua",
 		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/GameStates/StartMenuState.lua",
 		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/HistoryTime/HistoryTimeControl.lua",
 		"/E/Workspace/Project/ZhanGuo/sg02/Assets/Resources/Lua/UI/HistoryTime/HistoryTimeView",
@@ -123,7 +178,7 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -137,6 +192,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"UnInitialize"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -244,21 +300,23 @@
 					"file": "UI/HistoryTime/HistoryTimeControl.lua",
 					"settings":
 					{
-						"buffer_size": 771,
+						"buffer_size": 883,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								691,
-								691
+								353,
+								353
 							]
 						],
 						"settings":
 						{
 							"origin_encoding": "ASCII",
-							"syntax": "Packages/Lua/Lua.tmLanguage"
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -268,23 +326,22 @@
 				},
 				{
 					"buffer": 4,
-					"file": "GameLogic/OnMonthPassed.lua",
+					"file": "GameLogic/OnYearPassed.lua",
 					"settings":
 					{
-						"buffer_size": 66,
+						"buffer_size": 173,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								39,
-								52
+								166,
+								166
 							]
 						],
 						"settings":
 						{
-							"origin_encoding": "ASCII",
 							"syntax": "Packages/Lua/Lua.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -295,6 +352,33 @@
 				},
 				{
 					"buffer": 5,
+					"file": "GameLogic/OnMonthPassed.lua",
+					"settings":
+					{
+						"buffer_size": 66,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								58,
+								58
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "UI/SelectTimes/SelectTimesControl.lua",
 					"settings":
 					{
@@ -319,6 +403,68 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "UI/StartMenu/StartMenuControl.lua",
+					"settings":
+					{
+						"buffer_size": 1414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								237,
+								237
+							]
+						],
+						"settings":
+						{
+							"in_converting": true,
+							"origin_encoding": "GB2312",
+							"revert_to_scratch": true,
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "UI/InternalAffairs/InternalAffairsControl.lua",
+					"settings":
+					{
+						"buffer_size": 1988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								277,
+								277
+							]
+						],
+						"settings":
+						{
+							"in_converting": true,
+							"origin_encoding": "GB2312",
+							"revert_to_scratch": true,
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

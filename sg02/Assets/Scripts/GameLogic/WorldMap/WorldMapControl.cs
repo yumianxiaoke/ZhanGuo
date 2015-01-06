@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WorldMapControl : Singleton<WorldMapControl>
 {
 
     // 进入时摄像机的偏移
     public Vector3 CameraOffset { get; set; }
+
+    private List<GameObject> m_listObj = new List<GameObject>();
 
     public override void Initialize()
     {
@@ -18,10 +21,12 @@ public class WorldMapControl : Singleton<WorldMapControl>
 
     public override void UnInitialize()
     {
+        Destroy();
+
         MapCameraControl.Instance.UnInitialize();
     }
 
-    public void Build()
+    private void Build()
     {
         CreateMap();
         CreateCity();
@@ -31,6 +36,7 @@ public class WorldMapControl : Singleton<WorldMapControl>
     {
         GameObject go = Utility.CreateSceneObject("Map", XMLManager.ResourcePath.GetInfoByName("Map").Path);
         go.transform.localPosition = new Vector3(0, 0, 10);
+        m_listObj.Add(go);
     }
 
     private void CreateCity()
@@ -51,6 +57,7 @@ public class WorldMapControl : Singleton<WorldMapControl>
             }
 
             GameObject go = Utility.CreateSceneObject("City" + cityInfo.ID, cityPath);
+            m_listObj.Add(go);
             if (GamePublic.Instance.CityPoint.ContainsKey(cityInfo.ID))
             {
                 go.transform.localPosition = GamePublic.Instance.CityPoint[cityInfo.ID];
@@ -85,5 +92,15 @@ public class WorldMapControl : Singleton<WorldMapControl>
                 ac.PlayAnimation(kingData.FlagAnim);
             }
         }
+    }
+
+    private void Destroy()
+    {
+        for (int i = 0; i < m_listObj.Count; i++)
+        {
+            GameObject.Destroy(m_listObj[i]);
+        }
+
+        m_listObj.Clear();
     }
 }

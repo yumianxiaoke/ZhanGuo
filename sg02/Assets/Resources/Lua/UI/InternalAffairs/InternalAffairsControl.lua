@@ -11,6 +11,9 @@ function Initialize(viewPanel)
     m_view = InternalAffairsView
     m_view.Initialize(viewPanel)
 
+    m_menuItem = {}
+    m_isMenuEnable = true
+
     InitMenuList()
     InitButtonEvent()
 
@@ -58,6 +61,7 @@ end
 --确认内政终了
 function OnButtonOK()
 
+    m_isMenuEnable = true
     GamePublic.Instance.GameStatesManager:ChangeState(GamePublic.Instance.GameStatesManager.WorldMapState)
 
 end

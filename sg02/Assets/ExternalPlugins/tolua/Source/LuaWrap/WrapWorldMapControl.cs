@@ -8,7 +8,6 @@ public class WrapWorldMapControl
 	{
 		new LuaMethod("Initialize", Initialize),
 		new LuaMethod("UnInitialize", UnInitialize),
-		new LuaMethod("Build", Build),
 		new LuaMethod("New", _CreateWorldMapControl),
 		new LuaMethod("GetClassType", GetClassType),
 	};
@@ -120,15 +119,6 @@ public class WrapWorldMapControl
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		WorldMapControl obj = LuaScriptMgr.GetNetObject<WorldMapControl>(L, 1);
 		obj.UnInitialize();
-		return 0;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Build(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
-		WorldMapControl obj = LuaScriptMgr.GetNetObject<WorldMapControl>(L, 1);
-		obj.Build();
 		return 0;
 	}
 }

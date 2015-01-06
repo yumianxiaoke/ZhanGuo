@@ -16,7 +16,7 @@ end
 
 --反初始化函数
 function UnInitialize()
-
+    
     UIManager.Instance:DestroyView(UINamesConfig.StartMenu)
 
 end

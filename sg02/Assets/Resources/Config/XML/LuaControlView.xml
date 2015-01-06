@@ -7,4 +7,15 @@
   <RECORD Name="LoadgameMenu" LuaName="LoadgameMenuControl" />
   <RECORD Name="SavegameMenu" LuaName="SavegameMenuControl" />
   <RECORD Name="HistoryTime" LuaName="HistoryTimeControl" />
+  <RECORD Name="AdviserInstructions" LuaName="AdviserInstructionsControl" />
+  <RECORD Name="AllInstructions" LuaName="AllInstructionsControl" />
+  <RECORD Name="BattleFighting" LuaName="BattleFightingControl" />
+  <RECORD Name="BattleReady" LuaName="BattleReadyControl" />
+  <RECORD Name="BattleSelect" LuaName="BattleSelectControl" />
+  <RECORD Name="CityInstructions" LuaName="CityInstructionsControl" />
+  <RECORD Name="DraftInstructions" LuaName="DraftInstructionsControl" />
+  <RECORD Name="FightPrepareInstructions" LuaName="FightPrepareInstructionsControl" />
+  <RECORD Name="GeneralData" LuaName="GeneralDataControl" />
+  <RECORD Name="MajorInstructions" LuaName="MajorInstructionsControl" />
+  <RECORD Name="SelectGeneralData" LuaName="SelectGeneralDataControl" />
 </root>

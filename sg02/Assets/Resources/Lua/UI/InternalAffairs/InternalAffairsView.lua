@@ -18,4 +18,5 @@ function Initialize(viewPanel)
 
 
     m_confirmBox:SetActive(false)
+    m_menuListRoot.transform.localPosition = Vector3.New(0, 110, 0)
 end

@@ -8,6 +8,8 @@
   <RECORD Path="Lua/GameStates/SelectTimesState.lua" />
   <RECORD Path="Lua/GameStates/StartMenuState.lua" />
   <RECORD Path="Lua/GameStates/WorldMapState.lua" />
+  <RECORD Path="Lua/GameLogic/OnMonthPassed.lua" />
+  <RECORD Path="Lua/GameLogic/OnYearPassed.lua" />
   <RECORD Path="Lua/UI/LuaFunctionHelper.lua" />
   <RECORD Path="Lua/UI/UINamesConfig.lua" />
   <RECORD Path="Lua/UI/StartMenu/StartMenuView.lua" />
@@ -22,5 +24,26 @@
   <RECORD Path="Lua/UI/LoadgameMenu/LoadgameMenuView.lua" />
   <RECORD Path="Lua/UI/HistoryTime/HistoryTimeControl.lua" />
   <RECORD Path="Lua/UI/HistoryTime/HistoryTimeView.lua" />
-  <RECORD Path="Lua/GameLogic/OnMonthPassed.lua" />
+  <RECORD Path="Lua/UI/AdviserInstructions/AdviserInstructionsView.lua" />
+  <RECORD Path="Lua/UI/AdviserInstructions/AdviserInstructionsControl.lua" />
+  <RECORD Path="Lua/UI/AllInstructions/AllInstructionsView.lua" />
+  <RECORD Path="Lua/UI/AllInstructions/AllInstructionsControl.lua" />
+  <RECORD Path="Lua/UI/BattleFighting/BattleFightingView.lua" />
+  <RECORD Path="Lua/UI/BattleFighting/BattleFightingControl.lua" />
+  <RECORD Path="Lua/UI/BattleReady/BattleReadyView.lua" />
+  <RECORD Path="Lua/UI/BattleReady/BattleReadyControl.lua" />
+  <RECORD Path="Lua/UI/BattleSelect/BattleSelectView.lua" />
+  <RECORD Path="Lua/UI/BattleSelect/BattleSelectControl.lua" />
+  <RECORD Path="Lua/UI/CityInstructions/CityInstructionsView.lua" />
+  <RECORD Path="Lua/UI/CityInstructions/CityInstructionsControl.lua" />
+  <RECORD Path="Lua/UI/DraftInstructions/DraftInstructionsView.lua" />
+  <RECORD Path="Lua/UI/DraftInstructions/DraftInstructionsControl.lua" />
+  <RECORD Path="Lua/UI/FightPrepareInstructions/FightPrepareInstructionsView.lua" />
+  <RECORD Path="Lua/UI/FightPrepareInstructions/FightPrepareInstructionsControl.lua" />
+  <RECORD Path="Lua/UI/GeneralData/GeneralDataView.lua" />
+  <RECORD Path="Lua/UI/GeneralData/GeneralDataControl.lua" />
+  <RECORD Path="Lua/UI/MajorInstructions/MajorInstructionsView.lua" />
+  <RECORD Path="Lua/UI/MajorInstructions/MajorInstructionsControl.lua" />
+  <RECORD Path="Lua/UI/SelectGeneralData/SelectGeneralDataView.lua" />
+  <RECORD Path="Lua/UI/SelectGeneralData/SelectGeneralDataControl.lua" />
 </root>

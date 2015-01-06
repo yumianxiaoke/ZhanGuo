@@ -92,7 +92,7 @@ public class UIManager : Singleton<UIManager>
 
         GameObject go = m_dicUIView[name];
         m_dicUIView.Remove(name);
-        GameObject.Destroy(go);
+        Destroy(go);
 
         Resources.UnloadUnusedAssets();
     }
@@ -118,7 +118,7 @@ public class UIManager : Singleton<UIManager>
         }
 
         m_dicUIView.Remove(keyEnumerator.Current);
-        GameObject.Destroy(view);
+        Destroy(view);
     }
 
     /// <summary>
@@ -130,9 +130,25 @@ public class UIManager : Singleton<UIManager>
         while (keyEnumerator.MoveNext())
         {
             GameObject go = m_dicUIView[keyEnumerator.Current];
-            GameObject.Destroy(go);
+            Destroy(go);
         }
 
         m_dicUIView.Clear();
+    }
+
+    void Destroy(GameObject view)
+    {
+        XMLDataLuaControlView info = XMLManager.LuaControlView.GetInfoByName(view.name);
+
+        if (info != null)
+        {
+            GamePublic.Instance.LuaManager.CallLuaFunction("LuaFunctionHelper.CallFunction", info.LuaName, "UnInitialize", view);
+        }
+        else
+        {
+            Debugging.LogError("Function: LuaControlView. LuaModule is not Find! name = " + view.name);
+        }
+
+        GameObject.Destroy(view);
     }
 }

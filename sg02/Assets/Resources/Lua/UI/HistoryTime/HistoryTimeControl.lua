@@ -38,8 +38,12 @@ end
 function OnTimer ()
 	
 	m_month = m_month + 1
-	ShowTime()
-
-	OnMonthPassed.OnMonthPassed()
+    if m_month <= 12 then
+        ShowTime()
+        OnMonthPassed.OnMonthPassed()
+    else
+        m_month = 1
+        OnYearPassed.OnYearPassed()
+    end
 
 end
