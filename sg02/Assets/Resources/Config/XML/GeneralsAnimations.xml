@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <RECORD ID="1">
+    <Animations>L0A10</Animations>
+    <Animations>L0A20</Animations>
+    <Animations>L0A30</Animations>
+    <Animations>L0A40</Animations>
+    <Animations>L0A50</Animations>
+    <Animations>L0A60</Animations>
+    <Animations>L0D10</Animations>
+    <Animations>L0F10</Animations>
+    <Animations>L0FS0</Animations>
+    <Animations>L0H10</Animations>
+    <Animations>L0L10</Animations>
+    <Animations>L0R10</Animations>
+    <Animations>L0S10</Animations>
+    <Animations>L0W10</Animations>
+    <Animations>L0W20</Animations>
+    <Animations>L0W30</Animations>
+    <Animations>L0W40</Animations>
+  </RECORD>
+</root>
