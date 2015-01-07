@@ -67,7 +67,8 @@ function Initialize(viewPanel)
 
     m_FormationRoot = viewPanel.transform:FindChild("Formation_Anchor/Formation").gameObject
 
-    m_MilitarySkillRoot = viewPanel.transform:FindChild("Formation_Anchor/MilitarySkill").gameObject
+    --m_MilitarySkillRoot = viewPanel.transform:FindChild("Formation_Anchor/MilitarySkill").gameObject
+    m_MilitarySkillRoot = viewPanel.transform:FindChild("MilitarySkill_Anchor/MilitarySkill_Frame/MilitarySkill").gameObject
 
     m_BtFront = viewPanel.transform:FindChild("SelectGeneralSet_Anchor/Front_Frame/Front").gameObject
     m_BtBack = viewPanel.transform:FindChild("SelectGeneralSet_Anchor/Back_Frame/Back").gameObject

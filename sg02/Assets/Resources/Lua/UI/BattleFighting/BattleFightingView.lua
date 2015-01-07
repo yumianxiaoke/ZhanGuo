@@ -36,7 +36,7 @@ function Initialize(viewPanel)
     m_l_StrInt = viewPanel.transform:FindChild("BattleUI/MinAnchor/LeftGeneral/StrInt").gameObject
     m_l_IntInt = viewPanel.transform:FindChild("BattleUI/MinAnchor/LeftGeneral/IntInt").gameObject
 
-    m_r_RAGEbar = viewPanel.transform:FindChild("BattleUI/MinAnchor/RightGeneral/RAGEbar").gameObject
+    --m_r_RAGEbar = viewPanel.transform:FindChild("BattleUI/MinAnchor/RightGeneral/RAGEbar").gameObject
     m_r_Name = viewPanel.transform:FindChild("BattleUI/MinAnchor/RightGeneral/Name").gameObject
     m_r_Face = viewPanel.transform:FindChild("BattleUI/MinAnchor/RightGeneral/Face").gameObject
     m_r_LevelInt = viewPanel.transform:FindChild("BattleUI/MinAnchor/RightGeneral/LevelInt").gameObject

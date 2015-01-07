@@ -6,7 +6,7 @@ m_view = nil
 --初始化函数
 function Initialize(viewPanel)
 
-    m_view = HistoryTimeView
+    m_view = AdviserInstructionsView
     m_view.Initialize(viewPanel)
 
 end
