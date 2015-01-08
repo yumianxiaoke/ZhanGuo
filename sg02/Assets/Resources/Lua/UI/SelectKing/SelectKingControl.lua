@@ -23,6 +23,10 @@ end
 --反初始化函数
 function UnInitialize()
 
+    for key, value in pairs(m_tableKings) do      
+        Utility.RemoveToggle(key)
+    end
+
     m_tableKings = {}
 
 end
@@ -80,6 +84,9 @@ function OnToggle(go, state)
         local generalID = king.GeneralID
         local general = GamePublic.Instance.DataManager:GetGeneralInfo(generalID)
         general:SetFace(m_view.m_imageFace)
+
+        --在这里处理选择君主按钮响应
+
     end
 
 end

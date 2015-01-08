@@ -15,7 +15,9 @@ public class WrapUtility
 		new LuaMethod("AddChild", AddChild),
 		new LuaMethod("SetObjectChild", SetObjectChild),
 		new LuaMethod("AddChildButton", AddChildButton),
+		new LuaMethod("RemoveButton", RemoveButton),
 		new LuaMethod("AddChildToggle", AddChildToggle),
+		new LuaMethod("RemoveToggle", RemoveToggle),
 		new LuaMethod("SetText", SetText),
 		new LuaMethod("GeneralName", GeneralName),
 		new LuaMethod("AlignText", AlignText),
@@ -118,6 +120,15 @@ public class WrapUtility
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RemoveButton(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		GameObject arg0 = LuaScriptMgr.GetNetObject<GameObject>(L, 1);
+		Utility.RemoveButton(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int AddChildToggle(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 3);
@@ -127,6 +138,15 @@ public class WrapUtility
 		GameObject o = Utility.AddChildToggle(arg0,arg1,arg2);
 		LuaScriptMgr.Push(L, o);
 		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RemoveToggle(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		GameObject arg0 = LuaScriptMgr.GetNetObject<GameObject>(L, 1);
+		Utility.RemoveToggle(arg0);
+		return 0;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

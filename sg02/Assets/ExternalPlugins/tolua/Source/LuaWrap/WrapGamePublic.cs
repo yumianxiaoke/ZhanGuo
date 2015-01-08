@@ -191,24 +191,6 @@ public class WrapGamePublic
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_LuaFiles(IntPtr L)
 	{
-		object o = LuaScriptMgr.GetLuaObject(L, 1);
-
-		if (o == null)
-		{
-			LuaTypes types = LuaDLL.lua_type(L, 1);
-
-			if (types == LuaTypes.LUA_TTABLE)
-			{
-				LuaDLL.luaL_error(L, "unknown member name LuaFiles");
-			}
-			else
-			{
-				LuaDLL.luaL_error(L, "attempt to index LuaFiles on a nil value");
-			}
-		}
-
-		GamePublic obj = (GamePublic)o;
-		LuaScriptMgr.PushObject(L, obj.LuaFiles);
 		return 1;
 	}
 
@@ -239,48 +221,12 @@ public class WrapGamePublic
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_ButtonPool(IntPtr L)
 	{
-		object o = LuaScriptMgr.GetLuaObject(L, 1);
-
-		if (o == null)
-		{
-			LuaTypes types = LuaDLL.lua_type(L, 1);
-
-			if (types == LuaTypes.LUA_TTABLE)
-			{
-				LuaDLL.luaL_error(L, "unknown member name ButtonPool");
-			}
-			else
-			{
-				LuaDLL.luaL_error(L, "attempt to index ButtonPool on a nil value");
-			}
-		}
-
-		GamePublic obj = (GamePublic)o;
-		LuaScriptMgr.PushObject(L, obj.ButtonPool);
 		return 1;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_TogglePool(IntPtr L)
 	{
-		object o = LuaScriptMgr.GetLuaObject(L, 1);
-
-		if (o == null)
-		{
-			LuaTypes types = LuaDLL.lua_type(L, 1);
-
-			if (types == LuaTypes.LUA_TTABLE)
-			{
-				LuaDLL.luaL_error(L, "unknown member name TogglePool");
-			}
-			else
-			{
-				LuaDLL.luaL_error(L, "attempt to index TogglePool on a nil value");
-			}
-		}
-
-		GamePublic obj = (GamePublic)o;
-		LuaScriptMgr.PushObject(L, obj.TogglePool);
 		return 1;
 	}
 

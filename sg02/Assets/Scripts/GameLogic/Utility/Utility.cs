@@ -135,21 +135,29 @@ public static class Utility
     {
         name = AlignText(name);
 
-        GameObject go = GamePublic.Instance.ButtonPool.GetObject();
+        GameObject go = ButtonsPool.Instance.ButtonPool.GetObject();
         go.GetComponent<UIButton>().SetText(name);
 
         SetObjectChild(parent, go);
 
-        InputManager.Instance.RemoveClickEvent(go);
-
         return go;
+    }
+
+    public static void RemoveButton(GameObject go)
+    {
+        if (go == null)
+            return;
+
+        ButtonsPool.Instance.GiveBackButton(go);
+
+        InputManager.Instance.RemoveClickEvent(go);
     }
 
     public static GameObject AddChildToggle(GameObject parent, string name, bool isGroup)
     {
         name = AlignText(name);
 
-        GameObject go = GamePublic.Instance.TogglePool.GetObject();
+        GameObject go = ButtonsPool.Instance.TogglePool.GetObject();
         go.GetComponent<UIToggle>().SetText(name);
 
         SetObjectChild(parent, go);
@@ -163,9 +171,17 @@ public static class Utility
             go.GetComponent<UIToggle>().SetGroup(null);
         }
 
-        InputManager.Instance.RemoveOnToggleEvent(go);
-
         return go;
+    }
+
+    public static void RemoveToggle(GameObject go)
+    {
+        if (go == null)
+            return;
+
+        ButtonsPool.Instance.GiveBackToggle(go);
+
+        InputManager.Instance.RemoveOnToggleEvent(go);
     }
 
     public static void SetText(GameObject go, string value)

@@ -11,6 +11,7 @@ public class WrapUIToggle
 		new LuaMethod("SetGroup", SetGroup),
 		new LuaMethod("SetText", SetText),
 		new LuaMethod("Toggle", Toggle),
+		new LuaMethod("SetEnable", SetEnable),
 		new LuaMethod("New", _CreateUIToggle),
 		new LuaMethod("GetClassType", GetClassType),
 	};
@@ -75,6 +76,16 @@ public class WrapUIToggle
 		UIToggle obj = LuaScriptMgr.GetNetObject<UIToggle>(L, 1);
 		bool arg0 = LuaScriptMgr.GetBoolean(L, 2);
 		obj.Toggle(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetEnable(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		UIToggle obj = LuaScriptMgr.GetNetObject<UIToggle>(L, 1);
+		bool arg0 = LuaScriptMgr.GetBoolean(L, 2);
+		obj.SetEnable(arg0);
 		return 0;
 	}
 }

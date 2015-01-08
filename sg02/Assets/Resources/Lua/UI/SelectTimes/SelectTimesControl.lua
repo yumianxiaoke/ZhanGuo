@@ -18,6 +18,10 @@ end
 --反初始化函数
 function UnInitialize()
 
+    for key, value in pairs(m_tableTimes) do      
+        Utility.RemoveButton(key)
+    end
+
     m_tableTimes = {}
 
 end

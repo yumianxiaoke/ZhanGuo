@@ -4,7 +4,12 @@ using UnityEngine.UI;
 
 public class UIButton : MonoBehaviour 
 {
-    public bool IsPush { get; set; }
+    private Button m_buttonScript;
+
+    void Awake()
+    {
+        m_buttonScript = GetComponent<Button>();
+    }
 
     public void OnClick()
     {
@@ -20,5 +25,10 @@ public class UIButton : MonoBehaviour
     {
         name = value;
         GetComponent<Text>().text = value;
+    }
+
+    public void SetEnable(bool value)
+    {
+        m_buttonScript.enabled = value;
     }
 }

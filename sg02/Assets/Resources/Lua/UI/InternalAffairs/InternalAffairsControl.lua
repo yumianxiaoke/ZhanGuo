@@ -24,7 +24,11 @@ end
 --反初始化函数
 function UnInitialize()
 
-    
+    for key, value in pairs(m_menuItem) do      
+        Utility.RemoveButton(key)
+    end
+
+    m_menuItem = {}
 
 end
 

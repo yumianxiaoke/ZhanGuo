@@ -32,42 +32,16 @@ public class GamePublic : Singleton<GamePublic>
     public GameObject UIRoot { get { return m_uiRoot; } }
 
     /// <summary>
-    /// 字体预设
-    /// </summary>
-    private const string m_fontButtonExample = "Prefabs/UI/ButtonExample/FontButtonExample";
-    private const string m_fontToggleExample = "Prefabs/UI/ButtonExample/FontToggleExample";
-    //private const string m_imageButtonExample = "Prefabs/UI/ButtonExample/ImageButtonExample";
-
-    /// <summary>
     /// LUA管理器
     /// </summary>
     private LuaScriptMgr m_luaMgr;
     public LuaScriptMgr LuaManager { get { return m_luaMgr; } }
 
     /// <summary>
-    /// LUA 文件
-    /// </summary>
-    private Dictionary<string, string> m_dicLuaFiles;
-    public Dictionary<string, string> LuaFiles { get { return m_dicLuaFiles; } }
-
-    /// <summary>
     /// 数据管理
     /// </summary>
     private DataManager m_datamanager;
     public DataManager DataManager { get { return m_datamanager; } }
-
-    /// <summary>
-    /// 按钮的对象池
-    /// </summary>
-    private string m_poolRootName = "UI Root/Pool";
-    private GameObject m_poolRoot;
-    private ObjectPool m_poolButton;
-    private int m_poolButtonSize = 30;
-    public ObjectPool ButtonPool { get { return m_poolButton; } }
-
-    private ObjectPool m_poolToggle;
-    private int m_poolToggleSize = 30;
-    public ObjectPool TogglePool { get { return m_poolToggle; } }
 
     /// <summary>
     /// 历史时期列表
@@ -112,12 +86,9 @@ public class GamePublic : Singleton<GamePublic>
 
         m_datamanager = new DataManager();
 
-        InitPool();
         InitLuaManager();
         InitTimesList();
         InitCityPoints();
-
-        LoadLuaFiles();
     }
 
     public override void UnInitialize() 
@@ -132,36 +103,6 @@ public class GamePublic : Singleton<GamePublic>
     {
         m_luaMgr = new LuaScriptMgr();
         m_luaMgr.Start();
-    }
-
-    /// <summary>
-    /// 初始化对象池
-    /// </summary>
-    private void InitPool()
-    {
-        m_poolRoot = GameObject.Find(m_poolRootName);
-
-        m_poolButton = new ObjectPool();
-        m_poolButton.Initialize(m_poolButtonSize, 1000, CreateOneButton);
-
-        m_poolToggle = new ObjectPool();
-        m_poolToggle.Initialize(m_poolToggleSize, 1000, CreateOnToggle);
-    }
-
-    private GameObject CreateOneButton()
-    {
-        GameObject temp = ResourcesManager.Instance.Load<GameObject>(m_fontButtonExample);
-        GameObject go = Object.Instantiate(temp) as GameObject;
-        Utility.SetObjectChild(m_poolRoot, go);
-        return go;
-    }
-
-    private GameObject CreateOnToggle()
-    {
-        GameObject temp = ResourcesManager.Instance.Load<GameObject>(m_fontToggleExample);
-        GameObject go = Object.Instantiate(temp) as GameObject;
-        Utility.SetObjectChild(m_poolRoot, go);
-        return go;
     }
 
     /// <summary>
@@ -202,27 +143,6 @@ public class GamePublic : Singleton<GamePublic>
                 string point = XMLManager.PathInfo.GetInfoById(data.ToPoint).Position;
                 m_cityPoint.Add(data.ToCity, Utility.GetPoint(point));
             }
-        }
-    }
-
-    /// <summary>
-    /// 加载所有的LUA文件
-    /// </summary>
-    private void LoadLuaFiles()
-    {
-        m_dicLuaFiles = new Dictionary<string, string>();
-
-        IEnumerator enumerator = XMLManager.LuaScripts.Data.Keys.GetEnumerator();
-        while (enumerator.MoveNext())
-        {
-            string path = (string)enumerator.Current;
-            if (path.EndsWith(".lua") == false)
-                path += ".lua";
-            
-            m_luaMgr.DoFile(path);
-
-            string moduleName = Path.GetFileNameWithoutExtension(path);
-            m_dicLuaFiles.Add(moduleName, path);
         }
     }
 }

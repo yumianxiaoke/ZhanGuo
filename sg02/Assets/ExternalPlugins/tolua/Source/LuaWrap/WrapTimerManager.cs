@@ -5,6 +5,7 @@ public class WrapTimerManager
 {
 	public static LuaMethod[] regs = new LuaMethod[]
 	{
+		new LuaMethod("Initialize", Initialize),
 		new LuaMethod("UnInitialize", UnInitialize),
 		new LuaMethod("Update", Update),
 		new LuaMethod("WaitForSeconds", WaitForSeconds),
@@ -46,6 +47,15 @@ public class WrapTimerManager
 	{
 		LuaScriptMgr.Push(L, TimerManager.Instance);
 		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Initialize(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		TimerManager obj = LuaScriptMgr.GetNetObject<TimerManager>(L, 1);
+		obj.Initialize();
+		return 0;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
