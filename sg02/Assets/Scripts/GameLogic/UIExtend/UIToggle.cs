@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIToggle : MonoBehaviour 
 {
+    private Toggle m_toggleScripts;
+
     private Text m_labelNormal;
     private Text m_labelCheck;
 
@@ -14,6 +16,8 @@ public class UIToggle : MonoBehaviour
             m_labelNormal = transform.FindChild("LabelNormal").GetComponent<Text>();
         if (m_labelCheck == null)
             m_labelCheck = transform.FindChild("LabelCheck").GetComponent<Text>();
+
+        m_toggleScripts = GetComponent<Toggle>();
     }
 
     /// <summary>
@@ -58,5 +62,10 @@ public class UIToggle : MonoBehaviour
     public void Toggle(bool state)
     {
         GetComponent<Toggle>().isOn = state;
+    }
+
+    public void SetEnable(bool value)
+    {
+        m_toggleScripts.enabled = value;
     }
 }

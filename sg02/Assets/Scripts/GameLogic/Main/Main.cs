@@ -19,6 +19,9 @@ public class Main : MonoBehaviour
         InputManager.Instance.Initialize();
         InputManager.Instance.SetSceneCamera(GamePublic.Instance.SceneCamera);
 
+        LuaScriptsLoader.Load();
+        ButtonsPool.Instance.Initialize();
+
         EnterState();
 	}
 	
