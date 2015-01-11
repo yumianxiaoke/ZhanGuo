@@ -19,6 +19,9 @@ namespace sg2toxml
             int index = trim.IndexOf(';');
             if (index >= 0)
                 trim = trim.Substring(0, index);
+            index = trim.IndexOf("//");
+            if (index >= 0)
+                trim = trim.Substring(0, index);
 
             return trim.Trim();
         }

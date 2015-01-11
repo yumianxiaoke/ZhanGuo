@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(251, 161);
+            this.ClientSize = new System.Drawing.Size(278, 203);
             this.Controls.Add(this.ButtonToXML);
             this.Name = "Form1";
             this.Text = "SG2转换器";
