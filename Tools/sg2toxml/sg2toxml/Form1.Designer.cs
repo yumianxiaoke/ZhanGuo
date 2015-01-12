@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.ButtonToXML = new System.Windows.Forms.Button();
+            this.ExcelToXML = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ButtonToXML
             // 
-            this.ButtonToXML.Location = new System.Drawing.Point(57, 53);
+            this.ButtonToXML.Location = new System.Drawing.Point(57, 28);
             this.ButtonToXML.Name = "ButtonToXML";
             this.ButtonToXML.Size = new System.Drawing.Size(148, 54);
             this.ButtonToXML.TabIndex = 1;
@@ -41,11 +42,22 @@
             this.ButtonToXML.UseVisualStyleBackColor = true;
             this.ButtonToXML.Click += new System.EventHandler(this.ButtonToXML_Click);
             // 
+            // ExcelToXML
+            // 
+            this.ExcelToXML.Location = new System.Drawing.Point(57, 113);
+            this.ExcelToXML.Name = "ExcelToXML";
+            this.ExcelToXML.Size = new System.Drawing.Size(148, 54);
+            this.ExcelToXML.TabIndex = 2;
+            this.ExcelToXML.Text = "Excel转XML";
+            this.ExcelToXML.UseVisualStyleBackColor = true;
+            this.ExcelToXML.Click += new System.EventHandler(this.ExcelToXML_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 203);
+            this.ClientSize = new System.Drawing.Size(278, 207);
+            this.Controls.Add(this.ExcelToXML);
             this.Controls.Add(this.ButtonToXML);
             this.Name = "Form1";
             this.Text = "SG2转换器";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button ButtonToXML;
+        private System.Windows.Forms.Button ExcelToXML;
     }
 }
 

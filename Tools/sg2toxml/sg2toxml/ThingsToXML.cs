@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
 
+using System.Runtime.InteropServices;
+
 namespace sg2toxml
 {
     public class ThingsToXML
@@ -52,8 +54,18 @@ namespace sg2toxml
             "Magic",
         };
 
-        public void ToExcel(byte[] bytes, string saveFileName)
+        [DllImport("Kernel32.dll")]
+        private static extern bool AllocConsole();
+
+        [DllImport("Kernel32.dll")]
+        static extern bool FreeConsole();
+
+        public void ToExcel(byte[] bytes, int[, ] sequenceRange, string saveFileName)
         {
+            AllocConsole();
+
+            this.sequenceRange = sequenceRange;
+
             content = ToSimplifiedHelper.ToSimplified(System.Text.Encoding.UTF8.GetString(bytes));
 
             //Excel
@@ -66,6 +78,8 @@ namespace sg2toxml
 
             excel.SaveAsFile();
             ExcelHelper.ExcelHelper.OpenExcel(filepath);
+
+            FreeConsole();
 
             //XML
 //             xml = new XmlDocument();
@@ -89,6 +103,8 @@ namespace sg2toxml
 
             excel.SetCells(1, 1, title);
             excel.SetCells(1, 2, value);
+
+            Console.WriteLine("SystemHandler");
         }
 
         private void DefineHandler()
@@ -105,6 +121,8 @@ namespace sg2toxml
                 excel.SetCells(i, 2, values[key]);
                 i++;
             }
+
+            Console.WriteLine("DefineHandler");
         }
 
         /// <summary>
@@ -144,6 +162,8 @@ namespace sg2toxml
                                 excel.SetCells(1, keyIdx, key);
                                 keyIdx++;
                             }
+
+                            Console.WriteLine("currentSheetName : " + currentSheetName);
                         }
                     }
                 }

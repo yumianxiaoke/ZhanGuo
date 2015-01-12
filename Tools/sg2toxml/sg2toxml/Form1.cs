@@ -75,8 +75,15 @@ namespace sg2toxml
                 {
                     case "THINGS":
                         {
-                            ThingsToXML things = new ThingsToXML();
-                            things.ToExcel(utf8, Path.GetDirectoryName(fName) + "/" + fileName);
+                            ThingsConfig form = new ThingsConfig();
+
+                            form.bytes = utf8;
+                            form.srcFilePath = fName;
+                            form.ShowDialog(this);
+
+
+                            //ThingsToXML things = new ThingsToXML();
+                            //things.ToExcel(utf8, Path.GetDirectoryName(fName) + "/" + fileName);
                         }
                         break;
                 }
@@ -118,6 +125,11 @@ namespace sg2toxml
             odcb.QuotePrefix = "[";   //用于搞定INSERT INTO 语句的语法错误
             odcb.QuoteSuffix = "]";
             myDataAdapter.Update(myDataSet, "[Sheet1$]"); //更新数据集对应的表
+        }
+
+        private void ExcelToXML_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
