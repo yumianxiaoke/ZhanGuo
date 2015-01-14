@@ -50,7 +50,28 @@ namespace ExcelHelper
 //         }
 
         /// <summary>
-        /// 构造函数，新建一个工作簿
+        /// 打开一个Excel
+        /// </summary>
+        public ExcelHelper(string fileName)
+        {
+            this.templetFile = fileName;
+            this.outputFile = fileName;
+
+            excelApp = new Excel.ApplicationClass();
+            excelApp.Visible = false;
+
+            excelApp.DisplayAlerts = false;  //是否需要显示提示
+            excelApp.AlertBeforeOverwriting = false;  //是否弹出提示覆盖
+
+            //打开模板文件，得到WorkBook对象
+            workBook = excelApp.Workbooks.Open(templetFile, missing, missing, missing, missing, missing, missing, missing, missing, missing, missing, missing, missing, Type.Missing, Type.Missing);
+
+            //得到WorkSheet对象
+            workSheet = (Excel.Worksheet)workBook.Sheets.get_Item(1);
+        }
+
+        /// <summary>
+        /// 构造函数，新建一个工作簿,需要指定一个sheet的名称
         /// </summary>
         public ExcelHelper(string fileName, string sheetName)
         {
@@ -100,6 +121,22 @@ namespace ExcelHelper
         }
 
         /// <summary>
+        /// 行数
+        /// </summary>
+        public int RowCount
+        {
+            get { return workSheet.UsedRange.Rows.Count; }
+        }
+
+        /// <summary>
+        /// 列数
+        /// </summary>
+        public int ColumnCount
+        {
+            get { return workSheet.UsedRange.Columns.Count; }
+        }
+
+        /// <summary>
         /// Excel模板文件路径
         /// </summary>
         public string TempletFilePath
@@ -146,9 +183,25 @@ namespace ExcelHelper
             SetSheetName(name);
         }
 
+        public string GetSheetName()
+        {
+            return workSheet.Name;
+        }
+
         public void SetSheetName(string name)
         {
             workSheet.Name = name;
+        }
+
+        public void SelectCurrentSheet(int index)
+        {
+            if (index < 1 || index > WorkSheetCount)
+            {
+                Console.WriteLine("Function:SelectCurrentSheet, index = " + index + ", WorkSheetCount = " + WorkSheetCount);
+                return;
+            }
+
+            workSheet = (Excel.Worksheet)workBook.Sheets.get_Item(index);
         }
 
         #endregion
@@ -274,6 +327,21 @@ namespace ExcelHelper
         #endregion
 
         #region 单元格操作
+        /// <summary>
+        /// 获取单元格的内容
+        /// </summary>
+        public string GetCells(int rowIndex, int columnIndex)
+        {
+            if (rowIndex < 1 || rowIndex > RowCount || columnIndex < 1 || columnIndex > ColumnCount)
+                return null;
+
+            Excel.Range range = workSheet.get_Range(workSheet.Cells[rowIndex, columnIndex], workSheet.Cells[rowIndex, columnIndex]);
+            object value = range.Value;
+            if (value == null)
+                return null;
+
+            return value.ToString();
+        }
 
         /// <summary>
         /// 合并单元格，并赋值，对指定WorkSheet操作

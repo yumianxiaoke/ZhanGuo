@@ -17,7 +17,7 @@ namespace sg2toxml
         private int sequenceNum = 11;
         public int[, ] sequenceRange = new int[11, 2];
 
-        public byte[] bytes;
+        public string content;
         public string srcFilePath;
 
         public ThingsConfig()
@@ -99,15 +99,11 @@ namespace sg2toxml
 
         private void Browse_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "XML文件|*.xml|所有文件|*.*";
-                saveFileDialog.RestoreDirectory = true;
-                saveFileDialog.FilterIndex = 1;
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string saveFileName = saveFileDialog.FileName;
-                    savePath.Text = saveFileName;
-                }
+            FolderBrowserHelper folderBrowserDialog = new FolderBrowserHelper();
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                savePath.Text = folderBrowserDialog.SelectedPath;
+            }
         }
 
         private void ButtonOK_Click(object sender, EventArgs e)
@@ -119,7 +115,7 @@ namespace sg2toxml
             }
             else
             {
-                path = savePath.Text;
+                path = savePath.Text + "/" + Path.GetFileNameWithoutExtension(srcFilePath);
             }
 
             FileStream fs = new FileStream("ThingsConfig.txt", FileMode.Create);
@@ -128,14 +124,14 @@ namespace sg2toxml
             {
                 sw.WriteLine(sequenceRange[i, 0] + "," + sequenceRange[i, 1]);
             }
-            sw.WriteLine(path);
+            sw.WriteLine(savePath.Text);
             sw.WriteLine(checkBoxSource.Checked.ToString());
             sw.Flush();
             sw.Close();
             fs.Close();
 
-            ThingsToXML things = new ThingsToXML();
-            things.ToExcel(bytes, sequenceRange, path);
+            ThingsHandler things = new ThingsHandler();
+            things.ToExcel(content, sequenceRange, path);
 
             Close();
         }

@@ -30,6 +30,7 @@
         {
             this.ButtonToXML = new System.Windows.Forms.Button();
             this.ExcelToXML = new System.Windows.Forms.Button();
+            this.KillProcess = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ButtonToXML
@@ -40,7 +41,7 @@
             this.ButtonToXML.TabIndex = 1;
             this.ButtonToXML.Text = "INI转XML";
             this.ButtonToXML.UseVisualStyleBackColor = true;
-            this.ButtonToXML.Click += new System.EventHandler(this.ButtonToXML_Click);
+            this.ButtonToXML.Click += new System.EventHandler(this.INIToXML_Click);
             // 
             // ExcelToXML
             // 
@@ -52,11 +53,22 @@
             this.ExcelToXML.UseVisualStyleBackColor = true;
             this.ExcelToXML.Click += new System.EventHandler(this.ExcelToXML_Click);
             // 
+            // KillProcess
+            // 
+            this.KillProcess.Location = new System.Drawing.Point(57, 200);
+            this.KillProcess.Name = "KillProcess";
+            this.KillProcess.Size = new System.Drawing.Size(148, 54);
+            this.KillProcess.TabIndex = 3;
+            this.KillProcess.Text = "杀掉Excel进程";
+            this.KillProcess.UseVisualStyleBackColor = true;
+            this.KillProcess.Click += new System.EventHandler(this.KillProcess_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 207);
+            this.ClientSize = new System.Drawing.Size(265, 289);
+            this.Controls.Add(this.KillProcess);
             this.Controls.Add(this.ExcelToXML);
             this.Controls.Add(this.ButtonToXML);
             this.Name = "Form1";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button ButtonToXML;
         private System.Windows.Forms.Button ExcelToXML;
+        private System.Windows.Forms.Button KillProcess;
     }
 }
 
