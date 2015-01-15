@@ -96,7 +96,8 @@ namespace sg2toxml
                     }
                     
                     string name = GetSectionName(line);
-                    if (name == sectionName)
+                    if (name.ToUpper() == sectionName.ToUpper()
+                        || (sectionName.EndsWith("XX") && name.StartsWith(sectionName.Substring(0, sectionName.Length - 2)))) //有数字通配符
                     {
                         isUnderSection = true;
                         dic = new Dictionary<string, string>();
@@ -109,7 +110,14 @@ namespace sg2toxml
                     GetKeyAndValue(line, out key, out value);
                     if (key == null)
                         continue;
-                    dic.Add(key, value);
+                    if (dic.ContainsKey(key))
+                    {
+                        dic[key] = dic[key] + "," + value;
+                    }
+                    else
+                    {
+                        dic.Add(key, value);
+                    }
                 }
             }
             //处理最后一项

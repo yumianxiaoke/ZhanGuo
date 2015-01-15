@@ -94,9 +94,42 @@ namespace sg2toxml
                             }
                         }
                         break;
+                    case "MESSAGE":
+                        {
+                            FolderBrowserHelper folderBrowserDialog = new FolderBrowserHelper();
+                            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                string outDir = folderBrowserDialog.SelectedPath;
+                                MessageHandler message = new MessageHandler();
+                                message.ToExcel(content, fName, outDir);
+                            }
+                        }
+                        break;
+                    case "SANGO":
+                        {
+                            FolderBrowserHelper folderBrowserDialog = new FolderBrowserHelper();
+                            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                string outDir = folderBrowserDialog.SelectedPath;
+                                SanguoINIHandler sango = new SanguoINIHandler();
+                                sango.ToExcel(content, fName, outDir);
+                            }
+                        }
+                        break;
                     default:
                         {
-                            MessageBox.Show("文件类型未定义");
+                            if (fileName.ToUpper().StartsWith("TIMES"))
+                            {
+                                FolderBrowserHelper folderBrowserDialog = new FolderBrowserHelper();
+                                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                                {
+                                    string outDir = folderBrowserDialog.SelectedPath;
+                                    TimesHandler times = new TimesHandler();
+                                    times.ToExcel(content, fName, outDir);
+                                }
+                            }
+                            else
+                                MessageBox.Show("文件类型未定义");
                         }
                         break;
                 }
@@ -141,9 +174,27 @@ namespace sg2toxml
                             magic.ToXML(path);
                         }
                         break;
+                    case "MESSAGE":
+                        {
+                            MessageHandler message = new MessageHandler();
+                            message.ToXML(path);
+                        }
+                        break;
+                    case "SANGO":
+                        {
+                            SanguoINIHandler sango = new SanguoINIHandler();
+                            sango.ToXML(path);
+                        }
+                        break;
                     default:
                         {
-                            MessageBox.Show("文件类型未定义");
+                            if (fileName.ToUpper().StartsWith("TIMES"))
+                            {
+                                TimesHandler times = new TimesHandler();
+                                times.ToXML(path);
+                            }
+                            else
+                                MessageBox.Show("文件类型未定义");
                         }
                         break;
                 }
