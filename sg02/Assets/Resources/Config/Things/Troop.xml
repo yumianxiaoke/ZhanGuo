@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <RECORD Name="师团移动时的物件" Sequence="51" Type="2" FLAGS="OF_MAN+OF_TRIGGERMAN" Process="%TroopObjectProcess" Directory="\Troop\">
+    <Space>4</Space>
+    <Space>4</Space>
+    <Space>48</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Sol10001</Wait>
+    <Wait>Sol10002</Wait>
+    <Wait>Sol10003</Wait>
+    <Wait>Sol10004</Wait>
+    <Wait>Sol10005</Wait>
+    <Wait>Sol10006</Wait>
+    <Walk>#6</Walk>
+    <Walk>Sol10001</Walk>
+    <Walk>Sol10002</Walk>
+    <Walk>Sol10003</Walk>
+    <Walk>Sol10004</Walk>
+    <Walk>Sol10005</Walk>
+    <Walk>Sol10006</Walk>
+  </RECORD>
+  <RECORD Name="师团移动时的物件(1)" Sequence="52" Type="2" FLAGS="0" Process="%TroopShapeObjectProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>48</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Sol00001</Wait>
+    <Wait>Sol00002</Wait>
+    <Wait>Sol00003</Wait>
+    <Wait>Sol00004</Wait>
+    <Wait>Sol00005</Wait>
+    <Wait>Sol00006</Wait>
+    <Walk>#6</Walk>
+    <Walk>Sol00001</Walk>
+    <Walk>Sol00002</Walk>
+    <Walk>Sol00003</Walk>
+    <Walk>Sol00004</Walk>
+    <Walk>Sol00005</Walk>
+    <Walk>Sol00006</Walk>
+  </RECORD>
+  <RECORD Name="师团移动时的物件(2)" Sequence="53" Type="2" FLAGS="0" Process="%TroopShapeObjectProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>48</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Sol00001</Wait>
+    <Wait>Sol00002</Wait>
+    <Wait>Sol00003</Wait>
+    <Wait>Sol00004</Wait>
+    <Wait>Sol00005</Wait>
+    <Wait>Sol00006</Wait>
+    <Walk>#6</Walk>
+    <Walk>Sol10001</Walk>
+    <Walk>Sol10002</Walk>
+    <Walk>Sol10003</Walk>
+    <Walk>Sol10004</Walk>
+    <Walk>Sol10005</Walk>
+    <Walk>Sol10006</Walk>
+  </RECORD>
+  <RECORD Name="师团移动时的物件(3)" Sequence="54" Type="2" FLAGS="0" Process="%TroopShapeObjectProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>48</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Sol00001</Wait>
+    <Wait>Sol00002</Wait>
+    <Wait>Sol00003</Wait>
+    <Wait>Sol00004</Wait>
+    <Wait>Sol00005</Wait>
+    <Wait>Sol00006</Wait>
+    <Walk>#6</Walk>
+    <Walk>Sol20001</Walk>
+    <Walk>Sol20002</Walk>
+    <Walk>Sol20003</Walk>
+    <Walk>Sol20004</Walk>
+    <Walk>Sol20005</Walk>
+    <Walk>Sol20006</Walk>
+  </RECORD>
+</root>

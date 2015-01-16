@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <TotalTimes>6</TotalTimes>
+  <TotalGeneralType>3</TotalGeneralType>
+  <TotalThings>99</TotalThings>
+  <Times01>Times1.INI, 黄巾之乱</Times01>
+  <Times02>Times2.INI, 讨伐董卓</Times02>
+  <Times03>Times3.INI, 群雄割剧</Times03>
+  <Times04>Times4.INI, 赤壁之战</Times04>
+  <Times05>Times5.INI, 三国鼎立</Times05>
+  <FontDirectory>FONTS\</FontDirectory>
+  <DefaultFont>1</DefaultFont>
+  <TotalForce>11</TotalForce>
+</root>

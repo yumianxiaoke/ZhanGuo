@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <RECORD NAME="何进" FLAGNUM="26" SELECT="8" Type="1" />
+  <RECORD NAME="张角" FLAGNUM="9" SELECT="8" Type="1" />
+  <RECORD NAME="孙坚" FLAGNUM="17" SELECT="8" Type="1" />
+  <RECORD NAME="董卓" FLAGNUM="4" SELECT="7" Type="0" />
+  <RECORD NAME="丁原" FLAGNUM="16" SELECT="7" Type="2" />
+  <RECORD NAME="公孙瓒" FLAGNUM="6" SELECT="7" Type="2" />
+  <RECORD NAME="刘焉" FLAGNUM="3" SELECT="9" Type="2" />
+  <RECORD NAME="韩馥" FLAGNUM="13" SELECT="9" Type="2" />
+  <RECORD NAME="龚景" FLAGNUM="23" SELECT="9" Type="3" />
+  <RECORD NAME="乔玄" FLAGNUM="15" SELECT="9" Type="3" />
+  <RECORD NAME="陶谦" FLAGNUM="19" SELECT="9" Type="3" />
+  <RECORD NAME="孔岫" FLAGNUM="8" SELECT="9" Type="4" />
+  <RECORD NAME="刘繇" FLAGNUM="10" SELECT="9" Type="2" />
+  <RECORD NAME="严白虎" FLAGNUM="25" SELECT="9" Type="2" />
+  <RECORD NAME="盗贼" FLAGNUM="0" SELECT="0" Type="4" />
+</root>

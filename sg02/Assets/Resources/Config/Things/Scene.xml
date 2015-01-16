@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <RECORD Name="树" Sequence="400" Type="%TYPE_BASE" Flags="OF_BACKGROUND" Process="%DefaultObjectProcess" Directory="\BG">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Wait>#-1</Wait>
+    <Wait>TREE01</Wait>
+  </RECORD>
+  <RECORD Name="树" Sequence="401" Type="%TYPE_BASE" Flags="OF_BACKGROUND" Process="%DefaultObjectProcess" Directory="\BG">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Wait>#-1</Wait>
+    <Wait>TREE02</Wait>
+  </RECORD>
+  <RECORD Name="石头" Sequence="402" Type="%TYPE_BASE" Flags="OF_BACKGROUND" Process="%DefaultObjectProcess" Directory="\BG">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Wait>#-1</Wait>
+    <Wait>STONE01</Wait>
+  </RECORD>
+  <RECORD Name="火台" Sequence="403" Type="%TYPE_BASE" Flags="OF_BACKGROUND" Process="%DefaultObjectProcess" Directory="\BG">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Wait>#-1</Wait>
+    <Wait>FIRE</Wait>
+  </RECORD>
+  <RECORD Name="火" Sequence="404" Type="%TYPE_BASE" Process="%DefaultObjectProcess" Directory="\BG">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Flags>OF_BACKGROUND</Flags>
+    <Flags>OF_WHITELIGHT</Flags>
+    <Wait>#4</Wait>
+    <Wait>FIRE0001</Wait>
+    <Wait>FIRE0002</Wait>
+    <Wait>FIRE0003</Wait>
+    <Wait>FIRE0004</Wait>
+    <Wait>FIRE0005</Wait>
+    <Wait>FIRE0006</Wait>
+    <Wait>FIRE0007</Wait>
+    <Wait>FIRE0008</Wait>
+    <Wait>FIRE0009</Wait>
+    <Wait>FIRE0010</Wait>
+  </RECORD>
+  <RECORD Name="虚幻物件 (没有任何图形)" Sequence="1011" Type="%TYPE_FORCE" Flags="OF_NOGRAVITY" Process="%MagicObjectProcess" Directory="\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Wait>#9999</Wait>
+    <Wait>NULSHAPE</Wait>
+  </RECORD>
+  <RECORD Name="影子 (没有固定图形)" Sequence="1012" Type="%TYPE_FORCE" Process="%ShadowObjectProcess" Directory="\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Flags>OF_NOGRAVITY</Flags>
+    <Flags>OF_MIXER</Flags>
+    <Wait>#9999</Wait>
+    <Wait>NULSHAPE</Wait>
+  </RECORD>
+  <RECORD Name="虚幻物件 (没有任何图形)" Sequence="1013" Type="%TYPE_FORCE" Flags="OF_NOGRAVITY" Process="%AniObjectProcess" Directory="\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Wait>#9999</Wait>
+    <Wait>NULSHAPE</Wait>
+  </RECORD>
+  <RECORD Name="雨水" Sequence="9994" Type="%TYPE_FORCE" Process="OF_BOMB" Directory="%WeatherObjectProcess" Wait="\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Flags>OF_WHITELIGHT</Flags>
+    <Flags>OF_BOMB</Flags>
+  </RECORD>
+  <RECORD Name="雨水" Sequence="9995" Type="%TYPE_FORCE" Process="OF_BOMB" Directory="%WeatherObjectProcess" Wait="\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Flags>OF_WHITELIGHT</Flags>
+    <Flags>OF_BOMB</Flags>
+  </RECORD>
+  <RECORD Name="雨水" Sequence="9996" Type="%TYPE_FORCE" Process="OF_BOMB" Directory="%WeatherObjectProcess" Wait="\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>64</Space>
+    <Space>0</Space>
+    <Flags>OF_WHITELIGHT</Flags>
+    <Flags>OF_BOMB</Flags>
+  </RECORD>
+  <RECORD Name="无形有重力" Sequence="2500" Type="%TYPE_FORCE" Flags="0" Process="%MagicObjectProcess" Directory="\magic\000">
+    <Space>0</Space>
+    <Space>0</Space>
+    <Space>0</Space>
+    <Space>0</Space>
+    <Wait>#9999</Wait>
+    <Wait>NULSHAPE</Wait>
+  </RECORD>
+  <RECORD Name="无形无重力" Sequence="2501" Type="%TYPE_FORCE" Flags="OF_NOGRAVITY" Process="%MagicObjectProcess" Directory="\magic\000">
+    <Space>0</Space>
+    <Space>0</Space>
+    <Space>0</Space>
+    <Space>0</Space>
+    <Wait>#9999</Wait>
+    <Wait>NULSHAPE</Wait>
+  </RECORD>
+</root>

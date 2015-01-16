@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <RECORD Name="Troop Flags 1" Sequence="1" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag0101</Wait>
+    <Wait>Flag0102</Wait>
+    <Wait>Flag0103</Wait>
+    <Wait>Flag0104</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 2" Sequence="2" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag0201</Wait>
+    <Wait>Flag0202</Wait>
+    <Wait>Flag0203</Wait>
+    <Wait>Flag0204</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 3" Sequence="3" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag0301</Wait>
+    <Wait>Flag0302</Wait>
+    <Wait>Flag0303</Wait>
+    <Wait>Flag0304</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 4" Sequence="4" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag0401</Wait>
+    <Wait>Flag0402</Wait>
+    <Wait>Flag0403</Wait>
+    <Wait>Flag0404</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 5" Sequence="5" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag0501</Wait>
+    <Wait>Flag0502</Wait>
+    <Wait>Flag0503</Wait>
+    <Wait>Flag0504</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 6" Sequence="6" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag0601</Wait>
+    <Wait>Flag0602</Wait>
+    <Wait>Flag0603</Wait>
+    <Wait>Flag0604</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 7" Sequence="7" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag0701</Wait>
+    <Wait>Flag0702</Wait>
+    <Wait>Flag0703</Wait>
+    <Wait>Flag0704</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 8" Sequence="8" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag0801</Wait>
+    <Wait>Flag0802</Wait>
+    <Wait>Flag0803</Wait>
+    <Wait>Flag0804</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 9" Sequence="9" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag0901</Wait>
+    <Wait>Flag0902</Wait>
+    <Wait>Flag0903</Wait>
+    <Wait>Flag0904</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 10" Sequence="10" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1001</Wait>
+    <Wait>Flag1002</Wait>
+    <Wait>Flag1003</Wait>
+    <Wait>Flag1004</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 11" Sequence="11" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1101</Wait>
+    <Wait>Flag1102</Wait>
+    <Wait>Flag1103</Wait>
+    <Wait>Flag1104</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 12" Sequence="12" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1201</Wait>
+    <Wait>Flag1202</Wait>
+    <Wait>Flag1203</Wait>
+    <Wait>Flag1204</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 13" Sequence="13" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1301</Wait>
+    <Wait>Flag1302</Wait>
+    <Wait>Flag1303</Wait>
+    <Wait>Flag1304</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 14" Sequence="14" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1401</Wait>
+    <Wait>Flag1402</Wait>
+    <Wait>Flag1403</Wait>
+    <Wait>Flag1404</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 15" Sequence="15" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1501</Wait>
+    <Wait>Flag1502</Wait>
+    <Wait>Flag1503</Wait>
+    <Wait>Flag1504</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 16" Sequence="16" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1601</Wait>
+    <Wait>Flag1602</Wait>
+    <Wait>Flag1603</Wait>
+    <Wait>Flag1604</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 17" Sequence="17" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1701</Wait>
+    <Wait>Flag1702</Wait>
+    <Wait>Flag1703</Wait>
+    <Wait>Flag1704</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 18" Sequence="18" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1801</Wait>
+    <Wait>Flag1802</Wait>
+    <Wait>Flag1803</Wait>
+    <Wait>Flag1804</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 19" Sequence="19" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag1901</Wait>
+    <Wait>Flag1902</Wait>
+    <Wait>Flag1903</Wait>
+    <Wait>Flag1904</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 20" Sequence="20" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag2001</Wait>
+    <Wait>Flag2002</Wait>
+    <Wait>Flag2003</Wait>
+    <Wait>Flag2004</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 21" Sequence="21" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag2101</Wait>
+    <Wait>Flag2102</Wait>
+    <Wait>Flag2103</Wait>
+    <Wait>Flag2104</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 22" Sequence="22" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag2201</Wait>
+    <Wait>Flag2202</Wait>
+    <Wait>Flag2203</Wait>
+    <Wait>Flag2204</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 23" Sequence="23" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag2301</Wait>
+    <Wait>Flag2302</Wait>
+    <Wait>Flag2303</Wait>
+    <Wait>Flag2304</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 24" Sequence="24" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag2401</Wait>
+    <Wait>Flag2402</Wait>
+    <Wait>Flag2403</Wait>
+    <Wait>Flag2404</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 25" Sequence="25" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag2501</Wait>
+    <Wait>Flag2502</Wait>
+    <Wait>Flag2503</Wait>
+    <Wait>Flag2504</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 26" Sequence="26" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag2601</Wait>
+    <Wait>Flag2602</Wait>
+    <Wait>Flag2603</Wait>
+    <Wait>Flag2604</Wait>
+  </RECORD>
+  <RECORD Name="Troop Flags 27" Sequence="27" Type="%TYPE_BASE" FLAGS="0" Process="%TroopFlagsProcess" Directory="\Troop\">
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>8</Space>
+    <Space>0</Space>
+    <Wait>#6</Wait>
+    <Wait>Flag2701</Wait>
+    <Wait>Flag2702</Wait>
+    <Wait>Flag2703</Wait>
+    <Wait>Flag2704</Wait>
+  </RECORD>
+</root>

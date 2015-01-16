@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <RECORD Name="城" Sequence="0" SoundTrack="6" Floor="SHAPE\BG\FLOOR00.TGA">
+    <Foreground>BG\FG00A.SHP</Foreground>
+    <Foreground>BG\FG00B.SHP</Foreground>
+    <Midground>BG\MG00A.SHP</Midground>
+    <Midground>BG\MG00B.SHP</Midground>
+    <Background>BG\BG00A.SHP</Background>
+    <Background>BG\BG00B.SHP</Background>
+  </RECORD>
+  <RECORD Name="城" Sequence="1" SoundTrack="5" Floor="SHAPE\BG\FLOOR01.TGA">
+    <Foreground>BG\FG01A.SHP</Foreground>
+    <Foreground>BG\FG01B.SHP</Foreground>
+    <Midground>BG\MG01A.SHP</Midground>
+    <Midground>BG\MG01B.SHP</Midground>
+    <Background>BG\BG01A.SHP</Background>
+    <Background>BG\BG01B.SHP</Background>
+  </RECORD>
+  <RECORD Name="城" Sequence="2" SoundTrack="4" Floor="SHAPE\BG\FLOOR02.TGA">
+    <Foreground>BG\FG02A.SHP</Foreground>
+    <Foreground>BG\FG02B.SHP</Foreground>
+    <Midground>BG\MG02A.SHP</Midground>
+    <Midground>BG\MG02B.SHP</Midground>
+    <Background>BG\BG02A.SHP</Background>
+    <Background>BG\BG02B.SHP</Background>
+  </RECORD>
+  <RECORD Name="船上" Sequence="3" SoundTrack="4" Floor="SHAPE\BG\FLOOR03.TGA">
+    <Foreground>BG\FG03A.SHP</Foreground>
+    <Foreground>BG\FG03B.SHP</Foreground>
+    <Midground>BG\MG03A.SHP</Midground>
+    <Midground>BG\MG03B.SHP</Midground>
+    <Background>BG\BG03A.SHP</Background>
+    <Background>BG\BG03B.SHP</Background>
+  </RECORD>
+  <RECORD Name="草原" Sequence="4" SoundTrack="6" Floor="SHAPE\BG\FLOOR04.TGA">
+    <Foreground>BG\FG04A.SHP</Foreground>
+    <Foreground>BG\FG04B.SHP</Foreground>
+    <Midground>BG\MG04A.SHP</Midground>
+    <Midground>BG\MG04B.SHP</Midground>
+    <Background>BG\BG04A.SHP</Background>
+    <Background>BG\BG04B.SHP</Background>
+  </RECORD>
+  <RECORD Name="平原" Sequence="5" SoundTrack="5" Floor="SHAPE\BG\FLOOR05.TGA">
+    <Foreground>BG\FG05A.SHP</Foreground>
+    <Foreground>BG\FG05B.SHP</Foreground>
+    <Midground>BG\MG05A.SHP</Midground>
+    <Midground>BG\MG05B.SHP</Midground>
+    <Background>BG\BG05A.SHP</Background>
+    <Background>BG\BG05B.SHP</Background>
+  </RECORD>
+  <RECORD Name="山地" Sequence="6" SoundTrack="4" Floor="SHAPE\BG\FLOOR06.TGA">
+    <Foreground>BG\FG06A.SHP</Foreground>
+    <Foreground>BG\FG06B.SHP</Foreground>
+    <Midground>BG\MG06A.SHP</Midground>
+    <Midground>BG\MG06B.SHP</Midground>
+    <Background>BG\BG06A.SHP</Background>
+    <Background>BG\BG06B.SHP</Background>
+  </RECORD>
+  <RECORD Name="森林" Sequence="7" SoundTrack="6" Floor="SHAPE\BG\FLOOR07.TGA">
+    <Foreground>BG\FG07A.SHP</Foreground>
+    <Foreground>BG\FG07B.SHP</Foreground>
+    <Midground>BG\MG07A.SHP</Midground>
+    <Midground>BG\MG07B.SHP</Midground>
+    <Background>BG\BG07A.SHP</Background>
+    <Background>BG\BG07B.SHP</Background>
+  </RECORD>
+  <RECORD Name="雪原" Sequence="8" SoundTrack="6" Floor="SHAPE\BG\FLOOR08.TGA">
+    <Foreground>BG\FG08A.SHP</Foreground>
+    <Foreground>BG\FG08B.SHP</Foreground>
+    <Midground>BG\MG08A.SHP</Midground>
+    <Midground>BG\MG08B.SHP</Midground>
+    <Background>BG\BG08A.SHP</Background>
+    <Background>BG\BG08B.SHP</Background>
+  </RECORD>
+  <RECORD Name="沙漠" Sequence="9" SoundTrack="5" Floor="SHAPE\BG\FLOOR09.TGA">
+    <Foreground>BG\FG09A.SHP</Foreground>
+    <Foreground>BG\FG09B.SHP</Foreground>
+    <Midground>BG\MG09A.SHP</Midground>
+    <Midground>BG\MG09B.SHP</Midground>
+    <Background>BG\BG09A.SHP</Background>
+    <Background>BG\BG09B.SHP</Background>
+  </RECORD>
+  <RECORD Name="关卡" Sequence="10" SoundTrack="5" Floor="SHAPE\BG\FLOOR10.TGA">
+    <Foreground>BG\FG10A.SHP</Foreground>
+    <Foreground>BG\FG10B.SHP</Foreground>
+    <Midground>BG\MG10A.SHP</Midground>
+    <Midground>BG\MG10B.SHP</Midground>
+    <Background>BG\BG10A.SHP</Background>
+    <Background>BG\BG10B.SHP</Background>
+  </RECORD>
+  <RECORD Name="长城" Sequence="11" SoundTrack="4" Floor="SHAPE\BG\FLOOR11.TGA">
+    <Foreground>BG\FG11A.SHP</Foreground>
+    <Foreground>BG\FG11B.SHP</Foreground>
+    <Midground>BG\MG11A.SHP</Midground>
+    <Midground>BG\MG11B.SHP</Midground>
+    <Background>BG\BG11A.SHP</Background>
+    <Background>BG\BG11B.SHP</Background>
+  </RECORD>
+</root>

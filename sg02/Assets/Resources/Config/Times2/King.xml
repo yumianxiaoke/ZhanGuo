@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <RECORD NAME="曹操" FLAGNUM="5" SELECT="8" Type="1" />
+  <RECORD NAME="刘备" FLAGNUM="1" SELECT="8" Type="2" />
+  <RECORD NAME="孙坚" FLAGNUM="17" SELECT="8" Type="1" />
+  <RECORD NAME="董卓" FLAGNUM="4" SELECT="7" Type="0" />
+  <RECORD NAME="袁绍" FLAGNUM="11" SELECT="7" Type="1" />
+  <RECORD NAME="袁术" FLAGNUM="12" SELECT="7" Type="1" />
+  <RECORD NAME="公孙瓒" FLAGNUM="6" SELECT="7" Type="2" />
+  <RECORD NAME="韩馥" FLAGNUM="13" SELECT="9" Type="2" />
+  <RECORD NAME="孔融" FLAGNUM="7" SELECT="9" Type="3" />
+  <RECORD NAME="乔瑁" FLAGNUM="15" SELECT="9" Type="3" />
+  <RECORD NAME="马腾" FLAGNUM="14" SELECT="7" Type="2" />
+  <RECORD NAME="陶谦" FLAGNUM="19" SELECT="9" Type="3" />
+  <RECORD NAME="孔岫" FLAGNUM="8" SELECT="9" Type="4" />
+  <RECORD NAME="刘表" FLAGNUM="2" SELECT="9" Type="2" />
+  <RECORD NAME="刘繇" FLAGNUM="10" SELECT="9" Type="2" />
+  <RECORD NAME="严白虎" FLAGNUM="25" SELECT="9" Type="2" />
+  <RECORD NAME="王朗" FLAGNUM="24" SELECT="9" Type="2" />
+  <RECORD NAME="刘焉" FLAGNUM="3" SELECT="9" Type="2" />
+  <RECORD NAME="盗贼" FLAGNUM="0" SELECT="0" Type="4" />
+</root>
