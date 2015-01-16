@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <RECORD NAME="曹操" FLAGNUM="5" SELECT="8" Type="1" />
+  <RECORD NAME="刘备" FLAGNUM="1" SELECT="8" Type="1" />
+  <RECORD NAME="孙权" FLAGNUM="17" SELECT="8" Type="1" />
+  <RECORD NAME="马腾" FLAGNUM="14" SELECT="7" Type="2" />
+  <RECORD NAME="孟获" FLAGNUM="21" SELECT="7" Type="2" />
+  <RECORD NAME="刘璋" FLAGNUM="3" SELECT="9" Type="3" />
+  <RECORD NAME="张鲁" FLAGNUM="9" SELECT="9" Type="3" />
+  <RECORD NAME="金旋" FLAGNUM="22" SELECT="9" Type="3" />
+  <RECORD NAME="盗贼" FLAGNUM="0" SELECT="0" Type="4" />
+</root>

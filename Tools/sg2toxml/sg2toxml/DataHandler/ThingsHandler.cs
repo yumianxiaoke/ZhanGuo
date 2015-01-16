@@ -11,25 +11,14 @@ using System.Runtime.InteropServices;
 
 namespace sg2toxml
 {
-    public class ThingsToXML
+    public class ThingsHandler
     {
         private int sequenceNum = 11;
-        private int[, ] sequenceRange = new int[, ]{
-            {51, 54},//军队
-            {1, 42},//旗子
-            {100, 172},//士兵
-            {180, 195},//士兵死亡后的马
-            {500, 503},//远程武器
-            {600, 659},//武将身体(已)
-            {800, 859},//武将身体(敌)
-            {700, 779},//武器
-            {900, 917},//马
-            {400, 404},//场景
-            {10003, 51001}//武将技
-        };
+        private int[, ] sequenceRange = new int[11, 2];
 
-        //private XmlDocument xml;
         private ExcelHelper.ExcelHelper excel;
+
+        private bool isFromINI = false;
 
         private string content;
 
@@ -60,13 +49,13 @@ namespace sg2toxml
         [DllImport("Kernel32.dll")]
         static extern bool FreeConsole();
 
-        public void ToExcel(byte[] bytes, int[, ] sequenceRange, string saveFileName)
+        public void ToExcel(string content, int[, ] sequenceRange, string saveFileName)
         {
             AllocConsole();
 
             this.sequenceRange = sequenceRange;
 
-            content = ToSimplifiedHelper.ToSimplified(System.Text.Encoding.UTF8.GetString(bytes));
+            this.content = content;
 
             //Excel
             string filepath = Path.GetDirectoryName(saveFileName) + "\\" + Path.GetFileNameWithoutExtension(saveFileName) + ".xlsx";
@@ -77,19 +66,9 @@ namespace sg2toxml
             ObjectsHandler();
 
             excel.SaveAsFile();
-            ExcelHelper.ExcelHelper.OpenExcel(filepath);
 
-            FreeConsole();
-
-            //XML
-//             xml = new XmlDocument();
-//             xml.AppendChild(xml.CreateXmlDeclaration("1.0", "utf-8", ""));
-//             XmlElement root = xml.CreateElement("root");
-//             xml.AppendChild(root);
-//             HandlerSolider(root);
-// 
-//             xml.Save(saveFileName);
-//             xml = null;
+            isFromINI = true;
+            ToXML(filepath);
         }
 
         /// <summary>
@@ -178,36 +157,97 @@ namespace sg2toxml
             }
         }
 
-        //添加士兵数据结点
-//         private void HandlerSolider(XmlElement root)
-//         {
-//             XmlElement soldier = xml.CreateElement(sheet3);
-//             root.AppendChild(soldier);
-// 
-//             List<Dictionary<string, string>> data = INIFileReader.ReadSection("OBJECT", content);
-//             for (int i = 0; i < data.Count; i++)
-//             {
-//                 Dictionary<string, string> dic = data[i];
-//                 string SequenceName;
-//                 if (dic.TryGetValue("Sequence", out SequenceName) == false)
-//                     continue;
-//                 if (string.IsNullOrEmpty(SequenceName))
-//                     continue;
-// 
-//                 int Sequence = Convert.ToInt32(SequenceName);
-//                 if (Sequence >= seqStart3 && Sequence <= seqEnd3)
-//                 {
-//                     XmlElement node = xml.CreateElement("RECORD");
-//                     IEnumerator<string> enumerator = dic.Keys.GetEnumerator();
-//                     while (enumerator.MoveNext())
-//                     {
-//                         string key = enumerator.Current;
-//                         node.SetAttribute(key, dic[key]);
-//                     }
-//                     soldier.AppendChild(node);
-//                 }
-//             }
-//         }
+        public void ToXML(string excelPath)
+        {
+            if (!isFromINI)
+            {
+                AllocConsole();
+            }
+
+            excel = new ExcelHelper.ExcelHelper(excelPath);
+            for (int i = 1; i <= excel.WorkSheetCount; i++)
+            {
+                excel.SelectCurrentSheet(i);
+
+                XmlDocument xml = new XmlDocument();
+                xml.AppendChild(xml.CreateXmlDeclaration("1.0", "utf-8", ""));
+                XmlElement root = xml.CreateElement("root");
+                xml.AppendChild(root);
+
+                if (excel.GetSheetName() == sheetSystem || excel.GetSheetName() == sheetDefine)
+                {
+                    for (int row = 1; row <= excel.RowCount; row++)
+                    {
+                        string key = excel.GetCells(row, 1);
+                        string value = excel.GetCells(row, 2);
+                        if (string.IsNullOrEmpty(key))
+                            continue;
+                        XmlElement node = xml.CreateElement(key);
+                        node.InnerText = value;
+                        root.AppendChild(node);
+                    }
+                }
+                else
+                {
+                    List<string> head = new List<string>();
+                    for (int col = 1; col <= excel.ColumnCount; col++)
+                    {
+                        string text = excel.GetCells(1, col);
+                        if (string.IsNullOrEmpty(text))
+                            break;
+                        head.Add(text);
+                    }
+                    
+                    for (int row = 2; row <= excel.RowCount; row++)
+                    {
+                        XmlElement node = xml.CreateElement("RECORD");
+                        for (int col = 1; col <= head.Count; col++)
+                        {
+                            if (!string.IsNullOrEmpty(head[col - 1]))
+                            {
+                                string text = (string)excel.GetCells(row, col);
+                                if (string.IsNullOrEmpty(text))
+                                {
+                                    node.SetAttribute(head[col - 1], "");
+                                }
+                                else if (text.IndexOf(',') < 0)
+                                {
+                                    text = text.Trim();
+                                    node.SetAttribute(head[col - 1], text);
+                                }
+                                else
+                                {
+                                    string[] split = text.Split(',');
+                                    for (int idx = 0; idx < split.Length; idx++)
+                                    {
+                                        XmlElement childnode = xml.CreateElement(head[col - 1]);
+                                        split[idx] = split[idx].Trim();
+                                        childnode.InnerText = split[idx];
+                                        node.AppendChild(childnode);
+                                    }
+                                }
+                            }
+                        }
+                        root.AppendChild(node);
+                    }
+
+                }
+
+                string saveFileName = Path.GetDirectoryName(excelPath) + "/" + excel.GetSheetName() + ".xml";
+                xml.Save(saveFileName);
+
+                Console.WriteLine("Row:" + excel.RowCount.ToString() + ", Column:" + excel.ColumnCount.ToString());
+                Console.WriteLine("输出:" + saveFileName);
+            }
+            
+            if (isFromINI)
+            {
+                ExcelHelper.ExcelHelper.OpenExcel(excelPath);
+            }
+
+            excel.Quit();
+            FreeConsole();
+        }
     }
 
 
