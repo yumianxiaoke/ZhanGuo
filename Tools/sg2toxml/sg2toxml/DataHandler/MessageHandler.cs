@@ -42,7 +42,53 @@ namespace sg2toxml
             excel.SaveAsFile();
 
             isFromINI = true;
-            ToXML(filepath);
+            ToData(filepath);
+        }
+
+        public void ToData(string excelPath)
+        {
+            if (!isFromINI)
+            {
+                AllocConsole();
+            }
+
+            excel = new ExcelHelper.ExcelHelper(excelPath);
+
+            string saveFileName = Path.GetDirectoryName(excelPath) + "/Data" + Path.GetFileNameWithoutExtension(excelPath) + ".lua";
+            FileStream fs = File.Create(saveFileName);
+            StreamWriter sw = new StreamWriter(fs);
+
+            sw.WriteLine("module(..., package.seeall);");
+            sw.WriteLine();
+
+            sw.WriteLine(excel.GetSheetName() + " = {");
+
+            for (int row = 1; row <= excel.RowCount; row++)
+            {
+                string key = excel.GetCells(row, 1);
+                string value = excel.GetCells(row, 2);
+                if (string.IsNullOrEmpty(key))
+                    continue;
+
+                sw.WriteLine("\t" + key + " = [[" + value + "]],");
+            }
+
+            sw.WriteLine("}");
+
+            sw.Flush();
+            sw.Close();
+            fs.Close();
+
+            Console.WriteLine("Row:" + excel.RowCount.ToString() + ", Column:" + excel.ColumnCount.ToString());
+            Console.WriteLine("输出:" + saveFileName);
+
+            if (isFromINI)
+            {
+                ExcelHelper.ExcelHelper.OpenExcel(excelPath);
+            }
+
+            excel.Quit();
+            FreeConsole();
         }
 
         public void ToXML(string excelPath)

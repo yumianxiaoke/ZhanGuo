@@ -39,7 +39,7 @@
             this.ButtonToXML.Name = "ButtonToXML";
             this.ButtonToXML.Size = new System.Drawing.Size(148, 54);
             this.ButtonToXML.TabIndex = 1;
-            this.ButtonToXML.Text = "INI转XML";
+            this.ButtonToXML.Text = "INI导出数据";
             this.ButtonToXML.UseVisualStyleBackColor = true;
             this.ButtonToXML.Click += new System.EventHandler(this.INIToXML_Click);
             // 
@@ -49,7 +49,7 @@
             this.ExcelToXML.Name = "ExcelToXML";
             this.ExcelToXML.Size = new System.Drawing.Size(148, 54);
             this.ExcelToXML.TabIndex = 2;
-            this.ExcelToXML.Text = "Excel转XML";
+            this.ExcelToXML.Text = "Excel导出数据";
             this.ExcelToXML.UseVisualStyleBackColor = true;
             this.ExcelToXML.Click += new System.EventHandler(this.ExcelToXML_Click);
             // 

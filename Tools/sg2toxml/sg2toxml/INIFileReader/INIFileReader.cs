@@ -66,6 +66,9 @@ namespace sg2toxml
 
             key = split[0].Trim();
             value = split[1].Trim();
+
+            if (key.ToUpper() == "SEQUENCE")
+                key = "Sequence";
         }
 
         /// <summary>

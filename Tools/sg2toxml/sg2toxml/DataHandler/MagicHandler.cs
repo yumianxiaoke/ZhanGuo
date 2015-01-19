@@ -48,7 +48,78 @@ namespace sg2toxml
             excel.SaveAsFile();
 
             isFromINI = true;
-            ToXML(filepath);
+            //ToXML(filepath);
+            ToData(filepath);
+        }
+
+        public void ToData(string excelPath)
+        {
+            if (!isFromINI)
+            {
+                AllocConsole();
+            }
+
+            string saveFileName = Path.GetDirectoryName(excelPath) + "/Data" + Path.GetFileNameWithoutExtension(excelPath) + ".lua";
+            FileStream fs = File.Create(saveFileName);
+            StreamWriter sw = new StreamWriter(fs);
+
+            sw.WriteLine("module(..., package.seeall);");
+            sw.WriteLine();
+
+            excel = new ExcelHelper.ExcelHelper(excelPath);
+            for (int i = 1; i <= excel.WorkSheetCount; i++)
+            {
+                excel.SelectCurrentSheet(i);
+
+                sw.WriteLine();
+                sw.WriteLine(excel.GetSheetName() + " = {");
+
+                List<string> head = new List<string>();
+                for (int col = 1; col <= excel.ColumnCount; col++)
+                {
+                    string text = excel.GetCells(1, col);
+                    if (string.IsNullOrEmpty(text))
+                        break;
+                    head.Add(text);
+                }
+
+                for (int row = 2; row <= excel.RowCount; row++)
+                {
+                    string line = "\t{ ";
+                    for (int col = 1; col <= head.Count; col++)
+                    {
+                        string text = (string)excel.GetCells(row, col);
+                        if (string.IsNullOrEmpty(text))
+                        {
+                            line += head[col - 1] + " = '', ";
+                        }
+                        else if (text.IndexOf(',') < 0)
+                        {
+                            text = text.Trim();
+                            line += head[col - 1] + " = [[" + text + "]], ";
+                        }
+                    }
+                    line += " },";
+                    sw.WriteLine(line);
+                }
+
+                sw.WriteLine("}");
+
+                Console.WriteLine("Row:" + excel.RowCount.ToString() + ", Column:" + excel.ColumnCount.ToString());
+                Console.WriteLine("输出:" + excel.GetSheetName());
+            }
+
+            sw.Flush();
+            sw.Close();
+            fs.Close();
+
+            if (isFromINI)
+            {
+                ExcelHelper.ExcelHelper.OpenExcel(excelPath);
+            }
+
+            excel.Quit();
+            FreeConsole();
         }
 
         public void ToXML(string excelPath)
@@ -146,7 +217,7 @@ namespace sg2toxml
             {
                 Dictionary<string, string> dic = data[i];
                 string SequenceName;
-                if (dic.TryGetValue("SEQUENCE", out SequenceName) == false)
+                if (dic.TryGetValue("Sequence", out SequenceName) == false)
                     continue;
                 if (string.IsNullOrEmpty(SequenceName))
                     continue;
@@ -159,5 +230,7 @@ namespace sg2toxml
                 }
             }
         }
+
+
     }
 }
