@@ -10,6 +10,7 @@ function Initialize(viewPanel)
 
     m_view = InternalAffairsView
     m_view.Initialize(viewPanel)
+    m_view.InitView()
 
     m_menuItem = {}
     m_isMenuEnable = true

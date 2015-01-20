@@ -41,3 +41,21 @@ function Initialize(viewPanel)
     m_confirmBox:SetActive(false)
    -- m_menuListRoot.transform.localPosition = Vector3.New(0, 110, 0)
 end
+
+function InitView()
+
+    local KingID = GamePublic.Instance.CurrentKing
+    local KingInfo = GamePublic.Instance.DataManager:GetKingInfo(KingID)
+   
+    Utility.SetText(m_TimeStr,GamePublic.Instance.CurrentYear..XMLManager.Language:GetInfoByName("Year").Content)
+    Utility.SetText(m_KingName,KingInfo.Name)
+    Utility.SetText(m_CityInt,KingInfo.totalCitys)
+    Utility.SetText(m_TollgateInt,KingInfo.totalLevel)
+    Utility.SetText(m_GeneralInt,KingInfo.Generals.Count)
+    Utility.SetText(m_SoldierInt,KingInfo.totalSoldier)
+    Utility.SetText(m_MoneyInt,KingInfo.totalMoney)
+    Utility.SetText(m_PopulationInt,KingInfo.totalPopulation)
+
+
+
+end
