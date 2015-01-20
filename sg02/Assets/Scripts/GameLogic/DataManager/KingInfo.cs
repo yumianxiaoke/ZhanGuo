@@ -19,6 +19,75 @@ public class KingInfo
     private List<int> m_prisons;
     public List<int> Prisons { get { return m_prisons; } }
 
+    public int totalCitys {
+        get
+        {               
+            int num_ = 0;
+            for (int i = 0; i < Citys.Count; i++)
+            {  
+                CityInfo cityinfo = GamePublic.Instance.DataManager.GetCityInfo(Citys[i]);
+                if (cityinfo.Level==3) 
+                    num_++; 
+            }
+            return num_;
+        }
+    }
+
+    public int totalLevel
+    {
+        get
+        {
+            int num_ = 0;
+            for (int i = 0; i < Citys.Count; i++)
+            {
+                CityInfo cityinfo = GamePublic.Instance.DataManager.GetCityInfo(Citys[i]);
+                if (cityinfo.Level == 1)
+                    num_++;
+            }
+            return num_;
+        }
+    }
+    public int totalMoney
+    {
+        get
+        {
+            int num_ = 0;
+            for (int i = 0; i < Citys.Count; i++)
+            {
+                CityInfo cityinfo = GamePublic.Instance.DataManager.GetCityInfo(Citys[i]);
+                num_ += cityinfo.Money;
+            }
+            return num_;
+        }
+    }
+    public int totalPopulation
+    {
+        get
+        {
+            int num_ = 0;
+            for (int i = 0; i < Citys.Count; i++)
+            {
+                CityInfo cityinfo = GamePublic.Instance.DataManager.GetCityInfo(Citys[i]);
+                num_ += cityinfo.Population;
+            }
+            return num_;
+        }
+    }
+
+    public int totalSoldier
+    {
+        get
+        {
+            int num_ = 0;
+            for (int i = 0; i < Citys.Count; i++)
+            {
+                GeneralInfo info = GamePublic.Instance.DataManager.GetGeneralInfo(Generals[i]);
+                num_ += info.SoldierCur;
+            }
+            return num_;
+        }
+    }
+
     public KingInfo()
     {
     }
