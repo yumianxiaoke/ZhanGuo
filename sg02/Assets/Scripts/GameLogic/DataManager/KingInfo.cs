@@ -32,7 +32,6 @@ public class KingInfo
             return num_;
         }
     }
-
     public int totalLevel
     {
         get
@@ -73,7 +72,6 @@ public class KingInfo
             return num_;
         }
     }
-
     public int totalSoldier
     {
         get
@@ -87,7 +85,6 @@ public class KingInfo
             return num_;
         }
     }
-
     public KingInfo()
     {
     }

@@ -67,6 +67,11 @@ public class DataManager
             int id = (int)enumerator.Current;
             CityInfo info = new CityInfo(id);
             Citys.Add(id, info);
+
+            if (info.KingID > 0)
+            {
+                Kings[info.KingID].Citys.Add(id);
+            }
         }
     }
 
@@ -102,6 +107,15 @@ public class DataManager
             int id = (int)enumerator.Current;
             GeneralInfo info = new GeneralInfo(id);
             Generals.Add(id, info);
+
+            if (info.KingID > 0)
+            {
+                Kings[info.KingID].Generals.Add(id);
+            }
+            if (info.CityID > 0 && Citys[info.CityID].KingID == info.KingID)
+            {
+                Citys[info.CityID].Generals.Add(id);
+            }
         }
     }
 
