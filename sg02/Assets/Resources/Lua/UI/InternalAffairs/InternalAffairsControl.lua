@@ -14,7 +14,7 @@ function Initialize(viewPanel)
     m_menuItem = {}
     m_isMenuEnable = true
 
-    InitMenuList()
+    --InitMenuList()
     InitButtonEvent()
 
     SetKingFace()
@@ -32,6 +32,7 @@ function UnInitialize()
 
 end
 
+--[[
 function InitMenuList()
 
     local i = 0
@@ -53,6 +54,7 @@ function InitMenuList()
     end
 
 end
+]]--
 
 --初始化按钮事件
 function InitButtonEvent()
