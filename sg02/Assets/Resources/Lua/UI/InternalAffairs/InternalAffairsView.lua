@@ -56,6 +56,12 @@ function InitView()
     Utility.SetText(m_MoneyInt,KingInfo.totalMoney)
     Utility.SetText(m_PopulationInt,KingInfo.totalPopulation)
 
-
+    local king = GamePublic.Instance.DataManager:GetKingInfo(GamePublic.Instance.CurrentKing)
+    local general = GamePublic.Instance.DataManager:GetGeneralInfo(king.GeneralID)
+    general:SetFace(m_imageFace)
 
 end
+
+
+
+--end
