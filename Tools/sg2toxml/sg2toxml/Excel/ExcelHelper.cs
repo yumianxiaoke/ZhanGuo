@@ -178,7 +178,7 @@ namespace ExcelHelper
 
         public void AddSheet(string name)
         {
-            workSheet = (Excel.Worksheet)workBook.Sheets.Add();
+            workSheet = (Excel.Worksheet)workBook.Sheets.Add(Type.Missing, workBook.Sheets.get_Item(WorkSheetCount), Type.Missing, Type.Missing);
 
             SetSheetName(name);
         }

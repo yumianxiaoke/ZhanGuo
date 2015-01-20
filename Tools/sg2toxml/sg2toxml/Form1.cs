@@ -165,25 +165,25 @@ namespace sg2toxml
                     case "THINGS":
                         {
                             ThingsHandler things = new ThingsHandler();
-                            things.ToXML(path);
+                            things.ToData(path);
                         }
                         break;
                     case "MAGIC":
                         {
                             MagicHandler magic = new MagicHandler();
-                            magic.ToXML(path);
+                            magic.ToData(path);
                         }
                         break;
                     case "MESSAGE":
                         {
                             MessageHandler message = new MessageHandler();
-                            message.ToXML(path);
+                            message.ToData(path);
                         }
                         break;
                     case "SANGO":
                         {
                             SanguoINIHandler sango = new SanguoINIHandler();
-                            sango.ToXML(path);
+                            sango.ToData(path);
                         }
                         break;
                     default:
@@ -191,7 +191,7 @@ namespace sg2toxml
                             if (fileName.ToUpper().StartsWith("TIMES"))
                             {
                                 TimesHandler times = new TimesHandler();
-                                times.ToXML(path);
+                                times.ToData(path);
                             }
                             else
                                 MessageBox.Show("文件类型未定义");
@@ -204,6 +204,7 @@ namespace sg2toxml
         private void KillProcess_Click(object sender, EventArgs e)
         {
             ExcelHelper.ExcelHelper.KillAllExcelProcess();
+            MessageBox.Show("OK");
         }
     }
 }
