@@ -9,6 +9,9 @@ m_buttonConfirmCancel = nil
 
 function Initialize(viewPanel)
 
+    m_Left = viewPanel.transform:FindChild("Left Anchor").gameObject
+    m_Right = viewPanel.transform:FindChild("Right Anchor").gameObject
+
     m_menuListRoot = viewPanel.transform:FindChild("Left Anchor/MenuList").gameObject
 
     m_btAutonomyDo = viewPanel.transform:FindChild("Left Anchor/MenuList/AutonomyDo").gameObject
