@@ -57,9 +57,19 @@ end
 --初始化按钮事件
 function InitButtonEvent()
 
+    InputManager.Instance:AddOnClickEvent(m_view.m_btInformation,btInformation)
     InputManager.Instance:AddOnClickEvent(m_view.m_btOver,btOver)
     InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmOK, OverOnButtonOK)
     InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmCancel, OverOnButtonCancel)
+
+end
+
+--点击武将信息
+function btInformation()
+
+    m_view.m_Left:SetActive(false)
+    m_view.m_Right:SetActive(false)
+    UIManager.Instance:ShowView(UINamesConfig.SelectGeneralData)
 
 end
 
@@ -88,6 +98,7 @@ function OverOnButtonCancel()
 end
 
 
+
 --菜单项选择响应
 function OnMenuItemClick(go)
 
@@ -100,5 +111,5 @@ function OnMenuItemClick(go)
         m_isMenuEnable = false
         m_view.m_confirmBox:SetActive(true)
     end
-    
+
 end
