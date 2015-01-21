@@ -5,39 +5,39 @@ using System.Collections.Generic;
 public class GeneralInfo 
 {
     public int State { get; set; } //-1:不登场 0 :在野 1:登庸
-    public int ID { get; set; }
-    public string Name { get; set; }
-    public string Face { get; set; }
-    public int KingID { get; set; }
-    public int CityID { get; set; }
-    public int PrisonerID { get; set; }
-    public int Loyalty { get; set; }
-    public int[] Skill { get; set; }
-    public int[] SkillLevel { get; set; }
-    public int[] WiseSkill { get; set; }
-    public int[] WiseSkillLevel { get; set; }
-    public int Title { get; set; }
-    public int Strength { get; set; }
-    public int Intellect { get; set; }
-    public int Experience { get; set; }
-    public int Level { get; set; }
-    public int BaseHP { get; set; }
-    public int CurHP { get; set; }
-    public int BaseMP { get; set; }
-    public int CurMP { get; set; }
-    public int SoldierMax { get; set; }
-    public int SoldierCur { get; set; }
-    public int KnightMax { get; set; }
-    public int KnightCur { get; set; }
-    public int ForceArray { get; set; }
-    public int UseForce { get; set; }
-    public int BattleArray { get; set; }
-    public int UseBattle { get; set; }
-    public int Weapon { get; set; }
-    public int Horse { get; set; }
-    public int Thing { get; set; }
-    
-    public int Escape { get; set; }
+    public int ID { get; set; } //ID
+    public string Name { get; set; } //名字
+    public string Face { get; set; }//大头照档名
+    public int KingID { get; set; }//所属君主
+    public int CityID { get; set; }//所在城市
+    public int PrisonerID { get; set; }//俘虏ID
+    public int Loyalty { get; set; }//忠
+    public int[] Skill { get; set; }//技能列表ID int
+    public int[] SkillLevel { get; set; }//技能等级列表int
+    public int[] WiseSkill { get; set; }//军师技列表ID
+    public int[] WiseSkillLevel { get; set; }//军师技等级列表int
+    public int Title { get; set; }//官职
+    public int Strength { get; set; }//武力
+    public int Intellect { get; set; }//智力
+    public int Experience { get; set; }//经验
+    public int Level { get; set; }//等级
+    public int BaseHP { get; set; }//基础体力
+    public int CurHP { get; set; }//实际体力
+    public int BaseMP { get; set; }//基础技力
+    public int CurMP { get; set; }//实际技力
+    public int SoldierMax { get; set; }//总兵数
+    public int SoldierCur { get; set; }//实际兵数
+    public int KnightMax { get; set; }//最高士气
+    public int KnightCur { get; set; }//实际士气
+    public int ForceArray { get; set; }//可选兵种
+    public int UseForce { get; set; }//使用兵种
+    public int BattleArray { get; set; }//可选阵型
+    public int UseBattle { get; set; }//使用阵型
+    public int Weapon { get; set; }//武器
+    public int Horse { get; set; }//马
+    public int Thing { get; set; }//物品
+
+    public int Escape { get; set; }//逃亡几率
 
     public GeneralInfo()
     {
