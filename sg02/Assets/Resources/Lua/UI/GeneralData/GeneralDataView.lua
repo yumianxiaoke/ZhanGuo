@@ -43,3 +43,12 @@ function Initialize(viewPanel)
 
    m_togMilitarySkill = viewPanel.transform:FindChild("MilitarySkill_Anchor/MilitarySkill_Toggle").gameObject
 end
+
+
+function InitView(generalID)
+   
+   local general = GamePublic.Instance.DataManager:GetGeneralInfo(generalID)
+
+   
+
+end
