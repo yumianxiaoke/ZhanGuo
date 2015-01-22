@@ -152,12 +152,13 @@ namespace sg2toxml
             sw.Close();
             fs.Close();
 
+            excel.Quit();
+
             if (isFromINI)
             {
                 ExcelHelper.ExcelHelper.OpenExcel(excelPath);
             }
 
-            excel.Quit();
             FreeConsole();
         }
 
