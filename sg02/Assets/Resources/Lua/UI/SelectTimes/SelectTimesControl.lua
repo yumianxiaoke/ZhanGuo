@@ -37,7 +37,7 @@ function InitButtons()
 
         go.transform.localPosition = Vector3.New(0, GlobalConfig.FontButtonsVSpace * i)
 
-        m_tableTimes[go] = i
+        m_tableTimes[go] = i+1
         InputManager.Instance:AddOnClickEvent(go, OnButtonClick)
     end
 

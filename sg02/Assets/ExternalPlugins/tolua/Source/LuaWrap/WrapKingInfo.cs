@@ -24,6 +24,11 @@ public class WrapKingInfo
 		new LuaField("Citys", get_Citys, null),
 		new LuaField("Generals", get_Generals, null),
 		new LuaField("Prisons", get_Prisons, null),
+		new LuaField("totalCitys", get_totalCitys, null),
+		new LuaField("totalLevel", get_totalLevel, null),
+		new LuaField("totalMoney", get_totalMoney, null),
+		new LuaField("totalPopulation", get_totalPopulation, null),
+		new LuaField("totalSoldier", get_totalSoldier, null),
 	};
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -229,6 +234,126 @@ public class WrapKingInfo
 
 		KingInfo obj = (KingInfo)o;
 		LuaScriptMgr.PushObject(L, obj.Prisons);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_totalCitys(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name totalCitys");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index totalCitys on a nil value");
+			}
+		}
+
+		KingInfo obj = (KingInfo)o;
+		LuaScriptMgr.Push(L, obj.totalCitys);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_totalLevel(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name totalLevel");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index totalLevel on a nil value");
+			}
+		}
+
+		KingInfo obj = (KingInfo)o;
+		LuaScriptMgr.Push(L, obj.totalLevel);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_totalMoney(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name totalMoney");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index totalMoney on a nil value");
+			}
+		}
+
+		KingInfo obj = (KingInfo)o;
+		LuaScriptMgr.Push(L, obj.totalMoney);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_totalPopulation(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name totalPopulation");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index totalPopulation on a nil value");
+			}
+		}
+
+		KingInfo obj = (KingInfo)o;
+		LuaScriptMgr.Push(L, obj.totalPopulation);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_totalSoldier(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name totalSoldier");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index totalSoldier on a nil value");
+			}
+		}
+
+		KingInfo obj = (KingInfo)o;
+		LuaScriptMgr.Push(L, obj.totalSoldier);
 		return 1;
 	}
 

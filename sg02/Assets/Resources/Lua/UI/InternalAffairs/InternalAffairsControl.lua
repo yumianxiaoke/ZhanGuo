@@ -15,10 +15,7 @@ function Initialize(viewPanel)
     m_menuItem = {}
     m_isMenuEnable = true
 
-    --InitMenuList()
     InitButtonEvent()
-
-    SetKingFace()
 
 end
 
@@ -60,35 +57,48 @@ end
 --初始化按钮事件
 function InitButtonEvent()
 
-    InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmOK, OnButtonOK)
-    InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmCancel, OnButtonCancel)
+    InputManager.Instance:AddOnClickEvent(m_view.m_btInformation,btInformation)
+    InputManager.Instance:AddOnClickEvent(m_view.m_btOver,btOver)
+    InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmOK, OverOnButtonOK)
+    InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmCancel, OverOnButtonCancel)
+
+end
+
+--点击武将信息
+function btInformation()
+
+    m_view.m_Left:SetActive(false)
+    m_view.m_Right:SetActive(false)
+  --  UIManager.Instance:ShowView(UINamesConfig.SelectGeneralData)
+    UIManager.Instance:ShowView(UINamesConfig.GeneralData)
+
+end
+
+--点击内政终了
+function btOver()
+
+    m_menuListRoot = false
+    m_view.m_confirmBox:SetActive(true)
 
 end
 
 --确认内政终了
-function OnButtonOK()
+function OverOnButtonOK()
 
-    m_isMenuEnable = true
+    m_menuListRoot = true
     GamePublic.Instance.GameStatesManager:ChangeState(GamePublic.Instance.GameStatesManager.WorldMapState)
-
+    m_view.m_confirmBox:SetActive(false)
 end
 
 --取消
-function OnButtonCancel()
+function OverOnButtonCancel()
 
-    m_isMenuEnable = true
+    m_menuListRoot = true
     m_view.m_confirmBox:SetActive(false)
 
 end
 
---设置君主头像
-function SetKingFace()
 
-    local king = GamePublic.Instance.DataManager:GetKingInfo(GamePublic.Instance.CurrentKing)
-    local general = GamePublic.Instance.DataManager:GetGeneralInfo(king.GeneralID)
-    general:SetFace(m_view.m_imageFace)
-
-end
 
 --菜单项选择响应
 function OnMenuItemClick(go)
@@ -102,5 +112,5 @@ function OnMenuItemClick(go)
         m_isMenuEnable = false
         m_view.m_confirmBox:SetActive(true)
     end
-    
+
 end

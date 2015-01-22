@@ -9,6 +9,9 @@ m_buttonConfirmCancel = nil
 
 function Initialize(viewPanel)
 
+    m_Left = viewPanel.transform:FindChild("Left Anchor").gameObject
+    m_Right = viewPanel.transform:FindChild("Right Anchor").gameObject
+
     m_menuListRoot = viewPanel.transform:FindChild("Left Anchor/MenuList").gameObject
 
     m_btAutonomyDo = viewPanel.transform:FindChild("Left Anchor/MenuList/AutonomyDo").gameObject
@@ -56,6 +59,11 @@ function InitView()
     Utility.SetText(m_MoneyInt,KingInfo.totalMoney)
     Utility.SetText(m_PopulationInt,KingInfo.totalPopulation)
 
-
+    local king = GamePublic.Instance.DataManager:GetKingInfo(GamePublic.Instance.CurrentKing)
+    local general = GamePublic.Instance.DataManager:GetGeneralInfo(king.GeneralID)
+    general:SetFace(m_imageFace)
 
 end
+
+
+

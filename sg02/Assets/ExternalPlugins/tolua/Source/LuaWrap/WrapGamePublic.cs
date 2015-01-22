@@ -19,10 +19,7 @@ public class WrapGamePublic
 		new LuaField("SceneRoot", get_SceneRoot, null),
 		new LuaField("UIRoot", get_UIRoot, null),
 		new LuaField("LuaManager", get_LuaManager, null),
-		new LuaField("LuaFiles", get_LuaFiles, null),
 		new LuaField("DataManager", get_DataManager, null),
-		new LuaField("ButtonPool", get_ButtonPool, null),
-		new LuaField("TogglePool", get_TogglePool, null),
 		new LuaField("TimesList", get_TimesList, null),
 		new LuaField("CurrentTimes", get_CurrentTimes, set_CurrentTimes),
 		new LuaField("CurrentYear", get_CurrentYear, set_CurrentYear),
@@ -189,12 +186,6 @@ public class WrapGamePublic
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_LuaFiles(IntPtr L)
-	{
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_DataManager(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -215,18 +206,6 @@ public class WrapGamePublic
 
 		GamePublic obj = (GamePublic)o;
 		LuaScriptMgr.PushObject(L, obj.DataManager);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_ButtonPool(IntPtr L)
-	{
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_TogglePool(IntPtr L)
-	{
 		return 1;
 	}
 
