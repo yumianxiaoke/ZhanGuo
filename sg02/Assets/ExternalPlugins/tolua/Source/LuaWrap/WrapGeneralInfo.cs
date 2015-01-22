@@ -47,6 +47,8 @@ public class WrapGeneralInfo
 		new LuaField("Horse", get_Horse, set_Horse),
 		new LuaField("Thing", get_Thing, set_Thing),
 		new LuaField("Escape", get_Escape, set_Escape),
+		new LuaField("DPWin", get_DPWin, set_DPWin),
+		new LuaField("DPLose", get_DPLose, set_DPLose),
 	};
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -880,6 +882,54 @@ public class WrapGeneralInfo
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_DPWin(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name DPWin");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index DPWin on a nil value");
+			}
+		}
+
+		GeneralInfo obj = (GeneralInfo)o;
+		LuaScriptMgr.Push(L, obj.DPWin);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_DPLose(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name DPLose");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index DPLose on a nil value");
+			}
+		}
+
+		GeneralInfo obj = (GeneralInfo)o;
+		LuaScriptMgr.Push(L, obj.DPLose);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_State(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -1668,6 +1718,54 @@ public class WrapGeneralInfo
 
 		GeneralInfo obj = (GeneralInfo)o;
 		obj.Escape = (int)LuaScriptMgr.GetNumber(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_DPWin(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name DPWin");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index DPWin on a nil value");
+			}
+		}
+
+		GeneralInfo obj = (GeneralInfo)o;
+		obj.DPWin = (int)LuaScriptMgr.GetNumber(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_DPLose(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+
+		if (o == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name DPLose");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index DPLose on a nil value");
+			}
+		}
+
+		GeneralInfo obj = (GeneralInfo)o;
+		obj.DPLose = (int)LuaScriptMgr.GetNumber(L, 3);
 		return 0;
 	}
 

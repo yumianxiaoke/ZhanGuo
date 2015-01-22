@@ -87,7 +87,7 @@ public static class ToLua
 
     public static void Generate(params string[] param)
     {
-        Debugging.Log("Begin Generate lua Wrap for class {0}\r\n", className);
+        UnityEngine.Debug.Log("Begin Generate lua Wrap for class " + className);
         sb = new StringBuilder();                
         usingList.Add("System");
 
@@ -1658,7 +1658,7 @@ public static class ToLua
         }
         else
         {
-            Debugging.LogError("CreateParamTypes i am not defined it: " + a.Count);
+            Debug.LogError("CreateParamTypes i am not defined it: " + a.Count);
         }
     }
 
@@ -1905,7 +1905,7 @@ public static class ToLua
         }
         else
         {
-            Debugging.LogError("not defined type {0}", t);
+            Debug.LogError("not defined type {0}" + t);
         }
     }
 
