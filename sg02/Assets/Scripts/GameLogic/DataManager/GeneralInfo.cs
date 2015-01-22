@@ -39,6 +39,12 @@ public class GeneralInfo
 
     public int Escape { get; set; }//逃亡几率
 
+    public int DPWin { get; set; }//胜利次数
+
+    public int DPLose { get; set; }//失败次数
+
+
+
     public GeneralInfo()
     {
 
@@ -105,6 +111,9 @@ public class GeneralInfo
         Horse = DataManager.FindThingsID(data.Horse);
         Thing = DataManager.FindThingsID(data.Thing);
         Escape = 0;
+
+        DPWin = 1;
+        DPLose = 1;
     }
 
     private void GetSkills(string[] skillsName, int[] skillsLevel)
