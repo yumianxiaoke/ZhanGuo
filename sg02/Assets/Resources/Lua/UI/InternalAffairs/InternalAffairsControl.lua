@@ -69,7 +69,8 @@ function btInformation()
 
     m_view.m_Left:SetActive(false)
     m_view.m_Right:SetActive(false)
-    UIManager.Instance:ShowView(UINamesConfig.SelectGeneralData)
+  --  UIManager.Instance:ShowView(UINamesConfig.SelectGeneralData)
+    UIManager.Instance:ShowView(UINamesConfig.GeneralData)
 
 end
 

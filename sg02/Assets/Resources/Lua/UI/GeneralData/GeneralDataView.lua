@@ -17,15 +17,16 @@ function Initialize(viewPanel)
    m_IntInt = viewPanel.transform:FindChild("General_Anchor/IntInt").gameObject
    m_MorInt = viewPanel.transform:FindChild("General_Anchor/MorInt").gameObject
    m_SPInt = viewPanel.transform:FindChild("General_Anchor/SPInt").gameObject
+   m_SPIntMax = viewPanel.transform:FindChild("General_Anchor/SPIntMax").gameObject
    m_VitInt = viewPanel.transform:FindChild("General_Anchor/VitInt").gameObject
+   m_VitIntMax = viewPanel.transform:FindChild("General_Anchor/VitIntMax").gameObject
    m_SoldiersInt = viewPanel.transform:FindChild("General_Anchor/SoldiersInt").gameObject
+   m_SoldiersInttMax = viewPanel.transform:FindChild("General_Anchor/SoldiersIntMax").gameObject
   
    m_btlastButton = viewPanel.transform:FindChild("General_Anchor/lastButton").gameObject
    m_btNextButton = viewPanel.transform:FindChild("General_Anchor/NextButton").gameObject
 
-
    m_togFormation = viewPanel.transform:FindChild("Formation_Anchor/Formation_Toggle").gameObject
-
 
    m_Weapona = viewPanel.transform:FindChild("Item_Anchor/Weapona").gameObject
    m_WeaponaName = viewPanel.transform:FindChild("Item_Anchor/Weapona/WeaponaName").gameObject
@@ -34,21 +35,40 @@ function Initialize(viewPanel)
    m_Book = viewPanel.transform:FindChild("Item_Anchor/Book").gameObject
    m_BookName = viewPanel.transform:FindChild("Item_Anchor/Book/BookName").gameObject
 
-
    m_togArms = viewPanel.transform:FindChild("Arms_Anchor/Arms_Toggle").gameObject
-
 
    m_togGeneralSkill = viewPanel.transform:FindChild("GeneralSkill_Anchor/GeneralSkill_Toggle").gameObject
 
-
    m_togMilitarySkill = viewPanel.transform:FindChild("MilitarySkill_Anchor/MilitarySkill_Toggle").gameObject
 end
-
 
 function InitView(generalID)
    
    local general = GamePublic.Instance.DataManager:GetGeneralInfo(generalID)
 
-   
+--   m_Face = general:SetFace(m_imageFace)
+
+local name = Utility.GeneralName(general.Name)
+   Utility.SetText(m_GeneralName,name)
+ --  Utility.SetText(m_DPWin,general.DPWin)
+ --  Utility.SetText(m_DPLose,general.DPLose)
+   Utility.SetText(m_KingNameStr,general.KingID)
+   Utility.SetText(m_LoyStr,general.Loyalty)
+   Utility.SetText(m_LevelInt,general.Level)
+   Utility.SetText(m_EXPInt,general.Experience)
+--Utility.SetText(m_EXPIntMax,general.m_EXPIntMax)
+   Utility.SetText(m_StrInt,general.Strength)
+   Utility.SetText(m_IntInt,general.Intellect)
+   Utility.SetText(m_MorInt,general.KnightCur)
+   Utility.SetText(m_SPInt,general.CurMP)
+   Utility.SetText(m_SPIntMax,general.BaseMP)
+   Utility.SetText(m_VitInt,general.CurHP)
+   Utility.SetText(m_VitIntMax,general.BaseHP)
+   Utility.SetText(m_SoldiersInt,general.SoldierCur)
+   Utility.SetText(m_SoldiersInttMax,general.SoldierMax)
+
+   Utility.SetText(m_WeaponaName,general.Weapon)
+   Utility.SetText(m_HorseName,general.Horse)
+   Utility.SetText(m_Book,general.Thing)
 
 end

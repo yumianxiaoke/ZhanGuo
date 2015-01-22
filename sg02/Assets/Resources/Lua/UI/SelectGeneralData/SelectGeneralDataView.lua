@@ -21,18 +21,7 @@ function Initialize(viewPanel)
     m_SoldiersIntMAX = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/SoldiersIntMAX").gameObject
     m_SiteStr = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/SiteStr").gameObject
     
-    --[[
-    m_btMajor = viewPanel.transform:FindChild("Min_Anchor/Major").gameObject
-    m_btLevel = viewPanel.transform:FindChild("Min_Anchor/Level").gameObject
-    m_btStr = viewPanel.transform:FindChild("Min_Anchor/Str").gameObject
-    m_btInt = viewPanel.transform:FindChild("Min_Anchor/Int").gameObject
-    m_btVit = viewPanel.transform:FindChild("Min_Anchor/Vit").gameObject
-    m_btSP = viewPanel.transform:FindChild("Min_Anchor/SP").gameObject
-    m_btMor = viewPanel.transform:FindChild("Min_Anchor/Mor").gameObject
-    m_btArms = viewPanel.transform:FindChild("Min_Anchor/Arms").gameObject
-    m_btSoldiers = viewPanel.transform:FindChild("Min_Anchor/Soldiers").gameObject
-    m_btSite = viewPanel.transform:FindChild("Min_Anchor/Site").gameObject
-]]
+    
 end
 
 function InitView()
@@ -46,29 +35,26 @@ function InitView()
         local major = Utility.AddChild(m_MajorListRoot, m_Major)
         SetGeneralInfo(major, GeneralsID)
 
+       InputManager.Instance:AddOnClickEvent(m_btSelect,btSelect)
+        btSelect(GeneralsID)
+      
+
+
+
         major.transform.localPosition = Vector3.New(0, GlobalConfig.FontButtonsVSpace * i)
     end
 
     m_Major:SetActive(false)
 
-  --  local GeneralsID = KingInfo.Generals
 
-  --[[ 
-    local king = GamePublic.Instance.CurrentKing
-    local GeneralsInfo_ = GamePublic.Instance.DataManager:GetKingInfo(king)
+end
 
-    --for i=0, king.Generals.Count - 1 do
-    local GeneralsInfo = GeneralsInfo_.Generals:get_Item(1)
 
-    --    king.Generals
-]]--
-    
-  --  end
---[[
-    local king = GamePublic.Instance.DataManager:GetKingInfo(GamePublic.Instance.CurrentKing)
-    local general = GamePublic.Instance.DataManager:GetGeneralInfo(king.GeneralID)
-    general:SetFace(m_imageFace)
-]]--
+function btSelect(generalID)
+    local selectgeneralID = generalID
+    print(selectgeneralID)
+    return selectgeneralID
+
 end
 
 function SetGeneralInfo(major, generalID)
@@ -88,8 +74,9 @@ function SetGeneralInfo(major, generalID)
     m_SoldiersInt = major.transform:FindChild("SoldiersInt").gameObject
     m_SoldiersIntMAX = major.transform:FindChild("SoldiersIntMAX").gameObject
     m_SiteStr = major.transform:FindChild("SiteStr").gameObject
+    m_btSelect = major.transform:FindChild("btSelect").gameObject
 
-   -- Utility.SetText(m_Major,GeneralsInfo.GeneralID)
+   -- Utility.SetText(MajorID,GeneralsInfo.ID)
    local name = Utility.GeneralName(GeneralsInfo.Name)
     Utility.SetText(m_MajorName,name)
     Utility.SetText(m_LevelInt,GeneralsInfo.Level)
@@ -106,3 +93,34 @@ function SetGeneralInfo(major, generalID)
     Utility.SetText(m_SiteStr,GeneralsInfo.CityID)
 
 end
+  --  local GeneralsID = KingInfo.Generals
+
+  --[[ 
+    local king = GamePublic.Instance.CurrentKing
+    local GeneralsInfo_ = GamePublic.Instance.DataManager:GetKingInfo(king)
+
+    --for i=0, king.Generals.Count - 1 do
+    local GeneralsInfo = GeneralsInfo_.Generals:get_Item(1)
+
+    --    king.Generals
+]]--
+    
+  --  end
+--[[
+    local king = GamePublic.Instance.DataManager:GetKingInfo(GamePublic.Instance.CurrentKing)
+    local general = GamePublic.Instance.DataManager:GetGeneralInfo(king.GeneralID)
+    general:SetFace(m_imageFace)
+]]--
+
+--[[
+    m_btMajor = viewPanel.transform:FindChild("Min_Anchor/Major").gameObject
+    m_btLevel = viewPanel.transform:FindChild("Min_Anchor/Level").gameObject
+    m_btStr = viewPanel.transform:FindChild("Min_Anchor/Str").gameObject
+    m_btInt = viewPanel.transform:FindChild("Min_Anchor/Int").gameObject
+    m_btVit = viewPanel.transform:FindChild("Min_Anchor/Vit").gameObject
+    m_btSP = viewPanel.transform:FindChild("Min_Anchor/SP").gameObject
+    m_btMor = viewPanel.transform:FindChild("Min_Anchor/Mor").gameObject
+    m_btArms = viewPanel.transform:FindChild("Min_Anchor/Arms").gameObject
+    m_btSoldiers = viewPanel.transform:FindChild("Min_Anchor/Soldiers").gameObject
+    m_btSite = viewPanel.transform:FindChild("Min_Anchor/Site").gameObject
+]]
