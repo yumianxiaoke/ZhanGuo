@@ -19,4 +19,11 @@ function Initialize(viewPanel)
 
     m_imageFace = viewPanel.transform:FindChild("Down Anchor/Face").gameObject
 
+    m_totalCitys = viewPanel.transform:FindChild("Down Anchor/totalCitys").gameObject
+    m_totalLevel = viewPanel.transform:FindChild("Down Anchor/totalLevel").gameObject
+    m_totalGenerals = viewPanel.transform:FindChild("Down Anchor/totalGenerals").gameObject
+    m_totalSoldier = viewPanel.transform:FindChild("Down Anchor/totalSoldier").gameObject
+    m_totalMoney = viewPanel.transform:FindChild("Down Anchor/totalMoney").gameObject
+    m_totalPopulation = viewPanel.transform:FindChild("Down Anchor/totalPopulation").gameObject
+
 end

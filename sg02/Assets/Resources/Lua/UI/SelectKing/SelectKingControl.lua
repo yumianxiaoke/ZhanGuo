@@ -81,9 +81,21 @@ function OnToggle(go, state)
         GamePublic.Instance.CurrentKing = currentKing
 
         local king = GamePublic.Instance.DataManager:GetKingInfo(currentKing)
-        local generalID = king.GeneralID
+        local generalID = king.GeneralID        
+
         local general = GamePublic.Instance.DataManager:GetGeneralInfo(generalID)
         general:SetFace(m_view.m_imageFace)
+
+      --  local KingID = GamePublic.Instance.CurrentKing
+      --  local KingInfo = GamePublic.Instance.DataManager:GetKingInfo(KingID)
+
+        Utility.SetText(m_totalCitys,king.totalCitys)
+        Utility.SetText(m_totalLevel,king.totalLevel)
+        Utility.SetText(m_totalGenerals,king.Generals.Count)
+        Utility.SetText(m_totalSoldier,king.totalSoldier)
+        Utility.SetText(m_totalMoney,king.totalMoney)
+        Utility.SetText(m_totalPopulation,king.totalPopulation)
+
 
         --在这里处理选择君主按钮响应
 

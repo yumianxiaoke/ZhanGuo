@@ -70,5 +70,10 @@ local name = Utility.GeneralName(general.Name)
    Utility.SetText(m_WeaponaName,general.Weapon)
    Utility.SetText(m_HorseName,general.Horse)
    Utility.SetText(m_Book,general.Thing)
-
+--[[
+   for i=1,general:GetSkills.Count-1 do
+        local go = Utility.AddChildToggle(m_view.m_togFormation, kingData.BattleArray, true)
+      print(go)
+   end
+]]--
 end
