@@ -2,13 +2,14 @@ module(..., package.seeall);
 
 
 m_view = nil
+m_generalID = nil
 
 --初始化函数
 function Initialize(viewPanel)
 
     m_view = GeneralDataView
     m_view.Initialize(viewPanel)
-    test()
+    m_view.InitView(m_generalID)
 
 end
 
@@ -17,7 +18,8 @@ function UnInitialize()
 
 end
 
---测试函数
-function test()
-	m_view.InitView(100)
+function ShowGeneralView(generalID)
+	m_generalID = generalID
+	UIManager.Instance:ShowView(UINamesConfig.GeneralData)
+	
 end

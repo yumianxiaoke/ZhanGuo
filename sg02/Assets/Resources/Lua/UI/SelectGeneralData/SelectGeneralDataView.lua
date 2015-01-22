@@ -35,8 +35,8 @@ function InitView()
         local major = Utility.AddChild(m_MajorListRoot, m_Major)
         SetGeneralInfo(major, GeneralsID)
 
-       InputManager.Instance:AddOnClickEvent(m_btSelect,btSelect)
-        btSelect(GeneralsID)
+       --InputManager.Instance:AddOnClickEvent(m_btSelect,BtSelect)
+        --btSelect(GeneralsID)
       
 
 
@@ -50,7 +50,7 @@ function InitView()
 end
 
 
-function btSelect(generalID)
+function BtSelect(generalID)
     local selectgeneralID = generalID
     print(selectgeneralID)
     return selectgeneralID
@@ -91,6 +91,8 @@ function SetGeneralInfo(major, generalID)
     Utility.SetText(m_SoldiersInt,GeneralsInfo.SoldierCur)
     Utility.SetText(m_SoldiersIntMAX,GeneralsInfo.SoldierMax)
     Utility.SetText(m_SiteStr,GeneralsInfo.CityID)
+
+    SelectGeneralDataControl.InitButtonEvent(m_btSelect, generalID)
 
 end
   --  local GeneralsID = KingInfo.Generals

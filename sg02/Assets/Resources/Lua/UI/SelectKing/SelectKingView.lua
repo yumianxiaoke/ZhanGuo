@@ -27,3 +27,21 @@ function Initialize(viewPanel)
     m_totalPopulation = viewPanel.transform:FindChild("Down Anchor/totalPopulation").gameObject
 
 end
+
+function SetCurrentKing(kingID)
+    local king = GamePublic.Instance.DataManager:GetKingInfo(kingID)
+    local generalID = king.GeneralID        
+
+    local general = GamePublic.Instance.DataManager:GetGeneralInfo(generalID)
+    general:SetFace(m_imageFace)
+
+  --  local KingID = GamePublic.Instance.CurrentKing
+  --  local KingInfo = GamePublic.Instance.DataManager:GetKingInfo(KingID)
+
+    Utility.SetText(m_totalCitys,king.totalCitys)
+    Utility.SetText(m_totalLevel, tostring(king.totalLevel))
+    Utility.SetText(m_totalGenerals,tostring(king.Generals.Count))
+    Utility.SetText(m_totalSoldier,tostring(king.totalSoldier))
+    Utility.SetText(m_totalMoney,tostring(king.totalMoney))
+    Utility.SetText(m_totalPopulation,tostring(king.totalPopulation))
+end
