@@ -3,6 +3,12 @@ module(..., package.seeall);
 m_ButtonsRoot = nil
 
 function Initialize(viewPanel)
+   
+    m_UP_Anchor = viewPanel.transform:FindChild("UP_Anchor").gameObject
+    m_BtReturn = viewPanel.transform:FindChild("UP_Anchor/return").gameObject
+
+
+    m_Min_Anchor = viewPanel.transform:FindChild("Min_Anchor").gameObject
 
     m_MajorListRoot = viewPanel.transform:FindChild("Min_Anchor/MajorList").gameObject
 
@@ -35,12 +41,6 @@ function InitView()
         local major = Utility.AddChild(m_MajorListRoot, m_Major)
         SetGeneralInfo(major, GeneralsID)
 
-       --InputManager.Instance:AddOnClickEvent(m_btSelect,BtSelect)
-        --btSelect(GeneralsID)
-      
-
-
-
         major.transform.localPosition = Vector3.New(0, GlobalConfig.FontButtonsVSpace * i)
     end
 
@@ -49,13 +49,6 @@ function InitView()
 
 end
 
-
-function BtSelect(generalID)
-    local selectgeneralID = generalID
-    print(selectgeneralID)
-    return selectgeneralID
-
-end
 
 function SetGeneralInfo(major, generalID)
     
@@ -76,7 +69,7 @@ function SetGeneralInfo(major, generalID)
     m_SiteStr = major.transform:FindChild("SiteStr").gameObject
     m_btSelect = major.transform:FindChild("btSelect").gameObject
 
-   -- Utility.SetText(MajorID,GeneralsInfo.ID)
+
    local name = Utility.GeneralName(GeneralsInfo.Name)
     Utility.SetText(m_MajorName,name)
     Utility.SetText(m_LevelInt,GeneralsInfo.Level)
@@ -95,6 +88,20 @@ function SetGeneralInfo(major, generalID)
     SelectGeneralDataControl.InitButtonEvent(m_btSelect, generalID)
 
 end
+   -- Utility.SetText(MajorID,GeneralsInfo.ID)
+       --InputManager.Instance:AddOnClickEvent(m_btSelect,BtSelect)
+        --btSelect(GeneralsID)
+
+--[[
+
+function BtSelect(generalID)
+    local selectgeneralID = generalID
+    print(selectgeneralID)
+    return selectgeneralID
+
+end
+]]--
+
   --  local GeneralsID = KingInfo.Generals
 
   --[[ 
