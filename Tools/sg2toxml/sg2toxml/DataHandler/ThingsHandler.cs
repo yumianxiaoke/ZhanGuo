@@ -177,11 +177,15 @@ namespace sg2toxml
             {
                 excel.SelectCurrentSheet(i);
 
+                Console.WriteLine(excel.GetSheetName() + "Row:" + excel.RowCount.ToString() + ", Column:" + excel.ColumnCount.ToString());
+
                 sw.WriteLine();
                 sw.WriteLine(excel.GetSheetName() + " = {");
 
                 if (excel.GetSheetName() == sheetSystem || excel.GetSheetName() == sheetDefine)
                 {
+                    List<string> listProperty = new List<string>();
+
                     for (int row = 1; row <= excel.RowCount; row++)
                     {
                         string key = excel.GetCells(row, 1);
@@ -190,7 +194,9 @@ namespace sg2toxml
                             continue;
 
                         sw.WriteLine("\t" + key + " = [[" + value + "]],");
+                        listProperty.Add(key);
                     }
+                    ToCSharpHelper.ToCSharp("DataThings" + excel.GetSheetName(), Path.GetDirectoryName(excelPath), listProperty);
                 }
                 else
                 {
@@ -202,6 +208,7 @@ namespace sg2toxml
                             break;
                         head.Add(text);
                     }
+                    ToCSharpHelper.ToCSharp("DataThings" + excel.GetSheetName(), Path.GetDirectoryName(excelPath), head);
 
                     for (int row = 2; row <= excel.RowCount; row++)
                     {
@@ -215,7 +222,7 @@ namespace sg2toxml
                                 {
                                     line += head[col - 1] + " = '', ";
                                 }
-                                else if (text.IndexOf(',') < 0)
+                                else 
                                 {
                                     text = text.Trim();
                                     line += head[col - 1] + " = [[" + text + "]], ";
@@ -229,9 +236,6 @@ namespace sg2toxml
                 }
 
                 sw.WriteLine("}");
-
-                Console.WriteLine("Row:" + excel.RowCount.ToString() + ", Column:" + excel.ColumnCount.ToString());
-                Console.WriteLine("输出:" + excel.GetSheetName());
             }
 
             sw.Flush();

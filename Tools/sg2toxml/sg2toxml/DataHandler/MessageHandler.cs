@@ -70,8 +70,13 @@ namespace sg2toxml
                 if (string.IsNullOrEmpty(key))
                     continue;
 
-                sw.WriteLine("\t" + key + " = [[" + value + "]],");
+                sw.WriteLine("\tName = [[" + key + "]],  Value = [[" + value + "]],");
             }
+
+            List<string> listProperty = new List<string>();
+            listProperty.Add("Name");
+            listProperty.Add("Value");
+            ToCSharpHelper.ToCSharp("Data" + excel.GetSheetName(), Path.GetDirectoryName(excelPath), listProperty);
 
             sw.WriteLine("}");
 

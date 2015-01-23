@@ -118,7 +118,6 @@ public class Export
 
     void ExportToCSharp()
     {
-        string fileName = Path.GetFileNameWithoutExtension(m_fileName);
         string className = "Data" + Path.GetFileNameWithoutExtension(m_fileName);
         string filePath = Path.GetDirectoryName(m_fileName) + "\\" + className + ".cs";
 
