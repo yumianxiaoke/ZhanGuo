@@ -16,18 +16,18 @@ System = {
 }
 
 Terrain = {
-	{ Name = [[城]], Sequence = [[0]], SoundTrack = [[6]], Floor = [[SHAPE\BG\FLOOR00.TGA]],  },
-	{ Name = [[城]], Sequence = [[1]], SoundTrack = [[5]], Floor = [[SHAPE\BG\FLOOR01.TGA]],  },
-	{ Name = [[城]], Sequence = [[2]], SoundTrack = [[4]], Floor = [[SHAPE\BG\FLOOR02.TGA]],  },
-	{ Name = [[船上]], Sequence = [[3]], SoundTrack = [[4]], Floor = [[SHAPE\BG\FLOOR03.TGA]],  },
-	{ Name = [[草原]], Sequence = [[4]], SoundTrack = [[6]], Floor = [[SHAPE\BG\FLOOR04.TGA]],  },
-	{ Name = [[平原]], Sequence = [[5]], SoundTrack = [[5]], Floor = [[SHAPE\BG\FLOOR05.TGA]],  },
-	{ Name = [[山地]], Sequence = [[6]], SoundTrack = [[4]], Floor = [[SHAPE\BG\FLOOR06.TGA]],  },
-	{ Name = [[森林]], Sequence = [[7]], SoundTrack = [[6]], Floor = [[SHAPE\BG\FLOOR07.TGA]],  },
-	{ Name = [[雪原]], Sequence = [[8]], SoundTrack = [[6]], Floor = [[SHAPE\BG\FLOOR08.TGA]],  },
-	{ Name = [[沙漠]], Sequence = [[9]], SoundTrack = [[5]], Floor = [[SHAPE\BG\FLOOR09.TGA]],  },
-	{ Name = [[关卡]], Sequence = [[10]], SoundTrack = [[5]], Floor = [[SHAPE\BG\FLOOR10.TGA]],  },
-	{ Name = [[长城]], Sequence = [[11]], SoundTrack = [[4]], Floor = [[SHAPE\BG\FLOOR11.TGA]],  },
+	{ Name = [[城]], Sequence = [[0]], SoundTrack = [[6]], Floor = [[SHAPE\BG\FLOOR00.TGA]], Foreground = [[BG\FG00A.SHP,BG\FG00B.SHP]], Midground = [[BG\MG00A.SHP,BG\MG00B.SHP]], Background = [[BG\BG00A.SHP,BG\BG00B.SHP]],  },
+	{ Name = [[城]], Sequence = [[1]], SoundTrack = [[5]], Floor = [[SHAPE\BG\FLOOR01.TGA]], Foreground = [[BG\FG01A.SHP,BG\FG01B.SHP]], Midground = [[BG\MG01A.SHP,BG\MG01B.SHP]], Background = [[BG\BG01A.SHP,BG\BG01B.SHP]],  },
+	{ Name = [[城]], Sequence = [[2]], SoundTrack = [[4]], Floor = [[SHAPE\BG\FLOOR02.TGA]], Foreground = [[BG\FG02A.SHP,BG\FG02B.SHP]], Midground = [[BG\MG02A.SHP,BG\MG02B.SHP]], Background = [[BG\BG02A.SHP,BG\BG02B.SHP]],  },
+	{ Name = [[船上]], Sequence = [[3]], SoundTrack = [[4]], Floor = [[SHAPE\BG\FLOOR03.TGA]], Foreground = [[BG\FG03A.SHP,BG\FG03B.SHP]], Midground = [[BG\MG03A.SHP,BG\MG03B.SHP]], Background = [[BG\BG03A.SHP,BG\BG03B.SHP]],  },
+	{ Name = [[草原]], Sequence = [[4]], SoundTrack = [[6]], Floor = [[SHAPE\BG\FLOOR04.TGA]], Foreground = [[BG\FG04A.SHP,BG\FG04B.SHP]], Midground = [[BG\MG04A.SHP,BG\MG04B.SHP]], Background = [[BG\BG04A.SHP,BG\BG04B.SHP]],  },
+	{ Name = [[平原]], Sequence = [[5]], SoundTrack = [[5]], Floor = [[SHAPE\BG\FLOOR05.TGA]], Foreground = [[BG\FG05A.SHP,BG\FG05B.SHP]], Midground = [[BG\MG05A.SHP,BG\MG05B.SHP]], Background = [[BG\BG05A.SHP,BG\BG05B.SHP]],  },
+	{ Name = [[山地]], Sequence = [[6]], SoundTrack = [[4]], Floor = [[SHAPE\BG\FLOOR06.TGA]], Foreground = [[BG\FG06A.SHP,BG\FG06B.SHP]], Midground = [[BG\MG06A.SHP,BG\MG06B.SHP]], Background = [[BG\BG06A.SHP,BG\BG06B.SHP]],  },
+	{ Name = [[森林]], Sequence = [[7]], SoundTrack = [[6]], Floor = [[SHAPE\BG\FLOOR07.TGA]], Foreground = [[BG\FG07A.SHP,BG\FG07B.SHP]], Midground = [[BG\MG07A.SHP,BG\MG07B.SHP]], Background = [[BG\BG07A.SHP,BG\BG07B.SHP]],  },
+	{ Name = [[雪原]], Sequence = [[8]], SoundTrack = [[6]], Floor = [[SHAPE\BG\FLOOR08.TGA]], Foreground = [[BG\FG08A.SHP,BG\FG08B.SHP]], Midground = [[BG\MG08A.SHP,BG\MG08B.SHP]], Background = [[BG\BG08A.SHP,BG\BG08B.SHP]],  },
+	{ Name = [[沙漠]], Sequence = [[9]], SoundTrack = [[5]], Floor = [[SHAPE\BG\FLOOR09.TGA]], Foreground = [[BG\FG09A.SHP,BG\FG09B.SHP]], Midground = [[BG\MG09A.SHP,BG\MG09B.SHP]], Background = [[BG\BG09A.SHP,BG\BG09B.SHP]],  },
+	{ Name = [[关卡]], Sequence = [[10]], SoundTrack = [[5]], Floor = [[SHAPE\BG\FLOOR10.TGA]], Foreground = [[BG\FG10A.SHP,BG\FG10B.SHP]], Midground = [[BG\MG10A.SHP,BG\MG10B.SHP]], Background = [[BG\BG10A.SHP,BG\BG10B.SHP]],  },
+	{ Name = [[长城]], Sequence = [[11]], SoundTrack = [[4]], Floor = [[SHAPE\BG\FLOOR11.TGA]], Foreground = [[BG\FG11A.SHP,BG\FG11B.SHP]], Midground = [[BG\MG11A.SHP,BG\MG11B.SHP]], Background = [[BG\BG11A.SHP,BG\BG11B.SHP]],  },
 }
 
 Item = {
