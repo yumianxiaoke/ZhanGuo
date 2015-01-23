@@ -23,9 +23,8 @@ function Initialize(viewPanel)
    m_SoldiersInt = viewPanel.transform:FindChild("General_Anchor/SoldiersInt").gameObject
    m_SoldiersInttMax = viewPanel.transform:FindChild("General_Anchor/SoldiersIntMax").gameObject
   
-   m_btlastButton = viewPanel.transform:FindChild("General_Anchor/lastButton").gameObject
-   m_btNextButton = viewPanel.transform:FindChild("General_Anchor/NextButton").gameObject
-
+   m_BtReturn = viewPanel.transform:FindChild("General_Anchor/Return").gameObject
+   
    m_togFormation = viewPanel.transform:FindChild("Formation_Anchor/Formation_Toggle").gameObject
 
    m_Weapona = viewPanel.transform:FindChild("Item_Anchor/Weapona").gameObject
