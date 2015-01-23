@@ -82,12 +82,12 @@ namespace sg2toxml
             Console.WriteLine("Row:" + excel.RowCount.ToString() + ", Column:" + excel.ColumnCount.ToString());
             Console.WriteLine("输出:" + saveFileName);
 
+            excel.Quit();
             if (isFromINI)
             {
                 ExcelHelper.ExcelHelper.OpenExcel(excelPath);
             }
 
-            excel.Quit();
             FreeConsole();
         }
 
