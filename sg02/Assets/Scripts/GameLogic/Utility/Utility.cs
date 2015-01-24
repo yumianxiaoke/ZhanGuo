@@ -241,4 +241,9 @@ public static class Utility
 
         return go;
     }
+
+    public static void SetScrollViewSize(RectTransform rt, float width, float height)
+    {
+        rt.sizeDelta = new Vector2(width, height);
+    }
 }

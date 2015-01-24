@@ -25,16 +25,18 @@ end
 --武将信息按钮
 function InitButtonEvent(go, generalID)
 	
-	InputManager.Instance:AddOnClickEvent(go,OnGeneralSelect)
 	m_generals[go] = generalID
+	InputManager.Instance:AddOnClickEvent(go,OnGeneralSelect)
+	
 end
 
 function OnGeneralSelect(go)
 	local generalID = m_generals[go]
+	print(generalID)
 	
-	GeneralDataControl.ShowGeneralView(generalID)
 	m_view.m_UP_Anchor:SetActive(false)
 	m_view.m_Min_Anchor:SetActive(false)
+	GeneralDataControl.ShowGeneralView(generalID)	
 
 end
 

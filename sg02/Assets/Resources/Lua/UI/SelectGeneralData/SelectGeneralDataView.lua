@@ -36,6 +36,8 @@ function InitView()
     local KingID = GamePublic.Instance.CurrentKing
     local KingInfo = GamePublic.Instance.DataManager:GetKingInfo(KingID)
 
+    local  y = 0
+
     for i=0, KingInfo.Generals.Count-1 do
         local GeneralsID  = KingInfo.Generals:get_Item(i)
         
@@ -43,10 +45,16 @@ function InitView()
         SetGeneralInfo(major, GeneralsID)
 
         major.transform.localPosition = Vector3.New(0, GlobalConfig.FontButtonsVSpace * i)
+
+        y = y + GlobalConfig.FontButtonsVSpace
         
     end
 
     m_Major:SetActive(false)
+
+    local rt = m_Content:GetComponent("RectTransform")
+    --rt.sizeDelta = Vector3.New(rt.rect.width, -y)
+    Utility.SetScrollViewSize(rt, rt.rect.width, -y)
 
 end
 

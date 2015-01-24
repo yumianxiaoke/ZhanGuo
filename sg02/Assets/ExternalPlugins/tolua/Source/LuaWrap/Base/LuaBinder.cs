@@ -39,7 +39,6 @@ public static class LuaBinder
 		WrapSpriteRenderer.Register(L);
 		WrapStateBase.Register(L);
 		WrapStateManager.Register(L);
-//		Wraptest1.Register(L);
 		WrapTestLuaFunctionType.Register(L);
 		WrapText.Register(L);
 		WrapTextAsset.Register(L);
