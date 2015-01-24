@@ -5,7 +5,7 @@ m_menuItem = {}
 
 m_isMenuEnable = true
 
---??ʼ?????
+--??始?????
 function Initialize(viewPanel)
 
     m_view = InternalAffairsView
@@ -19,7 +19,7 @@ function Initialize(viewPanel)
 
 end
 
---????ʼ?????
+--????始?????
 function UnInitialize()
 
     for key, value in pairs(m_menuItem) do      
@@ -54,7 +54,7 @@ function InitMenuList()
 end
 ]]--
 
---??ʼ????ť???
+--??始????钮???
 function InitButtonEvent()
 
     InputManager.Instance:AddOnClickEvent(m_view.m_btAutonomyDo, OnAutonomyDoClick)
@@ -125,7 +125,7 @@ function OnLoadGameClick()
 
 end
 
---??????Ϣ
+--??????息
 function btInformation()
 
     m_view.m_Left:SetActive(false)
@@ -144,7 +144,7 @@ function btOver()
 
 end
 
---ȷ??????
+--确??????
 function OverOnButtonOK()
 
     --m_menuListRoot = true
@@ -153,7 +153,7 @@ function OverOnButtonOK()
     m_view.m_confirmBox:SetActive(false)
 end
 
---ȡ?
+--取?
 function OverOnButtonCancel()
 
     --m_menuListRoot = true
@@ -165,7 +165,7 @@ end
 
 
 
---?˵??ѡ??Ӧ
+--?说??选??应
 function OnMenuItemClick(go)
 
     if not m_isMenuEnable then
