@@ -22,7 +22,6 @@ public class WrapUtility
 		new LuaMethod("GeneralName", GeneralName),
 		new LuaMethod("AlignText", AlignText),
 		new LuaMethod("CreateSceneObject", CreateSceneObject),
-		new LuaMethod("SetScrollViewSize", SetScrollViewSize),
 		new LuaMethod("New", _CreateUtility),
 		new LuaMethod("GetClassType", GetClassType),
 	};
@@ -189,17 +188,6 @@ public class WrapUtility
 		GameObject o = Utility.CreateSceneObject(arg0,arg1);
 		LuaScriptMgr.Push(L, o);
 		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int SetScrollViewSize(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 3);
-		RectTransform arg0 = LuaScriptMgr.GetNetObject<RectTransform>(L, 1);
-		float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
-		float arg2 = (float)LuaScriptMgr.GetNumber(L, 3);
-		Utility.SetScrollViewSize(arg0,arg1,arg2);
-		return 0;
 	}
 }
 
