@@ -42,7 +42,7 @@ function Initialize(viewPanel)
 end
 
 function InitView(generalID)
-   print(generalID)
+
    local general = GamePublic.Instance.DataManager:GetGeneralInfo(generalID)
 
 --   m_Face = general:SetFace(m_imageFace)

@@ -32,7 +32,6 @@ end
 
 function OnGeneralSelect(go)
 	local generalID = m_generals[go]
-	print(generalID)
 	
 	m_view.m_UP_Anchor:SetActive(false)
 	m_view.m_Min_Anchor:SetActive(false)
