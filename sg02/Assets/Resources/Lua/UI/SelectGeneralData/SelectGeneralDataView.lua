@@ -53,8 +53,7 @@ function InitView()
     m_Major:SetActive(false)
 
     local rt = m_Content:GetComponent("RectTransform")
-    --rt.sizeDelta = Vector3.New(rt.rect.width, -y)
-    Utility.SetScrollViewSize(rt, rt.rect.width, -y)
+    rt.sizeDelta = UnityEngine.Vector2.New(rt.rect.width, -y)
 
 end
 
