@@ -11,6 +11,7 @@ function Initialize(viewPanel)
     m_Min_Anchor = viewPanel.transform:FindChild("Min_Anchor").gameObject
 
     m_MajorListRoot = viewPanel.transform:FindChild("Min_Anchor/MajorList").gameObject
+    m_Content = viewPanel.transform:FindChild("Min_Anchor/MajorList/Content").gameObject
 
     m_Major = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major").gameObject
     m_MajorName = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/MajorName").gameObject
@@ -38,14 +39,14 @@ function InitView()
     for i=0, KingInfo.Generals.Count-1 do
         local GeneralsID  = KingInfo.Generals:get_Item(i)
         
-        local major = Utility.AddChild(m_MajorListRoot, m_Major)
+        local major = Utility.AddChild(m_Content, m_Major)
         SetGeneralInfo(major, GeneralsID)
 
         major.transform.localPosition = Vector3.New(0, GlobalConfig.FontButtonsVSpace * i)
+        
     end
 
     m_Major:SetActive(false)
-
 
 end
 

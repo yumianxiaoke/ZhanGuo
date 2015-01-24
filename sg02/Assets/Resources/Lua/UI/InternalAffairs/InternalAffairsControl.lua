@@ -5,7 +5,7 @@ m_menuItem = {}
 
 m_isMenuEnable = true
 
---初始化函数
+--??始?????
 function Initialize(viewPanel)
 
     m_view = InternalAffairsView
@@ -19,7 +19,7 @@ function Initialize(viewPanel)
 
 end
 
---反初始化函数
+--????始?????
 function UnInitialize()
 
     for key, value in pairs(m_menuItem) do      
@@ -54,17 +54,78 @@ function InitMenuList()
 end
 ]]--
 
---初始化按钮事件
+--??始????钮???
 function InitButtonEvent()
 
+    InputManager.Instance:AddOnClickEvent(m_view.m_btAutonomyDo, OnAutonomyDoClick)
+    InputManager.Instance:AddOnClickEvent(m_view.m_btSearch, OnSearchClick)
+    InputManager.Instance:AddOnClickEvent(m_view.m_btDevelop, OnDevelopClick)
+    InputManager.Instance:AddOnClickEvent(m_view.m_btUseItem, OnUseItemClick)
     InputManager.Instance:AddOnClickEvent(m_view.m_btInformation,btInformation)
+    InputManager.Instance:AddOnClickEvent(m_view.m_btForcesMap, OnForcesMapClick)
+    InputManager.Instance:AddOnClickEvent(m_view.m_btSaveGame, OnSaveGameClick)
+    InputManager.Instance:AddOnClickEvent(m_view.m_btLoadGame, OnLoadGameClick)
     InputManager.Instance:AddOnClickEvent(m_view.m_btOver,btOver)
     InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmOK, OverOnButtonOK)
     InputManager.Instance:AddOnClickEvent(m_view.m_buttonConfirmCancel, OverOnButtonCancel)
 
 end
 
---点击武将信息
+function OnAutonomyDoClick()
+    
+    print("OnAutonomyDoClick")
+
+end
+
+function OnSearchClick()
+    
+    m_view.m_Left:SetActive(false)
+    m_view.m_Right:SetActive(false)
+    UIManager.Instance:ShowView(UINamesConfig.SearchAndDevelop)
+
+end
+
+function OnDevelopClick()
+    
+    m_view.m_Left:SetActive(false)
+    m_view.m_Right:SetActive(false)
+    UIManager.Instance:ShowView(UINamesConfig.SearchAndDevelop)
+
+end
+
+function OnUseItemClick()
+    
+    m_view.m_Left:SetActive(false)
+    m_view.m_Right:SetActive(false)
+    UIManager.Instance:ShowView(UINamesConfig.ItemUse)
+
+end
+
+function OnForcesMapClick()
+    
+    m_view.m_Left:SetActive(false)
+    m_view.m_Right:SetActive(false)
+    UIManager.Instance:ShowView(UINamesConfig.ForceMap)
+
+end
+
+function OnSaveGameClick()
+    
+    m_view.m_Left:SetActive(false)
+    m_view.m_Right:SetActive(false)
+    UIManager.Instance:ShowView(UINamesConfig.SaveGame)
+
+end
+
+function OnLoadGameClick()
+    
+    m_view.m_Left:SetActive(false)
+    m_view.m_Right:SetActive(false)
+    UIManager.Instance:ShowView(UINamesConfig.LoadGame)
+
+end
+
+--??????息
 function btInformation()
 
     m_view.m_Left:SetActive(false)
@@ -73,33 +134,38 @@ function btInformation()
   
 end
 
---点击内政终了
+--???????
 function btOver()
 
-    m_menuListRoot = false
+    --m_menuListRoot = false
+
+    m_view.m_mask:SetActive(true)
     m_view.m_confirmBox:SetActive(true)
 
 end
 
---确认内政终了
+--确??????
 function OverOnButtonOK()
 
-    m_menuListRoot = true
+    --m_menuListRoot = true
+
     GamePublic.Instance.GameStatesManager:ChangeState(GamePublic.Instance.GameStatesManager.WorldMapState)
     m_view.m_confirmBox:SetActive(false)
 end
 
---取消
+--取?
 function OverOnButtonCancel()
 
-    m_menuListRoot = true
+    --m_menuListRoot = true
+    
+    m_view.m_mask:SetActive(false)
     m_view.m_confirmBox:SetActive(false)
 
 end
 
 
 
---菜单项选择响应
+--?说??选??应
 function OnMenuItemClick(go)
 
     if not m_isMenuEnable then

@@ -9,6 +9,7 @@ StartMenu         = "Prefabs/UI/StartMenu"
 SelectTimes       = "Prefabs/UI/SelectTimes"
 SelectKing        = "Prefabs/UI/SelectKing"
 InternalAffairs   = "Prefabs/UI/InternalAffairs"
+Search			  = "Prefabs/UI/Search"
 
 HistoryTime		  = "Prefabs/UI/HistoryTime"
 
@@ -26,3 +27,9 @@ FightPrepareInstructions 	= "Prefabs/UI/FightPrepareInstructions"
 GeneralData 				= "Prefabs/UI/GeneralData"
 MajorInstructions 			= "Prefabs/UI/MajorInstructions"
 SelectGeneralData 			= "Prefabs/UI/SelectGeneralData"
+
+SearchAndDevelop			= "Prefabs/UI/SearchAndDevelop"
+ForceMap					= "Prefabs/UI/ForceMap"
+ItemUse						= "Prefabs/UI/ItemUse"
+LoadGame            		= "Prefabs/UI/LoadgameMenu"
+SaveGame                    = "Prefabs/UI/SavegameMenu"

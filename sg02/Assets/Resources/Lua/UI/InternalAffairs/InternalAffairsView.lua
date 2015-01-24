@@ -24,6 +24,9 @@ function Initialize(viewPanel)
     m_btLoadGame = viewPanel.transform:FindChild("Left Anchor/MenuList/LoadGame").gameObject
     m_btOver = viewPanel.transform:FindChild("Left Anchor/MenuList/Over").gameObject
 
+    --蒙板UI
+    m_mask = viewPanel.transform:FindChild("Left Anchor/MenuList/Mask").gameObject
+
 
     m_imageFace = viewPanel.transform:FindChild("Right Anchor/Face").gameObject
 
@@ -42,7 +45,10 @@ function Initialize(viewPanel)
 
 
     m_confirmBox:SetActive(false)
-   -- m_menuListRoot.transform.localPosition = Vector3.New(0, 110, 0)
+    -- m_menuListRoot.transform.localPosition = Vector3.New(0, 110, 0)
+    
+    m_mask:SetActive(false)
+
 end
 
 function InitView()
