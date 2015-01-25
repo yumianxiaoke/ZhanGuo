@@ -28,7 +28,11 @@ function Initialize(viewPanel)
     m_SoldiersIntMAX = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/SoldiersIntMAX").gameObject
     m_SiteStr = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/SiteStr").gameObject
     
-    
+    m_Scrollbar = viewPanel.transform:FindChild("Min_Anchor/ScrollBar_V/Scrollbar").gameObject
+    m_SBComponent = m_Scrollbar:GetComponent("Scrollbar")
+    m_UP = viewPanel.transform:FindChild("Min_Anchor/ScrollBar_V/UP Button").gameObject
+    m_Down = viewPanel.transform:FindChild("Min_Anchor/ScrollBar_V/Down Button").gameObject
+
 end
 
 function InitView()
@@ -78,7 +82,7 @@ function SetGeneralInfo(major, generalID)
     m_btSelect = major.transform:FindChild("btSelect").gameObject
 
 
-   local name = Utility.GeneralName(GeneralsInfo.Name)
+    local name = Utility.GeneralName(GeneralsInfo.Name)
     Utility.SetText(m_MajorName,name)
     Utility.SetText(m_LevelInt,GeneralsInfo.Level)
     Utility.SetText(m_StrInt,GeneralsInfo.Strength)
@@ -88,10 +92,12 @@ function SetGeneralInfo(major, generalID)
     Utility.SetText(m_SPInt,GeneralsInfo.CurMP)
     Utility.SetText(m_SPIntMAX,GeneralsInfo.BaseMP)
     Utility.SetText(m_MorInt,GeneralsInfo.KnightCur)
-    Utility.SetText(m_ArmsStr,GeneralsInfo.UseForce)
+    local forceName = XMLManager.Force:GetInfoById(GeneralsInfo.UseForce).Name
+    Utility.SetText(m_ArmsStr, forceName)
     Utility.SetText(m_SoldiersInt,GeneralsInfo.SoldierCur)
     Utility.SetText(m_SoldiersIntMAX,GeneralsInfo.SoldierMax)
-    Utility.SetText(m_SiteStr,GeneralsInfo.CityID)
+    local cityName = XMLManager.City:GetInfoById(GeneralsInfo.CityID).Name
+    Utility.SetText(m_SiteStr, cityName)
 
     SelectGeneralDataControl.InitButtonEvent(m_btSelect, generalID)
 

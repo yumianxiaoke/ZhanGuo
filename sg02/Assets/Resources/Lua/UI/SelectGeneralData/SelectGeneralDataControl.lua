@@ -2,7 +2,6 @@ module(..., package.seeall);
 
 
 m_view = nil
-
 m_generals = {}
 
 --初始化函数
@@ -14,6 +13,8 @@ function Initialize(viewPanel)
     m_view.Initialize(viewPanel)
     m_view.InitView()
     InputManager.Instance:AddOnClickEvent(m_view.m_BtReturn,FnReturn)
+    InputManager.Instance:AddOnClickEvent(m_view.m_UP, OnUpButtonClick)
+    InputManager.Instance:AddOnClickEvent(m_view.m_Down, OnDownButtonClick)
 
 end
 
@@ -35,8 +36,28 @@ function OnGeneralSelect(go)
 	
 	m_view.m_UP_Anchor:SetActive(false)
 	m_view.m_Min_Anchor:SetActive(false)
-	GeneralDataControl.ShowGeneralView(generalID)	
+	GeneralDataControl.ShowGeneralView(generalID)
 
+end
+
+--滚动条的向上按钮点击事件
+--固定步长，step = 1
+function OnUpButtonClick()
+
+	local KingID = GamePublic.Instance.CurrentKing
+    local KingInfo = GamePublic.Instance.DataManager:GetKingInfo(KingID)
+
+    m_view.m_SBComponent.Value = m_view.m_SBComponent.Value + 1 / KingInfo.Generals.Count
+end
+
+--滚动条的向下按钮点击事件
+function OnDownButtonClick()
+	
+	local KingID = GamePublic.Instance.CurrentKing
+    local KingInfo = GamePublic.Instance.DataManager:GetKingInfo(KingID)
+
+    m_view.m_SBComponent.Value = m_view.m_SBComponent.Value - 1 / KingInfo.Generals.Count
+	
 end
 
 --返回内政按钮

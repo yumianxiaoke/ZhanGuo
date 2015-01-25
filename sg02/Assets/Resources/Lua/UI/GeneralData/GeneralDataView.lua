@@ -45,17 +45,18 @@ function InitView(generalID)
 
    local general = GamePublic.Instance.DataManager:GetGeneralInfo(generalID)
 
---   m_Face = general:SetFace(m_imageFace)
+   m_Face = general:SetFace(m_Face)
 
-local name = Utility.GeneralName(general.Name)
+   local name = Utility.GeneralName(general.Name)
    Utility.SetText(m_GeneralName,name)
-  Utility.SetText(m_DPWin,general.DPWin)
+   Utility.SetText(m_DPWin,general.DPWin)
    Utility.SetText(m_DPLose,general.DPLose)
-   Utility.SetText(m_KingNameStr,general.KingID)
+   local kingName = XMLManager.Kings:GetInfoById(general.KingID).Name
+   Utility.SetText(m_KingNameStr, kingName)
    Utility.SetText(m_LoyStr,general.Loyalty)
    Utility.SetText(m_LevelInt,general.Level)
    Utility.SetText(m_EXPInt,general.Experience)
---Utility.SetText(m_EXPIntMax,general.m_EXPIntMax)
+-- Utility.SetText(m_EXPIntMax,general.m_EXPIntMax)
    Utility.SetText(m_StrInt,general.Strength)
    Utility.SetText(m_IntInt,general.Intellect)
    Utility.SetText(m_MorInt,general.KnightCur)
@@ -69,10 +70,10 @@ local name = Utility.GeneralName(general.Name)
    Utility.SetText(m_WeaponaName,general.Weapon)
    Utility.SetText(m_HorseName,general.Horse)
    Utility.SetText(m_Book,general.Thing)
---[[
-   for i=1,general:GetSkills.Count-1 do
-        local go = Utility.AddChildToggle(m_view.m_togFormation, kingData.BattleArray, true)
-      print(go)
-   end
-]]--
+
+   -- for i=1, general:GetSkills.Count-1 do
+   --      local go = Utility.AddChildToggle(m_togFormation, general.BattleArray, true)
+   --      print(go)
+   -- end
+
 end
