@@ -182,7 +182,8 @@ public static class LuaBinding
 //         _GT(typeof(Vector2)),
 //         _GT(typeof(Vector3)),        
 //         _GT(typeof(GameObject)),
-//         _GT(typeof(Component)),        
+//         _GT(typeof(Component)),    
+//         _GT(typeof(Color)),     
 //         
 //         _GT(typeof(Behaviour)),
 //         _GT(typeof(Transform)),
@@ -314,7 +315,7 @@ public static class LuaBinding
 //            _GT(typeof(XMLLoader<XMLDataCityPoints>)).SetWrapName("XMLLoader_XMLDataCityPoints").SetLibName("XMLLoader<XMLDataCityPoints>"),
         
         // Test
-        //_GT(typeof(TestLuaFunctionType)),
+        //_GT(typeof(TestLuaFunctionType)),        
     };
 
     [MenuItem("Lua/Gen Lua Wrap Files", false, 11)]

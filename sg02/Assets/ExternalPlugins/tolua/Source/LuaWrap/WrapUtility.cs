@@ -22,6 +22,7 @@ public class WrapUtility
 		new LuaMethod("GeneralName", GeneralName),
 		new LuaMethod("AlignText", AlignText),
 		new LuaMethod("CreateSceneObject", CreateSceneObject),
+		new LuaMethod("BitTest", BitTest),
 		new LuaMethod("New", _CreateUtility),
 		new LuaMethod("GetClassType", GetClassType),
 	};
@@ -186,6 +187,17 @@ public class WrapUtility
 		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
 		string arg1 = LuaScriptMgr.GetLuaString(L, 2);
 		GameObject o = Utility.CreateSceneObject(arg0,arg1);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int BitTest(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		int arg0 = (int)LuaScriptMgr.GetNumber(L, 1);
+		int arg1 = (int)LuaScriptMgr.GetNumber(L, 2);
+		bool o = Utility.BitTest(arg0,arg1);
 		LuaScriptMgr.Push(L, o);
 		return 1;
 	}

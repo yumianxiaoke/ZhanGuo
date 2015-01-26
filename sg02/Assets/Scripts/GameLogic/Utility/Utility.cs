@@ -241,4 +241,23 @@ public static class Utility
 
         return go;
     }
+
+    /// <summary>  
+    /// 位测试  
+    /// </summary>  
+    /// <param name="n">要测试的整数</param>  
+    /// <param name="bit">要测试的Bit位序号</param>  
+    /// <returns>  
+    ///     true：该Bit位为1  
+    ///     false：该Bit为0  
+    /// </returns>      
+    public static bool BitTest(Int32 n, Int32 bit)
+    {
+        if ((n & (1 << bit)) != 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

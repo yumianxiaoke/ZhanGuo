@@ -10,6 +10,7 @@ public static class LuaBinder
 		WrapAnimationComponent.Register(L);
 		WrapBehaviour.Register(L);
 		WrapCityInfo.Register(L);
+		WrapColor.Register(L);
 		WrapComponent.Register(L);
 		WrapDataManager.Register(L);
 		WrapDebugging.Register(L);
