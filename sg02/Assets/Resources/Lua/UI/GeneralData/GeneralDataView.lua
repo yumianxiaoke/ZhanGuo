@@ -1,6 +1,7 @@
 module(..., package.seeall);
 
 m_ButtonsRoot = nil
+CN_LENGTH = #"国"
 
 function Initialize(viewPanel)
 
@@ -24,29 +25,21 @@ function Initialize(viewPanel)
    m_SoldiersInttMax = viewPanel.transform:FindChild("General_Anchor/SoldiersIntMax").gameObject
   
    m_BtReturn = viewPanel.transform:FindChild("General_Anchor/Return").gameObject
-   
-   -- m_togFormation = viewPanel.transform:FindChild("Formation_Anchor/Formation_Toggle").gameObject
 
    m_Weapona = viewPanel.transform:FindChild("Item_Anchor/Weapona").gameObject
    m_WeaponaName = viewPanel.transform:FindChild("Item_Anchor/Weapona/WeaponaName").gameObject
    m_Horse = viewPanel.transform:FindChild("Item_Anchor/Horse").gameObject
    m_HorseName = viewPanel.transform:FindChild("Item_Anchor/Horse/HorseName").gameObject
-   m_Book = viewPanel.transform:FindChild("Item_Anchor/Book").gameObject
-   m_BookName = viewPanel.transform:FindChild("Item_Anchor/Book/BookName").gameObject
-
-   --m_togArms = viewPanel.transform:FindChild("Arms_Anchor/Arms_Toggle").gameObject
-
-   m_togGeneralSkill = viewPanel.transform:FindChild("GeneralSkill_Anchor/GeneralSkill_Toggle").gameObject
-
-   m_togMilitarySkill = viewPanel.transform:FindChild("MilitarySkill_Anchor/MilitarySkill_Toggle").gameObject
+   m_Thing = viewPanel.transform:FindChild("Item_Anchor/Thing").gameObject
+   m_ThingName = viewPanel.transform:FindChild("Item_Anchor/Thing/ThingName").gameObject
 
    m_ArmsList = viewPanel.transform:FindChild("Arms_Anchor/ArmsList").gameObject
-   m_ArmTemp = viewPanel.transform:FindChild("Arms_Anchor/ArmsList/Arm1").gameObject
-   m_ArmUsing = viewPanel.transform:FindChild("Arms_Anchor/ArmsList/Using").gameObject
 
    m_BattleList = viewPanel.transform:FindChild("Formation_Anchor/BattleList").gameObject
-   m_BattleTemp = viewPanel.transform:FindChild("Formation_Anchor/BattleList/Battle").gameObject
-   m_BattleUsing = viewPanel.transform:FindChild("Formation_Anchor/BattleList/Using").gameObject
+
+   m_GeneralSkillList = viewPanel.transform:FindChild("GeneralSkill_Anchor/SkillList").gameObject
+   m_WiseSkillList = viewPanel.transform:FindChild("WiseSkill_Anchor/SkillList").gameObject
+
 end
 
 function InitView(generalID)
@@ -65,7 +58,6 @@ function InitView(generalID)
    Utility.SetText(m_LoyStr,general.Loyalty)
    Utility.SetText(m_LevelInt,general.Level)
    Utility.SetText(m_EXPInt,general.Experience)
--- Utility.SetText(m_EXPIntMax,general.m_EXPIntMax)
    Utility.SetText(m_StrInt,general.Strength)
    Utility.SetText(m_IntInt,general.Intellect)
    Utility.SetText(m_MorInt,general.KnightCur)
@@ -76,60 +68,171 @@ function InitView(generalID)
    Utility.SetText(m_SoldiersInt,general.SoldierCur)
    Utility.SetText(m_SoldiersInttMax,general.SoldierMax)
 
-   Utility.SetText(m_WeaponaName,general.Weapon)
-   Utility.SetText(m_HorseName,general.Horse)
-   Utility.SetText(m_Book,general.Thing)
+   SetThings(general)
 
-   SetArms(general)
-   SetBattle(general)
+   local forceCount = XMLManager.Force.Data.Count
+   local battleCount = XMLManager.Battle.Data.Count
+   local generalInfo = XMLManager.Generals:GetInfoById(general.ID)
+   local skillCount = generalInfo.Skill.Length
+   local wiseSkillCount = generalInfo.WiseSkill.Length
 
-   -- for i=1, general:GetSkills.Count-1 do
-   --      local go = Utility.AddChildToggle(m_togFormation, general.BattleArray, true)
-   --      print(go)
-   -- end
+   SetViewDatas(general, m_ArmsList, forceCount, SetArms)   
+   SetViewDatas(general, m_BattleList, battleCount, SetBattle)
+   SetViewDatas(general, m_GeneralSkillList, skillCount, SetGeneralSkill)
+   SetViewDatas(general, m_WiseSkillList, wiseSkillCount, SetWiseSkill)
+
+end
+
+function SetThings(general)   
+
+   if general.Weapon ~= 0 then      
+      local weaponInfo = XMLManager.Things:GetInfoById(general.Weapon)
+      Utility.SetText(m_WeaponaName, weaponInfo.Name)
+      --Set Sprite Here
+   else
+      Utility.SetText(m_WeaponaName, " ")
+   end
+
+   if general.Horse ~= 0 then
+      local horseInfo = XMLManager.Things:GetInfoById(general.Horse)
+      Utility.SetText(m_HorseName, horseInfo.Name)
+      --Set Sprite Here
+   else
+      Utility.SetText(m_HorseName, " ")
+   end
+
+   if general.Thing ~= 0 then
+      local thingInfo = XMLManager.Things:GetInfoById(general.Thing)
+      Utility.SetText(m_ThingName, thingInfo.Name)     
+      --Set Sprite Here
+   else
+      Utility.SetText(m_ThingName, " ") 
+   end
+
+end
+
+function SetViewDatas(general, parent, count, handler)
+   
+   local prefab = parent.transform:FindChild("Prefab").gameObject
+   local rt = parent:GetComponent("RectTransform")
+   local cellOffest = 0
+
+   -- 判断当前是否为阵型列表
+   if parent == m_BattleList then
+      cellOffest = rt.rect.height / count
+   else
+      cellOffest = rt.rect.width / count      
+   end
+   
+   for i = 0, count - 1 do
+
+      local child = Utility.AddChild(parent, prefab)
+      local rt2 = child:GetComponent("RectTransform")
+
+      if parent == m_BattleList then
+         rt2.sizeDelta = UnityEngine.Vector2.New(rt2.rect.width, cellOffest)
+         rt2.anchoredPosition3D = Vector3.New(prefab.transform.localPosition.x, -i*cellOffest)
+      else
+         rt2.sizeDelta = UnityEngine.Vector2.New(cellOffest, rt2.rect.height)      
+         rt2.anchoredPosition3D = Vector3.New(i*cellOffest, prefab.transform.localPosition.y)
+      end
+
+      handler(general, i, child, parent, cellOffest)
+
+   end
+
+   prefab:SetActive(false)
 
 end
 
 --设置兵种信息
-function SetArms(general)
+function SetArms(general, index, child, parent, cellOffest)
    
-   local rt = m_ArmsList:GetComponent("RectTransform")
-   local rectWidth = rt.rect.width
-   local armsNum = XMLManager.Force.Data.Count
-   local armWidth = rectWidth / armsNum
+   local armID = 2^index
+   local armName = XMLManager.Force:GetInfoById(armID).Name                  
 
-   for i = 0, armsNum - 1 do
-      local arm = Utility.AddChild(m_ArmsList, m_ArmTemp)
-      local rt2 = arm:GetComponent("RectTransform")
-      rt2.sizeDelta = UnityEngine.Vector2.New(armWidth, rt2.rect.height)      
-      rt2.anchoredPosition3D = Vector3.New(i*armWidth, m_ArmTemp.transform.localPosition.y)
-      
-      local armID = 2^i
-      local armName = XMLManager.Force:GetInfoById(armID).Name                  
+   -- 设置兵种文字和颜色
+   local text = child:GetComponent("Text")
+   local completeName = HandleArmsName(armName)
 
-      -- 设置兵种文字
-      local text = arm:GetComponent("Text")
-      local completeName = SetArmsName(armName)
-      -- 若不是可用兵种，则令text变暗      
-      if Utility.BitTest(general.ForceArray, i) == false then
-         --text.mainTexture = UnityEngine.Color.New(0.5, 0.5, 0.5, 1)    
-         text.text = "<color=grey>"..completeName.."</color>"
-      else
-         --设置令牌位置
-         if armID == general.UseForce then
-            local pos = m_ArmUsing.transform.localPosition
-            m_ArmUsing.transform.localPosition = Vector3.New(pos.x + i*armWidth, pos.y)
-         end  
-         text.text = completeName
-      end
+   -- 若不是可用兵种，则令text变暗      
+   if Utility.BitTest(general.ForceArray, index) == false then  
+      completeName = "<color=grey>"..completeName.."</color>"
+   else
+      --设置令牌位置
+      if armID == general.UseForce then
+         local goUsing = parent.transform:FindChild("Using")
+         local pos = goUsing.transform.localPosition
+         goUsing.transform.localPosition = Vector3.New(pos.x + index*cellOffest, pos.y)
+      end        
    end
 
-   m_ArmTemp:SetActive(false)
+   text.text = completeName
+
+end
+
+--设置阵型信息
+function SetBattle(general, index, child, parent, cellOffest)
+
+   local battleID = 2^index
+   local battleName = XMLManager.Battle:GetInfoById(battleID).Name.."之阵"
+
+   local text = child:GetComponent("Text")
+
+   if Utility.BitTest(general.BattleArray, index) == false then
+      battleNamet = "<color=grey>"..battleName.."</color>"
+   else
+      if battleID == general.UseBattle then
+         local goUsing = parent.transform:FindChild("Using")
+         local pos = goUsing.transform.localPosition
+         goUsing.transform.localPosition = Vector3.New(pos.x, pos.y - index*cellOffest)
+      end      
+   end
+
+   text.text = battleName
+
+end
+
+function SetGeneralSkill(general, index, child)   
+
+   local generalInfo = XMLManager.Generals:GetInfoById(general.ID)
+
+   if general.Level >= generalInfo.SkillLevel[index] then
+      local text = child:GetComponent("Text")
+      text.text = SpliteIntoLines(generalInfo.Skill[index])
+   end
+
+end
+
+function SetWiseSkill(general, index, child)
+
+   local generalInfo = XMLManager.Generals:GetInfoById(general.ID)
+   
+   if general.Level >= generalInfo.WiseSkillLevel[index] then
+      local text = child:GetComponent("Text")
+      local str1, str2 = HandleLastWord(generalInfo.WiseSkill[index])         
+
+      if #str1 / CN_LENGTH == 4 then
+         str1 = SpliteIntoLines(str1).."\n\n"
+      elseif #str1 / CN_LENGTH == 3 then
+         str1 = SpliteIntoLines(str1).."\n\n\n"
+      elseif #str1 / CN_LENGTH == 2 then
+         str1 = SpliteIntoLines(str1).."\n\n\n\n"
+      end
+
+      if str2 == nil then
+         str2 = ""
+      else
+         str2 = "<color=green>"..str2.."</color>"
+      end
+
+      text.text = str1..str2
+   end
 
 end
 
 --补全从配置表里面读出的兵种名字
-function SetArmsName(name)
+function HandleArmsName(name)
    
    -- 调整从配置表中读取到的兵种名字，两个字的兵种中间加空格
    -- 三个字的兵种后面加个“兵”
@@ -139,8 +242,8 @@ function SetArmsName(name)
       completeName[#completeName + 1] = string.sub(name, j, j)
    end
 
-   if string.find(name, "兵") ~= nil then   
-      local f, _ = string.find(name, "兵")      
+   local f, _ = string.find(name, "兵") 
+   if f ~= nil then     
       table.insert(completeName, f, "\n\n")        
    else
       table.insert(completeName, "兵")
@@ -150,36 +253,57 @@ function SetArmsName(name)
 
 end
 
---设置阵型信息
-function SetBattle(general)
+--将字符串逐字分割成行，以便于纵向显示
+function SpliteIntoLines(name)
    
-   local rt = m_BattleList:GetComponent("RectTransform")
-   local height = rt.rect.height
-   local totleBattle = XMLManager.Battle.Data.Count
-   local battleHeight = height / totleBattle
-   
-   for i = 0, totleBattle - 1 do
-      local battle = Utility.AddChild(m_BattleList, m_BattleTemp)
-      local rt2 = battle:GetComponent("RectTransform")
-      rt2.sizeDelta = UnityEngine.Vector2.New(rt2.rect.width, battleHeight)
-      rt2.anchoredPosition3D = Vector3.New(m_BattleTemp.transform.localPosition.x, -i*battleHeight)
-
-      local battleID = 2^i
-      local battleName = XMLManager.Battle:GetInfoById(battleID).Name.."之阵"
-
-      local text = battle:GetComponent("Text")
-
-      if Utility.BitTest(general.BattleArray, i) == false then
-         text.text = "<color=grey>"..battleName.."</color>"
-      else
-         if battleID == general.UseBattle then
-            local pos = m_BattleUsing.transform.localPosition
-            m_BattleUsing.transform.localPosition = Vector3.New(pos.x, pos.y - i*battleHeight)
-         end
-         text.text = battleName
-      end
+   if #name == 0 then
+      return ""
    end
 
-   m_BattleTemp:SetActive(false)
+   local temp = {}
+   local cnLength = #"国"         --中文编码字节数
+
+   for i = 1, #name do
+      temp[#temp+1] = string.sub(name, i, i)
+   end
+
+   for i = cnLength+1, #temp,  cnLength+1 do
+      table.insert(temp, i, "\n")
+   end
+
+   return table.concat(temp)
+
+end
+
+--去除军师技名字中的括号并得到括号中的等级汉字
+--return: 军师技名称 [, 军师技等级]
+function HandleLastWord(name)
+   
+   if #name == 0 then
+      return ""
+   end
+
+   --Lua中 "(" 和 ")" 是 Pattern字符，要用%进行转义
+   local s, e = string.find(name, "%(")
+   if s ~= nil then
+      local temp = {}
+
+      for i = 1, #name do
+         temp[#temp+1] = string.sub(name, i, i)
+      end
+
+      --先去除右括号，以免影响前面字符的索引
+      local ss, ee= string.find(name, "%)")
+      table.remove(temp, ss, ee)
+
+      --去除左括号
+      table.remove(temp, s, e)
+
+      local str = table.concat(temp)
+
+      return string.sub(str, 1, #str-CN_LENGTH), string.sub(str, #str-CN_LENGTH+1, -1)
+   end
+
+   return name
 
 end
