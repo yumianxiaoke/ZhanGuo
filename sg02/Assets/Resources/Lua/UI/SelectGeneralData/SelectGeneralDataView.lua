@@ -14,19 +14,6 @@ function Initialize(viewPanel)
     m_Content = viewPanel.transform:FindChild("Min_Anchor/MajorList/Content").gameObject
 
     m_Major = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major").gameObject
-    m_MajorName = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/MajorName").gameObject
-    m_LevelInt = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/LevelInt").gameObject
-    m_StrInt = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/StrInt").gameObject
-    m_IntInt = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/IntInt").gameObject
-    m_VitInt = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/VitInt").gameObject
-    m_VitIntMAX = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/VitIntMAX").gameObject
-    m_SPInt = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/SPInt").gameObject
-    m_SPIntMAX = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/SPIntMAX").gameObject
-    m_MorInt = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/MorInt").gameObject
-    m_ArmsStr = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/ArmsStr").gameObject
-    m_SoldiersInt = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/SoldiersInt").gameObject
-    m_SoldiersIntMAX = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/SoldiersIntMAX").gameObject
-    m_SiteStr = viewPanel.transform:FindChild("Min_Anchor/MajorList/Major/SiteStr").gameObject
     
     m_Scrollbar = viewPanel.transform:FindChild("Min_Anchor/ScrollBar_V/Scrollbar").gameObject
     m_SBComponent = m_Scrollbar:GetComponent("Scrollbar")
@@ -50,8 +37,7 @@ function InitView()
 
         major.transform.localPosition = Vector3.New(0, GlobalConfig.FontButtonsVSpace * i)
 
-        y = y + GlobalConfig.FontButtonsVSpace
-        
+        y = y + GlobalConfig.FontButtonsVSpace        
     end
 
     m_Major:SetActive(false)
@@ -63,24 +49,23 @@ end
 
 
 function SetGeneralInfo(major, generalID)
-    
+        
     local GeneralsInfo = GamePublic.Instance.DataManager:GetGeneralInfo(generalID)
 
-    m_MajorName = major.transform:FindChild("MajorName").gameObject
-    m_LevelInt = major.transform:FindChild("LevelInt").gameObject
-    m_StrInt = major.transform:FindChild("StrInt").gameObject
-    m_IntInt = major.transform:FindChild("IntInt").gameObject
-    m_VitInt = major.transform:FindChild("VitInt").gameObject
-    m_VitIntMAX = major.transform:FindChild("VitIntMAX").gameObject
-    m_SPInt = major.transform:FindChild("SPInt").gameObject
-    m_SPIntMAX = major.transform:FindChild("SPIntMAX").gameObject
-    m_MorInt = major.transform:FindChild("MorInt").gameObject
-    m_ArmsStr = major.transform:FindChild("ArmsStr").gameObject
-    m_SoldiersInt = major.transform:FindChild("SoldiersInt").gameObject
-    m_SoldiersIntMAX = major.transform:FindChild("SoldiersIntMAX").gameObject
-    m_SiteStr = major.transform:FindChild("SiteStr").gameObject
-    m_btSelect = major.transform:FindChild("btSelect").gameObject
-
+    local m_MajorName = major.transform:FindChild("MajorName").gameObject
+    local m_LevelInt = major.transform:FindChild("LevelInt").gameObject
+    local m_StrInt = major.transform:FindChild("StrInt").gameObject
+    local m_IntInt = major.transform:FindChild("IntInt").gameObject
+    local m_VitInt = major.transform:FindChild("VitInt").gameObject
+    local m_VitIntMAX = major.transform:FindChild("VitIntMAX").gameObject
+    local m_SPInt = major.transform:FindChild("SPInt").gameObject
+    local m_SPIntMAX = major.transform:FindChild("SPIntMAX").gameObject
+    local m_MorInt = major.transform:FindChild("MorInt").gameObject
+    local m_ArmsStr = major.transform:FindChild("ArmsStr").gameObject
+    local m_SoldiersInt = major.transform:FindChild("SoldiersInt").gameObject
+    local m_SoldiersIntMAX = major.transform:FindChild("SoldiersIntMAX").gameObject
+    local m_SiteStr = major.transform:FindChild("SiteStr").gameObject
+    local m_btSelect = major.transform:FindChild("btSelect").gameObject
 
     local name = Utility.GeneralName(GeneralsInfo.Name)
     Utility.SetText(m_MajorName,name)
@@ -99,51 +84,6 @@ function SetGeneralInfo(major, generalID)
     local cityName = XMLManager.City:GetInfoById(GeneralsInfo.CityID).Name
     Utility.SetText(m_SiteStr, cityName)
 
-    SelectGeneralDataControl.InitButtonEvent(m_btSelect, generalID)
+    SelectGeneralDataControl.InitButtonEvent(m_btSelect, generalID)    
 
 end
-   -- Utility.SetText(MajorID,GeneralsInfo.ID)
-       --InputManager.Instance:AddOnClickEvent(m_btSelect,BtSelect)
-        --btSelect(GeneralsID)
-
---[[
-
-function BtSelect(generalID)
-    local selectgeneralID = generalID
-    print(selectgeneralID)
-    return selectgeneralID
-
-end
-]]--
-
-  --  local GeneralsID = KingInfo.Generals
-
-  --[[ 
-    local king = GamePublic.Instance.CurrentKing
-    local GeneralsInfo_ = GamePublic.Instance.DataManager:GetKingInfo(king)
-
-    --for i=0, king.Generals.Count - 1 do
-    local GeneralsInfo = GeneralsInfo_.Generals:get_Item(1)
-
-    --    king.Generals
-]]--
-    
-  --  end
---[[
-    local king = GamePublic.Instance.DataManager:GetKingInfo(GamePublic.Instance.CurrentKing)
-    local general = GamePublic.Instance.DataManager:GetGeneralInfo(king.GeneralID)
-    general:SetFace(m_imageFace)
-]]--
-
---[[
-    m_btMajor = viewPanel.transform:FindChild("Min_Anchor/Major").gameObject
-    m_btLevel = viewPanel.transform:FindChild("Min_Anchor/Level").gameObject
-    m_btStr = viewPanel.transform:FindChild("Min_Anchor/Str").gameObject
-    m_btInt = viewPanel.transform:FindChild("Min_Anchor/Int").gameObject
-    m_btVit = viewPanel.transform:FindChild("Min_Anchor/Vit").gameObject
-    m_btSP = viewPanel.transform:FindChild("Min_Anchor/SP").gameObject
-    m_btMor = viewPanel.transform:FindChild("Min_Anchor/Mor").gameObject
-    m_btArms = viewPanel.transform:FindChild("Min_Anchor/Arms").gameObject
-    m_btSoldiers = viewPanel.transform:FindChild("Min_Anchor/Soldiers").gameObject
-    m_btSite = viewPanel.transform:FindChild("Min_Anchor/Site").gameObject
-]]

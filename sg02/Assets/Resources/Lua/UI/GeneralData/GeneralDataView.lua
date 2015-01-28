@@ -34,9 +34,7 @@ function Initialize(viewPanel)
    m_ThingName = viewPanel.transform:FindChild("Item_Anchor/Thing/ThingName").gameObject
 
    m_ArmsList = viewPanel.transform:FindChild("Arms_Anchor/ArmsList").gameObject
-
    m_BattleList = viewPanel.transform:FindChild("Formation_Anchor/BattleList").gameObject
-
    m_GeneralSkillList = viewPanel.transform:FindChild("GeneralSkill_Anchor/SkillList").gameObject
    m_WiseSkillList = viewPanel.transform:FindChild("WiseSkill_Anchor/SkillList").gameObject
 
