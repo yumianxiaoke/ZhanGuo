@@ -1,7 +1,6 @@
 module(..., package.seeall);
 
 m_ButtonsRoot = nil
-CN_LENGTH = #"国"
 
 function Initialize(viewPanel)
 
@@ -115,7 +114,7 @@ function SetViewDatas(general, parent, count, handler)
    local rt = parent:GetComponent("RectTransform")
    local cellOffest = 0
 
-   -- 判断当前是否为阵型列表
+   -- 判断当前是否为阵型列表,阵型是纵向显示的
    if parent == m_BattleList then
       cellOffest = rt.rect.height / count
    else
@@ -208,13 +207,15 @@ function SetWiseSkill(general, index, child)
    
    if general.Level >= generalInfo.WiseSkillLevel[index] then
       local text = child:GetComponent("Text")
-      local str1, str2 = HandleLastWord(generalInfo.WiseSkill[index])         
+      local str1, str2 = HandleLastWord(generalInfo.WiseSkill[index])  
 
-      if #str1 / CN_LENGTH == 4 then
+      local len = GetUTF8Len(str1)   
+
+      if len == 4 then
          str1 = SpliteIntoLines(str1).."\n\n"
-      elseif #str1 / CN_LENGTH == 3 then
+      elseif len == 3 then
          str1 = SpliteIntoLines(str1).."\n\n\n"
-      elseif #str1 / CN_LENGTH == 2 then
+      elseif len == 2 then
          str1 = SpliteIntoLines(str1).."\n\n\n\n"
       end
 
@@ -231,23 +232,24 @@ end
 
 --补全从配置表里面读出的兵种名字
 function HandleArmsName(name)
-   
-   -- 调整从配置表中读取到的兵种名字，两个字的兵种中间加空格
-   -- 三个字的兵种后面加个“兵”
-   -- 涉及到中文编码问题，下列操作以byte为单位
-   local completeName = {}
-   for j = 1, #name do
-      completeName[#completeName + 1] = string.sub(name, j, j)
+
+   if #name == 0 then
+      return ""
    end
 
-   local f, _ = string.find(name, "兵") 
-   if f ~= nil then     
-      table.insert(completeName, f, "\n\n")        
+   local temp = {}
+
+   for uchar in string.gfind(name, "[%z\1-\127\194-\244][\128-\191]*") do 
+      temp[#temp+1] = uchar
+   end
+
+   if temp[2] == "兵" then     
+      table.insert(temp, 2, "\n\n")        
    else
-      table.insert(completeName, "兵")
+      table.insert(temp, "兵")
    end
 
-   return table.concat(completeName)
+   return table.concat(temp)
 
 end
 
@@ -259,17 +261,12 @@ function SpliteIntoLines(name)
    end
 
    local temp = {}
-   local cnLength = #"国"         --中文编码字节数
 
-   for i = 1, #name do
-      temp[#temp+1] = string.sub(name, i, i)
+   for uchar in string.gfind(name, "[%z\1-\127\194-\244][\128-\191]*") do 
+      temp[#temp+1] = uchar
    end
 
-   for i = cnLength+1, #temp,  cnLength+1 do
-      table.insert(temp, i, "\n")
-   end
-
-   return table.concat(temp)
+   return table.concat(temp, "\n")
 
 end
 
@@ -279,29 +276,34 @@ function HandleLastWord(name)
    
    if #name == 0 then
       return ""
-   end
+   end    
 
    --Lua中 "(" 和 ")" 是 Pattern字符，要用%进行转义
    local s, e = string.find(name, "%(")
    if s ~= nil then
       local temp = {}
 
-      for i = 1, #name do
-         temp[#temp+1] = string.sub(name, i, i)
+      for uchar in string.gfind(name, "[%z\1-\127\194-\244][\128-\191]*") do 
+         temp[#temp+1] = uchar
       end
 
-      --先去除右括号，以免影响前面字符的索引
-      local ss, ee= string.find(name, "%)")
-      table.remove(temp, ss, ee)
-
+      --去除右括号
+      table.remove(temp)
       --去除左括号
-      table.remove(temp, s, e)
+      table.remove(temp, #temp-1)
 
-      local str = table.concat(temp)
-
-      return string.sub(str, 1, #str-CN_LENGTH), string.sub(str, #str-CN_LENGTH+1, -1)
+      return table.concat(temp, "", 1, #temp-1), table.concat(temp, "", #temp, #temp)
    end
 
    return name
+
+end
+
+--获得utf8编码字符串的长度
+function GetUTF8Len(str)
+
+   local _, count = string.gsub(str, "[^\128-\193]", "")
+
+   return count
 
 end
