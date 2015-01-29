@@ -6,7 +6,7 @@ m_generals = {}
 
 --初始化函数
 function Initialize(viewPanel)
-
+	
 	m_generals = {}
 	m_InternalAffairs = InternalAffairsView
     m_view = SelectGeneralDataView
@@ -14,7 +14,7 @@ function Initialize(viewPanel)
     m_view.InitView()
     InputManager.Instance:AddOnClickEvent(m_view.m_BtReturn,FnReturn)
     InputManager.Instance:AddOnClickEvent(m_view.m_UP, OnUpButtonClick)
-    InputManager.Instance:AddOnClickEvent(m_view.m_Down, OnDownButtonClick)
+    InputManager.Instance:AddOnClickEvent(m_view.m_Down, OnDownButtonClick)    
 
 end
 

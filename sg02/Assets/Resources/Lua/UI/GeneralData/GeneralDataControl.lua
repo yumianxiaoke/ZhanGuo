@@ -5,12 +5,12 @@ m_generalID = nil
 
 --初始化函数
 function Initialize(viewPanel)
-    
+        
 	m_SelectGeneralData = SelectGeneralDataView
     m_view = GeneralDataView    
     m_view.Initialize(viewPanel)
     m_view.InitView(m_generalID)
-    InputManager.Instance:AddOnClickEvent(m_view.m_BtReturn,FnReturn)
+    InputManager.Instance:AddOnClickEvent(m_view.m_BtReturn,FnReturn)    
 
 end
 
