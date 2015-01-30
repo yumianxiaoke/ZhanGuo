@@ -55,6 +55,7 @@ function SetGeneralInfo(major, generalID)
     local m_btSelect = major.transform:FindChild("btSelect").gameObject
 
     local name = Utility.GeneralName(GeneralsInfo.Name)
+    major.name = name
     Utility.SetText(m_MajorName,name)
 
     SelectGeneralDataControl.InitButtonEvent(m_btSelect, generalID)    

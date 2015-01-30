@@ -80,8 +80,7 @@ function OnToggle(go, state)
         local currentKing = m_tableKings[go]
         GamePublic.Instance.CurrentKing = currentKing
 
-        m_view.SetCurrentKing(currentKing)
-
+        m_view.SetCurrentKing(currentKing)        
 
         --在这里处理选择君主按钮响应
 

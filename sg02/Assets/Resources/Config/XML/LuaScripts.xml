@@ -46,4 +46,6 @@
   <RECORD Path="Lua/UI/MajorInstructions/MajorInstructionsControl.lua" />
   <RECORD Path="Lua/UI/SelectGeneralData/SelectGeneralDataView.lua" />
   <RECORD Path="Lua/UI/SelectGeneralData/SelectGeneralDataControl.lua" />
+  <RECORD Path="Lua/UI/ForceMap/ForceMapView.lua" />
+  <RECORD Path="Lua/UI/ForceMap/ForceMapControl.lua" />
 </root>

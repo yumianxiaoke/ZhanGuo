@@ -18,4 +18,5 @@
   <RECORD Name="GeneralData" LuaName="GeneralDataControl" />
   <RECORD Name="MajorInstructions" LuaName="MajorInstructionsControl" />
   <RECORD Name="SelectGeneralData" LuaName="SelectGeneralDataControl" />
+  <RECORD Name="ForceMap" LuaName="ForceMapControl" />
 </root>
