@@ -7,63 +7,63 @@ public class XMLDataForce
 	/// </summary>
 	public int ID;
 	/// <summary>
-	/// åå­—
+	/// Ãû×Ö
 	/// </summary>
 	public string Name;
 	/// <summary>
-	/// åå­—ç¼©å†™
+	/// Ãû×ÖËõĞ´
 	/// </summary>
 	public string ShortName;
 	/// <summary>
-	/// æœ´åˆ€
+	/// ÆÓµ¶
 	/// </summary>
 	public int Force1;
 	/// <summary>
-	/// é•¿æª
+	/// ³¤Ç¹
 	/// </summary>
 	public int Force2;
 	/// <summary>
-	/// å¤§åˆ€
+	/// ´óµ¶
 	/// </summary>
 	public int Force3;
 	/// <summary>
-	/// å¼“ç®­
+	/// ¹­¼ı
 	/// </summary>
 	public int Force4;
 	/// <summary>
-	/// é“¾é”¤
+	/// Á´´¸
 	/// </summary>
 	public int Force5;
 	/// <summary>
-	/// é£åˆ€
+	/// ·Éµ¶
 	/// </summary>
 	public int Force6;
 	/// <summary>
-	/// æ­¦æ–—
+	/// Îä¶·
 	/// </summary>
 	public int Force7;
 	/// <summary>
-	/// è›®æ—
+	/// Âù×å
 	/// </summary>
 	public int Force8;
 	/// <summary>
-	/// é“ç¼’
+	/// ÌúçÄ
 	/// </summary>
 	public int Force9;
 	/// <summary>
-	/// è—¤ç”²
+	/// ÌÙ¼×
 	/// </summary>
 	public int Force10;
 	/// <summary>
-	/// é»„å·¾
+	/// »Æ½í
 	/// </summary>
 	public int Force11;
 	/// <summary>
-	/// å¼©å…µ
+	/// åó±ø
 	/// </summary>
 	public int Force12;
 	/// <summary>
-	/// å¥³å…µ
+	/// Å®±ø
 	/// </summary>
 	public int Force13;
 }
